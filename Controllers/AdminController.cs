@@ -1,61 +1,107 @@
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using MaximaHome.Data;
+using MaximaHome.Models;
 
 namespace MaximaHome.Controllers
 {
-    public class AdminController : Controller
+    [ApiController]
+    [Route("api/[controller]")]
+    public class AdminController : ControllerBase
     {
-        public IActionResult Index()
+        private readonly ApplicationDbContext _context;
+
+        public AdminController(ApplicationDbContext context)
         {
-            if (HttpContext.Session.GetString("AdminLoggedIn") != "true")
-            {
-                return RedirectToAction("Login", "Account");
-            }
-            return View();
+            _context = context;
         }
 
-        public IActionResult Cars()
+        [HttpGet("bookings")]
+        public async Task<IActionResult> GetBookings()
         {
-            if (HttpContext.Session.GetString("AdminLoggedIn") != "true")
-            {
-                return RedirectToAction("Login", "Account");
-            }
-            return View();
+            var bookings = await _context.Bookings
+                .Include(b => b.User)
+                .OrderByDescending(b => b.CreatedAt)
+                .ToListAsync();
+
+            return Ok(bookings);
         }
 
-        public IActionResult Services()
+        [HttpPut("bookings/{id}/status")]
+        public async Task<IActionResult> UpdateBookingStatus(int id, [FromBody] UpdateStatusRequest request)
         {
-            if (HttpContext.Session.GetString("AdminLoggedIn") != "true")
-            {
-                return RedirectToAction("Login", "Account");
-            }
-            return View();
+            var booking = await _context.Bookings.FindAsync(id);
+            if (booking == null)
+                return NotFound();
+
+            booking.Status = request.Status;
+            await _context.SaveChangesAsync();
+
+            return Ok(new { message = "وضعیت رزرو با موفقیت بروزرسانی شد" });
         }
 
-        public IActionResult Content()
+        [HttpDelete("bookings/{id}")]
+        public async Task<IActionResult> DeleteBooking(int id)
         {
-            if (HttpContext.Session.GetString("AdminLoggedIn") != "true")
-            {
-                return RedirectToAction("Login", "Account");
-            }
-            return View();
+            var booking = await _context.Bookings.FindAsync(id);
+            if (booking == null)
+                return NotFound();
+
+            _context.Bookings.Remove(booking);
+            await _context.SaveChangesAsync();
+
+            return Ok(new { message = "رزرو با موفقیت حذف شد" });
         }
 
-        public IActionResult Messages()
+        [HttpGet("users")]
+        public async Task<IActionResult> GetUsers()
         {
-            if (HttpContext.Session.GetString("AdminLoggedIn") != "true")
-            {
-                return RedirectToAction("Login", "Account");
-            }
-            return View();
+            var users = await _context.Users
+                .OrderByDescending(u => u.CreatedAt)
+                .ToListAsync();
+
+            return Ok(users);
         }
 
-        public IActionResult Settings()
+        [HttpPut("users/{id}")]
+        public async Task<IActionResult> UpdateUser(int id, [FromBody] UpdateUserRequest request)
         {
-            if (HttpContext.Session.GetString("AdminLoggedIn") != "true")
-            {
-                return RedirectToAction("Login", "Account");
-            }
-            return View();
+            var user = await _context.Users.FindAsync(id);
+            if (user == null)
+                return NotFound();
+
+            user.Name = request.Name;
+            user.Email = request.Email;
+            user.Phone = request.Phone;
+
+            await _context.SaveChangesAsync();
+
+            return Ok(new { message = "اطلاعات کاربر با موفقیت بروزرسانی شد" });
         }
+
+        [HttpDelete("users/{id}")]
+        public async Task<IActionResult> DeleteUser(int id)
+        {
+            var user = await _context.Users.FindAsync(id);
+            if (user == null)
+                return NotFound();
+
+            _context.Users.Remove(user);
+            await _context.SaveChangesAsync();
+
+            return Ok(new { message = "کاربر با موفقیت حذف شد" });
+        }
+    }
+
+    public class UpdateStatusRequest
+    {
+        public string Status { get; set; }
+    }
+
+    public class UpdateUserRequest
+    {
+        public string Name { get; set; }
+        public string Email { get; set; }
+        public string Phone { get; set; }
     }
 } 

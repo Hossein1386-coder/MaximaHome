@@ -1006,6 +1006,170 @@
                 });
             }
         });
+
+        // تابع برای دریافت لیست رزروها
+        async function loadBookings() {
+            try {
+                const response = await fetch('/api/admin/bookings');
+                const bookings = await response.json();
+                const tbody = document.querySelector('#bookingsTable tbody');
+                tbody.innerHTML = '';
+
+                bookings.forEach(booking => {
+                    const tr = document.createElement('tr');
+                    tr.innerHTML = `
+                        <td>${booking.user.name}</td>
+                        <td>${booking.carModel}</td>
+                        <td>${booking.serviceType}</td>
+                        <td>${new Date(booking.appointmentDate).toLocaleDateString('fa-IR')}</td>
+                        <td>${booking.appointmentTime}</td>
+                        <td>
+                            <select class="form-control" onchange="updateBookingStatus(${booking.id}, this.value)">
+                                <option value="Pending" ${booking.status === 'Pending' ? 'selected' : ''}>در انتظار</option>
+                                <option value="Confirmed" ${booking.status === 'Confirmed' ? 'selected' : ''}>تایید شده</option>
+                                <option value="Cancelled" ${booking.status === 'Cancelled' ? 'selected' : ''}>لغو شده</option>
+                                <option value="Completed" ${booking.status === 'Completed' ? 'selected' : ''}>تکمیل شده</option>
+                            </select>
+                        </td>
+                        <td>
+                            <button class="btn btn-danger btn-sm" onclick="deleteBooking(${booking.id})">حذف</button>
+                        </td>
+                    `;
+                    tbody.appendChild(tr);
+                });
+            } catch (error) {
+                console.error('Error loading bookings:', error);
+                alert('خطا در بارگذاری لیست رزروها');
+            }
+        }
+
+        // تابع برای بروزرسانی وضعیت رزرو
+        async function updateBookingStatus(id, status) {
+            try {
+                const response = await fetch(`/api/admin/bookings/${id}/status`, {
+                    method: 'PUT',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ status })
+                });
+
+                if (response.ok) {
+                    alert('وضعیت رزرو با موفقیت بروزرسانی شد');
+                    loadBookings();
+                } else {
+                    throw new Error('خطا در بروزرسانی وضعیت');
+                }
+            } catch (error) {
+                console.error('Error updating booking status:', error);
+                alert('خطا در بروزرسانی وضعیت رزرو');
+            }
+        }
+
+        // تابع برای حذف رزرو
+        async function deleteBooking(id) {
+            if (!confirm('آیا از حذف این رزرو اطمینان دارید؟')) return;
+
+            try {
+                const response = await fetch(`/api/admin/bookings/${id}`, {
+                    method: 'DELETE'
+                });
+
+                if (response.ok) {
+                    alert('رزرو با موفقیت حذف شد');
+                    loadBookings();
+                } else {
+                    throw new Error('خطا در حذف رزرو');
+                }
+            } catch (error) {
+                console.error('Error deleting booking:', error);
+                alert('خطا در حذف رزرو');
+            }
+        }
+
+        // تابع برای دریافت لیست کاربران
+        async function loadUsers() {
+            try {
+                const response = await fetch('/api/admin/users');
+                const users = await response.json();
+                const tbody = document.querySelector('#usersTable tbody');
+                tbody.innerHTML = '';
+
+                users.forEach(user => {
+                    const tr = document.createElement('tr');
+                    tr.innerHTML = `
+                        <td>${user.name}</td>
+                        <td>${user.email}</td>
+                        <td>${user.phone}</td>
+                        <td>${new Date(user.createdAt).toLocaleDateString('fa-IR')}</td>
+                        <td>
+                            <button class="btn btn-primary btn-sm" onclick="editUser(${user.id})">ویرایش</button>
+                            <button class="btn btn-danger btn-sm" onclick="deleteUser(${user.id})">حذف</button>
+                        </td>
+                    `;
+                    tbody.appendChild(tr);
+                });
+            } catch (error) {
+                console.error('Error loading users:', error);
+                alert('خطا در بارگذاری لیست کاربران');
+            }
+        }
+
+        // تابع برای ویرایش کاربر
+        async function editUser(id) {
+            const name = prompt('نام جدید:');
+            const email = prompt('ایمیل جدید:');
+            const phone = prompt('شماره تماس جدید:');
+
+            if (!name || !email || !phone) return;
+
+            try {
+                const response = await fetch(`/api/admin/users/${id}`, {
+                    method: 'PUT',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ name, email, phone })
+                });
+
+                if (response.ok) {
+                    alert('اطلاعات کاربر با موفقیت بروزرسانی شد');
+                    loadUsers();
+                } else {
+                    throw new Error('خطا در بروزرسانی اطلاعات');
+                }
+            } catch (error) {
+                console.error('Error updating user:', error);
+                alert('خطا در بروزرسانی اطلاعات کاربر');
+            }
+        }
+
+        // تابع برای حذف کاربر
+        async function deleteUser(id) {
+            if (!confirm('آیا از حذف این کاربر اطمینان دارید؟')) return;
+
+            try {
+                const response = await fetch(`/api/admin/users/${id}`, {
+                    method: 'DELETE'
+                });
+
+                if (response.ok) {
+                    alert('کاربر با موفقیت حذف شد');
+                    loadUsers();
+                } else {
+                    throw new Error('خطا در حذف کاربر');
+                }
+            } catch (error) {
+                console.error('Error deleting user:', error);
+                alert('خطا در حذف کاربر');
+            }
+        }
+
+        // بارگذاری اولیه داده‌ها
+        document.addEventListener('DOMContentLoaded', () => {
+            loadBookings();
+            loadUsers();
+        });
     </script>
 </body>
 </html> 
