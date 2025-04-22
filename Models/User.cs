@@ -8,18 +8,21 @@ namespace MaximaHome.Models
 
         [Required]
         [StringLength(100)]
-        public string Name { get; set; }
+        public required string Username { get; set; }
 
         [Required]
-        [EmailAddress]
-        public string Email { get; set; }
+        public required string Password { get; set; }
+
+        [Required]
+        [StringLength(100)]
+        public required string FullName { get; set; }
 
         [Required]
         [Phone]
-        public string Phone { get; set; }
+        public required string PhoneNumber { get; set; }
 
         [Required]
-        public string PasswordHash { get; set; }
+        public required string Role { get; set; }
 
         public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
     }

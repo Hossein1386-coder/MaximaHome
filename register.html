@@ -143,5 +143,47 @@
     <script src="js/jquery.animateNumber.min.js"></script>
     <script src="js/scrollax.min.js"></script>
     <script src="js/main.js"></script>
+    <script>
+        document.getElementById('registerForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const password = document.getElementById('password').value;
+            const confirmPassword = document.getElementById('confirmPassword').value;
+
+            if (password !== confirmPassword) {
+                alert('رمز عبور و تکرار آن مطابقت ندارند');
+                return;
+            }
+            
+            const formData = {
+                username: document.getElementById('email').value,
+                password: password,
+                fullName: document.getElementById('name').value,
+                phoneNumber: document.getElementById('phone').value,
+                role: 'User'
+            };
+
+            try {
+                const response = await fetch('/api/auth/register', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(formData)
+                });
+
+                if (response.ok) {
+                    alert('ثبت نام با موفقیت انجام شد');
+                    window.location.href = 'login.html';
+                } else {
+                    const error = await response.json();
+                    alert(error.message || 'خطا در ثبت نام');
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                alert('خطا در ارتباط با سرور');
+            }
+        });
+    </script>
 </body>
 </html> 

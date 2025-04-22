@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("MaximaHome")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+08263bac644d695c702bee503dd443d71847439a")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+4ca4d4b4099dfdcd1cc55e9ae9c357b13a7c085f")]
 [assembly: System.Reflection.AssemblyProductAttribute("MaximaHome")]
 [assembly: System.Reflection.AssemblyTitleAttribute("MaximaHome")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -11,6 +11,7 @@ namespace MaximaHome.Data
         }
 
         public DbSet<User> Users { get; set; }
+        public DbSet<Booking> Bookings { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -20,6 +21,13 @@ namespace MaximaHome.Data
             modelBuilder.Entity<User>()
                 .HasIndex(u => u.Username)
                 .IsUnique();
+
+            // تنظیمات پیش‌فرض برای جدول Bookings
+            modelBuilder.Entity<Booking>()
+                .HasOne(b => b.User)
+                .WithMany()
+                .HasForeignKey(b => b.UserId)
+                .OnDelete(DeleteBehavior.Restrict);
 
             // ایجاد کاربر ادمین پیش‌فرض
             modelBuilder.Entity<User>().HasData(

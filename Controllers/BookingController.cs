@@ -64,7 +64,7 @@ namespace MaximaHome.Controllers
             if (booking == null)
                 return NotFound();
 
-            booking.Status = request.Status;
+            booking.Status = (string)request.Status;
             await _context.SaveChangesAsync();
 
             return Ok(new { message = "وضعیت رزرو با موفقیت بروزرسانی شد" });
@@ -73,16 +73,11 @@ namespace MaximaHome.Controllers
 
     public class BookingRequest
     {
-        public int UserId { get; set; }
-        public string CarModel { get; set; }
-        public string ServiceType { get; set; }
-        public DateTime AppointmentDate { get; set; }
-        public string AppointmentTime { get; set; }
-        public string Description { get; set; }
-    }
-
-    public class UpdateStatusRequest
-    {
-        public string Status { get; set; }
+        public required int UserId { get; set; }
+        public required string CarModel { get; set; }
+        public required string ServiceType { get; set; }
+        public required DateTime AppointmentDate { get; set; }
+        public required string AppointmentTime { get; set; }
+        public required string Description { get; set; }
     }
 } 

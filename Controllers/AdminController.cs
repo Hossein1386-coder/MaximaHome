@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.EntityFrameworkCore;
 using MaximaHome.Data;
 using MaximaHome.Models;
@@ -7,6 +8,7 @@ namespace MaximaHome.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
+    [Authorize(Roles = "Admin")]
     public class AdminController : ControllerBase
     {
         private readonly ApplicationDbContext _context;
@@ -57,10 +59,40 @@ namespace MaximaHome.Controllers
         public async Task<IActionResult> GetUsers()
         {
             var users = await _context.Users
+                .Select(u => new
+                {
+                    u.Id,
+                    u.Username,
+                    u.FullName,
+                    u.PhoneNumber,
+                    u.Role,
+                    u.CreatedAt
+                })
                 .OrderByDescending(u => u.CreatedAt)
                 .ToListAsync();
 
             return Ok(users);
+        }
+
+        [HttpGet("users/{id}")]
+        public async Task<IActionResult> GetUser(int id)
+        {
+            var user = await _context.Users
+                .Select(u => new
+                {
+                    u.Id,
+                    u.Username,
+                    u.FullName,
+                    u.PhoneNumber,
+                    u.Role,
+                    u.CreatedAt
+                })
+                .FirstOrDefaultAsync(u => u.Id == id);
+
+            if (user == null)
+                return NotFound();
+
+            return Ok(user);
         }
 
         [HttpPut("users/{id}")]
@@ -70,9 +102,9 @@ namespace MaximaHome.Controllers
             if (user == null)
                 return NotFound();
 
-            user.Name = request.Name;
-            user.Email = request.Email;
-            user.Phone = request.Phone;
+            user.FullName = request.FullName;
+            user.PhoneNumber = request.PhoneNumber;
+            user.Role = request.Role;
 
             await _context.SaveChangesAsync();
 
@@ -100,8 +132,8 @@ namespace MaximaHome.Controllers
 
     public class UpdateUserRequest
     {
-        public string Name { get; set; }
-        public string Email { get; set; }
-        public string Phone { get; set; }
+        public required string FullName { get; set; }
+        public required string PhoneNumber { get; set; }
+        public required string Role { get; set; }
     }
 } 

@@ -1,12 +1,10 @@
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
 <head>
-    <title>پنل مدیریت | ماکسیما هوم</title>
+    <title>مدیریت کاربران | ماکسیما هوم</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
     <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900" rel="stylesheet">
-
     <link rel="stylesheet" href="css/open-iconic-bootstrap.min.css">
     <link rel="stylesheet" href="css/animate.css">
     <link rel="stylesheet" href="css/owl.carousel.min.css">
@@ -17,768 +15,119 @@
     <link rel="stylesheet" href="css/flaticon.css">
     <link rel="stylesheet" href="css/icomoon.css">
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    
-    <!-- استایل‌های اختصاصی پنل ادمین -->
     <style>
-        .admin-sidebar {
-            background-color: #191919;
-            min-height: 100vh;
-            padding: 20px 0;
-        }
-        
-        .admin-sidebar .nav-link {
-            color: #fff;
-            padding: 10px 20px;
-            margin-bottom: 5px;
-            border-radius: 5px;
-            transition: all 0.3s;
-        }
-        
-        .admin-sidebar .nav-link:hover, 
-        .admin-sidebar .nav-link.active {
-            background-color: #ffbd39;
-            color: #000;
-        }
-        
-        .admin-content {
-            padding: 20px;
-        }
-        
-        .admin-card {
-            background-color: #fff;
+        .admin-container {
+            max-width: 1200px;
+            margin: 50px auto;
+            padding: 30px;
+            background: rgba(255, 255, 255, 0.95);
             border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-            padding: 20px;
-            margin-bottom: 20px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
         }
-        
-        .admin-card-header {
-            border-bottom: 1px solid #eee;
-            padding-bottom: 15px;
-            margin-bottom: 15px;
-        }
-        
-        .admin-card-title {
-            font-size: 18px;
-            font-weight: 600;
-            margin: 0;
-        }
-        
-        .admin-stats {
-            display: flex;
-            flex-wrap: wrap;
-            margin-bottom: 20px;
-        }
-        
-        .admin-stat-item {
-            background-color: #fff;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-            padding: 20px;
-            margin-right: 15px;
-            margin-bottom: 15px;
-            flex: 1;
-            min-width: 200px;
-        }
-        
-        .admin-stat-title {
-            font-size: 14px;
-            color: #666;
-            margin-bottom: 10px;
-        }
-        
-        .admin-stat-value {
+
+        .admin-title {
+            text-align: center;
+            color: #333;
+            margin-bottom: 30px;
             font-size: 24px;
-            font-weight: 600;
-            color: #ffbd39;
         }
-        
-        .admin-table {
+
+        .users-table {
             width: 100%;
             border-collapse: collapse;
+            margin-top: 20px;
         }
-        
-        .admin-table th, 
-        .admin-table td {
-            padding: 12px 15px;
+
+        .users-table th,
+        .users-table td {
+            padding: 12px;
             text-align: right;
-            border-bottom: 1px solid #eee;
+            border-bottom: 1px solid #ddd;
         }
-        
-        .admin-table th {
+
+        .users-table th {
             background-color: #f8f9fa;
             font-weight: 600;
         }
-        
-        .admin-table tr:hover {
-            background-color: #f8f9fa;
+
+        .users-table tr:hover {
+            background-color: #f5f5f5;
         }
-        
-        .admin-btn {
+
+        .btn-action {
+            padding: 6px 12px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-left: 5px;
+            font-size: 14px;
+        }
+
+        .btn-edit {
             background-color: #ffbd39;
             color: #000;
-            border: none;
-            padding: 8px 15px;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: all 0.3s;
         }
-        
-        .admin-btn:hover {
-            background-color: #e6a830;
-        }
-        
-        .admin-btn-danger {
+
+        .btn-delete {
             background-color: #dc3545;
             color: #fff;
         }
-        
-        .admin-btn-danger:hover {
-            background-color: #c82333;
-        }
-        
-        .admin-form-group {
-            margin-bottom: 15px;
-        }
-        
-        .admin-form-label {
-            display: block;
-            margin-bottom: 5px;
-            font-weight: 500;
-        }
-        
-        .admin-form-control {
-            width: 100%;
-            padding: 8px 12px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-        }
-        
-        .admin-form-control:focus {
-            border-color: #ffbd39;
-            outline: none;
-        }
-        
-        .admin-alert {
-            padding: 15px;
-            border-radius: 5px;
-            margin-bottom: 20px;
-        }
-        
-        .admin-alert-success {
-            background-color: #d4edda;
-            color: #155724;
-            border: 1px solid #c3e6cb;
-        }
-        
-        .admin-alert-danger {
-            background-color: #f8d7da;
-            color: #721c24;
-            border: 1px solid #f5c6cb;
-        }
-        
-        .admin-alert-warning {
-            background-color: #fff3cd;
-            color: #856404;
-            border: 1px solid #ffeeba;
-        }
-        
-        .admin-alert-info {
-            background-color: #d1ecf1;
-            color: #0c5460;
-            border: 1px solid #bee5eb;
-        }
-        
-        .admin-login-container {
-            max-width: 400px;
-            margin: 100px auto;
-            padding: 20px;
-            background-color: #fff;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-        }
-        
-        .admin-login-title {
-            text-align: center;
-            margin-bottom: 20px;
-            font-size: 24px;
-            font-weight: 600;
-        }
-        
-        .admin-login-btn {
-            width: 100%;
-            padding: 10px;
-            background-color: #ffbd39;
-            color: #000;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: all 0.3s;
-        }
-        
-        .admin-login-btn:hover {
-            background-color: #e6a830;
+
+        .btn-action:hover {
+            opacity: 0.9;
         }
     </style>
 </head>
 <body>
+    <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar ftco-navbar-light site-navbar-target" id="ftco-navbar">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">MaximaHome</a>
+            <button class="navbar-toggler js-fh5co-nav-toggle fh5co-nav-toggle" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="oi oi-menu"></span> منو
+            </button>
 
-    <!-- صفحه ورود -->
-    <div id="login-page" class="admin-login-container">
-        <h2 class="admin-login-title">ورود به پنل مدیریت</h2>
-        <form id="login-form">
-            <div class="admin-form-group">
-                <label class="admin-form-label" for="username">نام کاربری</label>
-                <input type="text" id="username" class="admin-form-control" required>
-            </div>
-            <div class="admin-form-group">
-                <label class="admin-form-label" for="password">رمز عبور</label>
-                <input type="password" id="password" class="admin-form-control" required>
-            </div>
-            <button type="submit" class="admin-login-btn">ورود</button>
-        </form>
-    </div>
-
-    <!-- پنل ادمین -->
-    <div id="admin-panel" style="display: none;">
-        <div class="container-fluid">
-            <div class="row">
-                <!-- سایدبار -->
-                <div class="col-md-3 col-lg-2 admin-sidebar">
-                    <div class="text-center mb-4">
-                        <h4 class="text-white">ماکسیما هوم</h4>
-                        <p class="text-white-50">پنل مدیریت</p>
-                    </div>
-                    <ul class="nav flex-column">
-                        <li class="nav-item">
-                            <a class="nav-link active" href="#dashboard">
-                                <i class="icon-dashboard mr-2"></i> داشبورد
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#cars">
-                                <i class="icon-car mr-2"></i> مدیریت خودروها
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#services">
-                                <i class="icon-wrench mr-2"></i> مدیریت خدمات
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#content">
-                                <i class="icon-file-text mr-2"></i> مدیریت محتوا
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#messages">
-                                <i class="icon-envelope mr-2"></i> پیام‌ها
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#customers">
-                                <i class="icon-users mr-2"></i> مدیریت مشتریان
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#settings">
-                                <i class="icon-cog mr-2"></i> تنظیمات
-                            </a>
-                        </li>
-                        <li class="nav-item mt-5">
-                            <a class="nav-link" href="#" id="logout-btn">
-                                <i class="icon-log-out mr-2"></i> خروج
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-                
-                <!-- محتوای اصلی -->
-                <div class="col-md-9 col-lg-10 admin-content">
-                    <!-- داشبورد -->
-                    <div id="dashboard-section">
-                        <h2 class="mb-4">داشبورد</h2>
-                        
-                        <!-- آمار کلی -->
-                        <div class="admin-stats">
-                            <div class="admin-stat-item">
-                                <div class="admin-stat-title">تعداد بازدید</div>
-                                <div class="admin-stat-value">1,234</div>
-                            </div>
-                            <div class="admin-stat-item">
-                                <div class="admin-stat-title">تعداد خودروها</div>
-                                <div class="admin-stat-value">18</div>
-                            </div>
-                            <div class="admin-stat-item">
-                                <div class="admin-stat-title">تعداد خدمات</div>
-                                <div class="admin-stat-value">6</div>
-                            </div>
-                            <div class="admin-stat-item">
-                                <div class="admin-stat-title">پیام‌های جدید</div>
-                                <div class="admin-stat-value">3</div>
-                            </div>
-                        </div>
-                        
-                        <!-- آخرین پیام‌ها -->
-                        <div class="admin-card">
-                            <div class="admin-card-header">
-                                <h3 class="admin-card-title">آخرین پیام‌ها</h3>
-                            </div>
-                            <table class="admin-table">
-                                <thead>
-                                    <tr>
-                                        <th>نام</th>
-                                        <th>ایمیل</th>
-                                        <th>موضوع</th>
-                                        <th>تاریخ</th>
-                                        <th>عملیات</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>علی محمدی</td>
-                                        <td>ali@example.com</td>
-                                        <td>تعمیر خودرو</td>
-                                        <td>1403/02/01</td>
-                                        <td>
-                                            <button class="admin-btn">مشاهده</button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>رضا احمدی</td>
-                                        <td>reza@example.com</td>
-                                        <td>قیمت خدمات</td>
-                                        <td>1403/01/30</td>
-                                        <td>
-                                            <button class="admin-btn">مشاهده</button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>مریم حسینی</td>
-                                        <td>maryam@example.com</td>
-                                        <td>نوبت‌دهی</td>
-                                        <td>1403/01/29</td>
-                                        <td>
-                                            <button class="admin-btn">مشاهده</button>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                    
-                    <!-- مدیریت خودروها -->
-                    <div id="cars-section" style="display: none;">
-                        <h2 class="mb-4">مدیریت خودروها</h2>
-                        
-                        <div class="admin-card">
-                            <div class="admin-card-header d-flex justify-content-between align-items-center">
-                                <h3 class="admin-card-title">لیست خودروها</h3>
-                                <button class="admin-btn" id="add-car-btn">افزودن خودرو جدید</button>
-                            </div>
-                            <table class="admin-table">
-                                <thead>
-                                    <tr>
-                                        <th>تصویر</th>
-                                        <th>نام</th>
-                                        <th>نوع</th>
-                                        <th>سال تولید</th>
-                                        <th>عملیات</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td><img src="images/car1.jpg" width="50" height="50" alt="تویوتا پریوس"></td>
-                                        <td>تویوتا پریوس</td>
-                                        <td>هیبرید</td>
-                                        <td>2023</td>
-                                        <td>
-                                            <button class="admin-btn">ویرایش</button>
-                                            <button class="admin-btn admin-btn-danger">حذف</button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td><img src="images/car2.jpg" width="50" height="50" alt="تویوتا کمری"></td>
-                                        <td>تویوتا کمری</td>
-                                        <td>سدان</td>
-                                        <td>2023</td>
-                                        <td>
-                                            <button class="admin-btn">ویرایش</button>
-                                            <button class="admin-btn admin-btn-danger">حذف</button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td><img src="images/car3.jpg" width="50" height="50" alt="تویوتا کرولا"></td>
-                                        <td>تویوتا کرولا</td>
-                                        <td>سدان</td>
-                                        <td>2023</td>
-                                        <td>
-                                            <button class="admin-btn">ویرایش</button>
-                                            <button class="admin-btn admin-btn-danger">حذف</button>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                        
-                        <!-- فرم افزودن/ویرایش خودرو -->
-                        <div id="car-form" class="admin-card" style="display: none;">
-                            <div class="admin-card-header">
-                                <h3 class="admin-card-title">افزودن خودرو جدید</h3>
-                            </div>
-                            <form>
-                                <div class="admin-form-group">
-                                    <label class="admin-form-label" for="car-name">نام خودرو</label>
-                                    <input type="text" id="car-name" class="admin-form-control" required>
-                                </div>
-                                <div class="admin-form-group">
-                                    <label class="admin-form-label" for="car-type">نوع خودرو</label>
-                                    <select id="car-type" class="admin-form-control" required>
-                                        <option value="">انتخاب کنید</option>
-                                        <option value="hybrid">هیبرید</option>
-                                        <option value="sedan">سدان</option>
-                                        <option value="suv">شاسی بلند</option>
-                                        <option value="electric">برقی</option>
-                                    </select>
-                                </div>
-                                <div class="admin-form-group">
-                                    <label class="admin-form-label" for="car-year">سال تولید</label>
-                                    <input type="number" id="car-year" class="admin-form-control" required>
-                                </div>
-                                <div class="admin-form-group">
-                                    <label class="admin-form-label" for="car-engine">حجم موتور</label>
-                                    <input type="text" id="car-engine" class="admin-form-control" required>
-                                </div>
-                                <div class="admin-form-group">
-                                    <label class="admin-form-label" for="car-fuel">مصرف سوخت</label>
-                                    <input type="text" id="car-fuel" class="admin-form-control" required>
-                                </div>
-                                <div class="admin-form-group">
-                                    <label class="admin-form-label" for="car-power">قدرت موتور</label>
-                                    <input type="text" id="car-power" class="admin-form-control" required>
-                                </div>
-                                <div class="admin-form-group">
-                                    <label class="admin-form-label" for="car-image">تصویر خودرو</label>
-                                    <input type="file" id="car-image" class="admin-form-control" accept="image/*" required>
-                                </div>
-                                <div class="admin-form-group">
-                                    <button type="submit" class="admin-btn">ذخیره</button>
-                                    <button type="button" class="admin-btn admin-btn-danger" id="cancel-car-btn">انصراف</button>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                    
-                    <!-- مدیریت خدمات -->
-                    <div id="services-section" style="display: none;">
-                        <h2 class="mb-4">مدیریت خدمات</h2>
-                        
-                        <div class="admin-card">
-                            <div class="admin-card-header d-flex justify-content-between align-items-center">
-                                <h3 class="admin-card-title">لیست خدمات</h3>
-                                <button class="admin-btn" id="add-service-btn">افزودن خدمت جدید</button>
-                            </div>
-                            <table class="admin-table">
-                                <thead>
-                                    <tr>
-                                        <th>نام خدمت</th>
-                                        <th>توضیحات</th>
-                                        <th>عملیات</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>تنظیم موتور</td>
-                                        <td>تنظیم و بهینه‌سازی عملکرد موتور</td>
-                                        <td>
-                                            <button class="admin-btn">ویرایش</button>
-                                            <button class="admin-btn admin-btn-danger">حذف</button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>تعمیر گیربکس</td>
-                                        <td>تعمیر و نگهداری سیستم انتقال قدرت</td>
-                                        <td>
-                                            <button class="admin-btn">ویرایش</button>
-                                            <button class="admin-btn admin-btn-danger">حذف</button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>تعمیر موتور</td>
-                                        <td>تعمیر و بازسازی موتور</td>
-                                        <td>
-                                            <button class="admin-btn">ویرایش</button>
-                                            <button class="admin-btn admin-btn-danger">حذف</button>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                        
-                        <!-- فرم افزودن/ویرایش خدمت -->
-                        <div id="service-form" class="admin-card" style="display: none;">
-                            <div class="admin-card-header">
-                                <h3 class="admin-card-title">افزودن خدمت جدید</h3>
-                            </div>
-                            <form>
-                                <div class="admin-form-group">
-                                    <label class="admin-form-label" for="service-name">نام خدمت</label>
-                                    <input type="text" id="service-name" class="admin-form-control" required>
-                                </div>
-                                <div class="admin-form-group">
-                                    <label class="admin-form-label" for="service-description">توضیحات</label>
-                                    <textarea id="service-description" class="admin-form-control" rows="4" required></textarea>
-                                </div>
-                                <div class="admin-form-group">
-                                    <button type="submit" class="admin-btn">ذخیره</button>
-                                    <button type="button" class="admin-btn admin-btn-danger" id="cancel-service-btn">انصراف</button>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                    
-                    <!-- مدیریت محتوا -->
-                    <div id="content-section" style="display: none;">
-                        <h2 class="mb-4">مدیریت محتوا</h2>
-                        
-                        <div class="admin-card">
-                            <div class="admin-card-header">
-                                <h3 class="admin-card-title">ویرایش محتوای صفحه اصلی</h3>
-                            </div>
-                            <form>
-                                <div class="admin-form-group">
-                                    <label class="admin-form-label" for="home-title">عنوان صفحه</label>
-                                    <input type="text" id="home-title" class="admin-form-control" value="ماکسیما هوم | تعمیرگاه تخصصی خودروهای هیبرید، ژاپنی، چینی در یزد" required>
-                                </div>
-                                <div class="admin-form-group">
-                                    <label class="admin-form-label" for="home-description">توضیحات متا</label>
-                                    <textarea id="home-description" class="admin-form-control" rows="4" required>ماکسیما هوم - تعمیرگاه تخصصی ماکسیما هوم در یزد - مکانیکی ماکسیما هوم یزد- تعمیرگاه یزد - تعمیرگاه تخصصی نیسان یزد - تعمیرگاه تخصصی هیبرید یزد - مکانیکی یزد - تعمیر ماکسیما - تعمیرگاه تخصصی ماشین چینی یزد - تعمیر ماشین ژاپنی یزد - تعمیر ماشین های ژاپنی ، چینی ، کره ای</textarea>
-                                </div>
-                                <div class="admin-form-group">
-                                    <label class="admin-form-label" for="about-text">متن درباره ما</label>
-                                    <textarea id="about-text" class="admin-form-control" rows="6" required>مکانیکی علمی است که به مطالعه حرکت، نیرو و انرژی اجسام می‌پردازد</textarea>
-                                </div>
-                                <div class="admin-form-group">
-                                    <button type="submit" class="admin-btn">ذخیره تغییرات</button>
-                                </div>
-                            </form>
-                        </div>
-                        
-                        <div class="admin-card mt-4">
-                            <div class="admin-card-header">
-                                <h3 class="admin-card-title">مدیریت تصاویر و ویدیوها</h3>
-                            </div>
-                            <div class="admin-form-group">
-                                <label class="admin-form-label">آپلود تصویر جدید</label>
-                                <input type="file" class="admin-form-control" accept="image/*">
-                                <button class="admin-btn mt-2">آپلود</button>
-                            </div>
-                            <div class="admin-form-group">
-                                <label class="admin-form-label">آپلود ویدیوی جدید</label>
-                                <input type="file" class="admin-form-control" accept="video/*">
-                                <button class="admin-btn mt-2">آپلود</button>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- پیام‌ها -->
-                    <div id="messages-section" style="display: none;">
-                        <h2 class="mb-4">پیام‌ها</h2>
-                        
-                        <div class="admin-card">
-                            <div class="admin-card-header">
-                                <h3 class="admin-card-title">لیست پیام‌ها</h3>
-                            </div>
-                            <table class="admin-table">
-                                <thead>
-                                    <tr>
-                                        <th>نام</th>
-                                        <th>ایمیل</th>
-                                        <th>موضوع</th>
-                                        <th>تاریخ</th>
-                                        <th>وضعیت</th>
-                                        <th>عملیات</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>علی محمدی</td>
-                                        <td>ali@example.com</td>
-                                        <td>تعمیر خودرو</td>
-                                        <td>1403/02/01</td>
-                                        <td><span class="badge badge-warning">جدید</span></td>
-                                        <td>
-                                            <button class="admin-btn">مشاهده</button>
-                                            <button class="admin-btn admin-btn-danger">حذف</button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>رضا احمدی</td>
-                                        <td>reza@example.com</td>
-                                        <td>قیمت خدمات</td>
-                                        <td>1403/01/30</td>
-                                        <td><span class="badge badge-success">پاسخ داده شده</span></td>
-                                        <td>
-                                            <button class="admin-btn">مشاهده</button>
-                                            <button class="admin-btn admin-btn-danger">حذف</button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>مریم حسینی</td>
-                                        <td>maryam@example.com</td>
-                                        <td>نوبت‌دهی</td>
-                                        <td>1403/01/29</td>
-                                        <td><span class="badge badge-success">پاسخ داده شده</span></td>
-                                        <td>
-                                            <button class="admin-btn">مشاهده</button>
-                                            <button class="admin-btn admin-btn-danger">حذف</button>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                        
-                        <!-- نمایش پیام -->
-                        <div id="message-detail" class="admin-card" style="display: none;">
-                            <div class="admin-card-header">
-                                <h3 class="admin-card-title">مشاهده پیام</h3>
-                            </div>
-                            <div class="admin-form-group">
-                                <label class="admin-form-label">فرستنده</label>
-                                <p>علی محمدی</p>
-                            </div>
-                            <div class="admin-form-group">
-                                <label class="admin-form-label">ایمیل</label>
-                                <p>ali@example.com</p>
-                            </div>
-                            <div class="admin-form-group">
-                                <label class="admin-form-label">موضوع</label>
-                                <p>تعمیر خودرو</p>
-                            </div>
-                            <div class="admin-form-group">
-                                <label class="admin-form-label">متن پیام</label>
-                                <p>سلام، من یک تویوتا پریوس دارم و نیاز به تعمیر دارم. لطفاً راهنمایی کنید.</p>
-                            </div>
-                            <div class="admin-form-group">
-                                <label class="admin-form-label">پاسخ</label>
-                                <textarea class="admin-form-control" rows="4"></textarea>
-                            </div>
-                            <div class="admin-form-group">
-                                <button class="admin-btn">ارسال پاسخ</button>
-                                <button class="admin-btn admin-btn-danger" id="back-to-messages">بازگشت</button>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- مدیریت مشتریان -->
-                    <div id="customers-section" style="display: none;">
-                        <h2 class="mb-4">مدیریت مشتریان</h2>
-                        
-                        <div class="admin-card">
-                            <div class="admin-card-header d-flex justify-content-between align-items-center">
-                                <h3 class="admin-card-title">لیست کاربران</h3>
-                                <div class="d-flex">
-                                    <input type="text" class="form-control mr-2" placeholder="جستجو..." id="user-search">
-                                </div>
-                            </div>
-                            <table class="admin-table" id="usersTable">
-                                <thead>
-                                    <tr>
-                                        <th>نام</th>
-                                        <th>ایمیل</th>
-                                        <th>شماره تماس</th>
-                                        <th>تاریخ ثبت نام</th>
-                                        <th>عملیات</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <!-- داده‌ها با JavaScript پر می‌شوند -->
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                    
-                    <!-- تنظیمات -->
-                    <div id="settings-section" style="display: none;">
-                        <h2 class="mb-4">تنظیمات</h2>
-                        
-                        <div class="admin-card">
-                            <div class="admin-card-header">
-                                <h3 class="admin-card-title">اطلاعات تماس</h3>
-                            </div>
-                            <form>
-                                <div class="admin-form-group">
-                                    <label class="admin-form-label" for="contact-address">آدرس</label>
-                                    <input type="text" id="contact-address" class="admin-form-control" value="یزد بلوار خامنه ای خیابان اندیشه - اندیشه 6" required>
-                                </div>
-                                <div class="admin-form-group">
-                                    <label class="admin-form-label" for="contact-phone1">شماره تلفن 1</label>
-                                    <input type="text" id="contact-phone1" class="admin-form-control" value="09902524062" required>
-                                </div>
-                                <div class="admin-form-group">
-                                    <label class="admin-form-label" for="contact-phone2">شماره تلفن 2</label>
-                                    <input type="text" id="contact-phone2" class="admin-form-control" value="09140748037" required>
-                                </div>
-                                <div class="admin-form-group">
-                                    <label class="admin-form-label" for="contact-email">ایمیل</label>
-                                    <input type="email" id="contact-email" class="admin-form-control" value="hosseinmirzahasani3@gmail.com" required>
-                                </div>
-                                <div class="admin-form-group">
-                                    <button type="submit" class="admin-btn">ذخیره تغییرات</button>
-                                </div>
-                            </form>
-                        </div>
-                        
-                        <div class="admin-card mt-4">
-                            <div class="admin-card-header">
-                                <h3 class="admin-card-title">تنظیمات سئو</h3>
-                            </div>
-                            <form>
-                                <div class="admin-form-group">
-                                    <label class="admin-form-label" for="seo-title">عنوان سایت</label>
-                                    <input type="text" id="seo-title" class="admin-form-control" value="ماکسیما هوم | تعمیرگاه تخصصی خودروهای هیبرید، ژاپنی، چینی در یزد" required>
-                                </div>
-                                <div class="admin-form-group">
-                                    <label class="admin-form-label" for="seo-description">توضیحات متا</label>
-                                    <textarea id="seo-description" class="admin-form-control" rows="4" required>ماکسیما هوم - تعمیرگاه تخصصی ماکسیما هوم در یزد - مکانیکی ماکسیما هوم یزد- تعمیرگاه یزد - تعمیرگاه تخصصی نیسان یزد - تعمیرگاه تخصصی هیبرید یزد - مکانیکی یزد - تعمیر ماکسیما - تعمیرگاه تخصصی ماشین چینی یزد - تعمیر ماشین ژاپنی یزد - تعمیر ماشین های ژاپنی ، چینی ، کره ای</textarea>
-                                </div>
-                                <div class="admin-form-group">
-                                    <label class="admin-form-label" for="seo-keywords">کلمات کلیدی</label>
-                                    <input type="text" id="seo-keywords" class="admin-form-control" value="ماکسیما هوم, تعمیرگاه تخصصی, خودروهای هیبرید, خودروهای ژاپنی, خودروهای چینی, یزد" required>
-                                </div>
-                                <div class="admin-form-group">
-                                    <button type="submit" class="admin-btn">ذخیره تغییرات</button>
-                                </div>
-                            </form>
-                        </div>
-                        
-                        <div class="admin-card mt-4">
-                            <div class="admin-card-header">
-                                <h3 class="admin-card-title">تغییر رمز عبور</h3>
-                            </div>
-                            <form>
-                                <div class="admin-form-group">
-                                    <label class="admin-form-label" for="current-password">رمز عبور فعلی</label>
-                                    <input type="password" id="current-password" class="admin-form-control" required>
-                                </div>
-                                <div class="admin-form-group">
-                                    <label class="admin-form-label" for="new-password">رمز عبور جدید</label>
-                                    <input type="password" id="new-password" class="admin-form-control" required>
-                                </div>
-                                <div class="admin-form-group">
-                                    <label class="admin-form-label" for="confirm-password">تکرار رمز عبور جدید</label>
-                                    <input type="password" id="confirm-password" class="admin-form-control" required>
-                                </div>
-                                <div class="admin-form-group">
-                                    <button type="submit" class="admin-btn">تغییر رمز عبور</button>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                </div>
+            <div class="collapse navbar-collapse" id="ftco-nav">
+                <ul class="navbar-nav nav ml-auto">
+                    <li class="nav-item"><a href="index.html" class="nav-link"><span>خانه</span></a></li>
+                    <li class="nav-item"><a href="#" class="nav-link" id="logoutBtn"><span>خروج</span></a></li>
+                </ul>
             </div>
         </div>
+    </nav>
+
+    <div class="admin-container">
+        <h2 class="admin-title">مدیریت کاربران</h2>
+        <table class="users-table">
+            <thead>
+                <tr>
+                    <th>نام کاربری</th>
+                    <th>نام و نام خانوادگی</th>
+                    <th>شماره تماس</th>
+                    <th>نقش</th>
+                    <th>تاریخ ثبت نام</th>
+                    <th>عملیات</th>
+                </tr>
+            </thead>
+            <tbody id="usersTableBody">
+            </tbody>
+        </table>
+
+        <h2 class="admin-title mt-5">مدیریت رزروها</h2>
+        <table class="users-table">
+            <thead>
+                <tr>
+                    <th>نام کاربر</th>
+                    <th>مدل خودرو</th>
+                    <th>نوع خدمت</th>
+                    <th>تاریخ</th>
+                    <th>ساعت</th>
+                    <th>وضعیت</th>
+                    <th>عملیات</th>
+                </tr>
+            </thead>
+            <tbody id="bookingsTableBody">
+            </tbody>
+        </table>
     </div>
 
     <script src="js/jquery.min.js"></script>
@@ -794,142 +143,152 @@
     <script src="js/jquery.animateNumber.min.js"></script>
     <script src="js/scrollax.min.js"></script>
     <script src="js/main.js"></script>
-    
-    <!-- اسکریپت پنل ادمین -->
     <script>
-        $(document).ready(function() {
-            // شبیه‌سازی ورود به پنل
-            $('#login-form').on('submit', function(e) {
-                e.preventDefault();
-                $('#login-page').hide();
-                $('#admin-panel').show();
-            });
-            
-            // خروج از پنل
-            $('#logout-btn').on('click', function(e) {
-                e.preventDefault();
-                $('#admin-panel').hide();
-                $('#login-page').show();
-            });
-            
-            // تغییر بخش‌های پنل
-            $('.admin-sidebar .nav-link').on('click', function(e) {
-                e.preventDefault();
-                $('.admin-sidebar .nav-link').removeClass('active');
-                $(this).addClass('active');
-                
-                const target = $(this).attr('href').substring(1);
-                $('.admin-content > div').hide();
-                $(`#${target}-section`).show();
-            });
-            
-            // نمایش فرم افزودن خودرو
-            $('#add-car-btn').on('click', function() {
-                $('#car-form').show();
-            });
-            
-            // انصراف از افزودن خودرو
-            $('#cancel-car-btn').on('click', function() {
-                $('#car-form').hide();
-            });
-            
-            // نمایش فرم افزودن خدمت
-            $('#add-service-btn').on('click', function() {
-                $('#service-form').show();
-            });
-            
-            // انصراف از افزودن خدمت
-            $('#cancel-service-btn').on('click', function() {
-                $('#service-form').hide();
-            });
-            
-            // نمایش جزئیات پیام
-            $('.admin-table .admin-btn:contains("مشاهده")').on('click', function() {
-                $('#messages-section .admin-card:first').hide();
-                $('#message-detail').show();
-            });
-            
-            // بازگشت به لیست پیام‌ها
-            $('#back-to-messages').on('click', function() {
-                $('#message-detail').hide();
-                $('#messages-section .admin-card:first').show();
-            });
-        });
-
-        // نمایش جزئیات مشتری
-        function viewCustomerDetails(id) {
-            $('#customers-section .admin-card:first').hide();
-            $('#customer-details').show();
-            // در اینجا می‌توانید اطلاعات مشتری را از سرور دریافت کنید
-        }
-
-        // بازگشت به لیست مشتریان
-        function backToCustomers() {
-            $('#customer-details').hide();
-            $('#customers-section .admin-card:first').show();
-        }
-
-        // حذف مشتری
-        function deleteCustomer(id) {
-            if (confirm('آیا از حذف این مشتری اطمینان دارید؟')) {
-                // در اینجا می‌توانید درخواست حذف را به سرور ارسال کنید
-                alert('مشتری با موفقیت حذف شد');
+        // بررسی وضعیت ورود کاربر
+        async function checkAuth() {
+            try {
+                const response = await fetch('/api/auth/check');
+                if (!response.ok) {
+                    window.location.href = 'login.html';
+                }
+            } catch (error) {
+                window.location.href = 'login.html';
             }
         }
 
-        // بروزرسانی وضعیت مشتری
-        function updateCustomerStatus() {
-            // در اینجا می‌توانید تغییرات را به سرور ارسال کنید
-            alert('وضعیت مشتری با موفقیت بروزرسانی شد');
-            backToCustomers();
+        // دریافت لیست کاربران
+        async function loadUsers() {
+            try {
+                const response = await fetch('/api/admin/users');
+                if (!response.ok) {
+                    throw new Error('خطا در دریافت اطلاعات');
+                }
+                const users = await response.json();
+                displayUsers(users);
+            } catch (error) {
+                alert('خطا در دریافت اطلاعات کاربران');
+            }
         }
 
-        // جستجو در مشتریان
-        $('#user-search').on('keyup', function() {
-            var value = $(this).val().toLowerCase();
-            $('#usersTable tbody tr').filter(function() {
-                $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
-            });
-        });
-
-        // تابع برای دریافت لیست رزروها
+        // دریافت لیست رزروها
         async function loadBookings() {
             try {
                 const response = await fetch('/api/admin/bookings');
+                if (!response.ok) {
+                    throw new Error('خطا در دریافت اطلاعات');
+                }
                 const bookings = await response.json();
-                const tbody = document.querySelector('#bookingsTable tbody');
-                tbody.innerHTML = '';
-
-                bookings.forEach(booking => {
-                    const tr = document.createElement('tr');
-                    tr.innerHTML = `
-                        <td>${booking.user.name}</td>
-                        <td>${booking.carModel}</td>
-                        <td>${booking.serviceType}</td>
-                        <td>${new Date(booking.appointmentDate).toLocaleDateString('fa-IR')}</td>
-                        <td>${booking.appointmentTime}</td>
-                        <td>
-                            <select class="form-control" onchange="updateBookingStatus(${booking.id}, this.value)">
-                                <option value="Pending" ${booking.status === 'Pending' ? 'selected' : ''}>در انتظار</option>
-                                <option value="Confirmed" ${booking.status === 'Confirmed' ? 'selected' : ''}>تایید شده</option>
-                                <option value="Cancelled" ${booking.status === 'Cancelled' ? 'selected' : ''}>لغو شده</option>
-                                <option value="Completed" ${booking.status === 'Completed' ? 'selected' : ''}>تکمیل شده</option>
-                            </select>
-                        </td>
-                        <td>
-                            <button class="btn btn-danger btn-sm" onclick="deleteBooking(${booking.id})">حذف</button>
-                        </td>
-                    `;
-                    tbody.appendChild(tr);
-                });
+                displayBookings(bookings);
             } catch (error) {
-                console.error('Error loading bookings:', error);
-                alert('خطا در بارگذاری لیست رزروها');
+                alert('خطا در دریافت اطلاعات رزروها');
             }
         }
 
-        // تابع برای بروزرسانی وضعیت رزرو
-        async function updateBookingStatus(id, status) {
+        // نمایش لیست کاربران
+        function displayUsers(users) {
+            const tbody = document.getElementById('usersTableBody');
+            tbody.innerHTML = '';
+
+            users.forEach(user => {
+                const tr = document.createElement('tr');
+                tr.innerHTML = `
+                    <td>${user.username}</td>
+                    <td>${user.fullName}</td>
+                    <td>${user.phoneNumber}</td>
+                    <td>${user.role}</td>
+                    <td>${new Date(user.createdAt).toLocaleDateString('fa-IR')}</td>
+                    <td>
+                        <button class="btn-action btn-edit" onclick="editUser(${user.id})">ویرایش</button>
+                        <button class="btn-action btn-delete" onclick="deleteUser(${user.id})">حذف</button>
+                    </td>
+                `;
+                tbody.appendChild(tr);
+            });
+        }
+
+        // نمایش لیست رزروها
+        function displayBookings(bookings) {
+            const tbody = document.getElementById('bookingsTableBody');
+            tbody.innerHTML = '';
+
+            bookings.forEach(booking => {
+                const tr = document.createElement('tr');
+                tr.innerHTML = `
+                    <td>${booking.user.fullName}</td>
+                    <td>${booking.carModel}</td>
+                    <td>${booking.serviceType}</td>
+                    <td>${new Date(booking.appointmentDate).toLocaleDateString('fa-IR')}</td>
+                    <td>${booking.appointmentTime}</td>
+                    <td>${booking.status}</td>
+                    <td>
+                        <button class="btn-action btn-edit" onclick="updateBookingStatus(${booking.id})">تغییر وضعیت</button>
+                        <button class="btn-action btn-delete" onclick="deleteBooking(${booking.id})">حذف</button>
+                    </td>
+                `;
+                tbody.appendChild(tr);
+            });
+        }
+
+        // ویرایش کاربر
+        async function editUser(id) {
+            const fullName = prompt('نام و نام خانوادگی جدید:');
+            if (!fullName) return;
+
+            const phoneNumber = prompt('شماره تماس جدید:');
+            if (!phoneNumber) return;
+
+            const role = prompt('نقش جدید (Admin/User):');
+            if (!role) return;
+
+            try {
+                const response = await fetch(`/api/admin/users/${id}`, {
+                    method: 'PUT',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        fullName,
+                        phoneNumber,
+                        role
+                    })
+                });
+
+                if (response.ok) {
+                    alert('اطلاعات کاربر با موفقیت بروزرسانی شد');
+                    loadUsers();
+                } else {
+                    throw new Error('خطا در بروزرسانی اطلاعات');
+                }
+            } catch (error) {
+                alert('خطا در بروزرسانی اطلاعات کاربر');
+            }
+        }
+
+        // حذف کاربر
+        async function deleteUser(id) {
+            if (!confirm('آیا از حذف این کاربر اطمینان دارید؟')) return;
+
+            try {
+                const response = await fetch(`/api/admin/users/${id}`, {
+                    method: 'DELETE'
+                });
+
+                if (response.ok) {
+                    alert('کاربر با موفقیت حذف شد');
+                    loadUsers();
+                } else {
+                    throw new Error('خطا در حذف کاربر');
+                }
+            } catch (error) {
+                alert('خطا در حذف کاربر');
+            }
+        }
+
+        // تغییر وضعیت رزرو
+        async function updateBookingStatus(id) {
+            const status = prompt('وضعیت جدید (Pending/Confirmed/Cancelled/Completed):');
+            if (!status) return;
+
             try {
                 const response = await fetch(`/api/admin/bookings/${id}/status`, {
                     method: 'PUT',
@@ -946,12 +305,11 @@
                     throw new Error('خطا در بروزرسانی وضعیت');
                 }
             } catch (error) {
-                console.error('Error updating booking status:', error);
                 alert('خطا در بروزرسانی وضعیت رزرو');
             }
         }
 
-        // تابع برای حذف رزرو
+        // حذف رزرو
         async function deleteBooking(id) {
             if (!confirm('آیا از حذف این رزرو اطمینان دارید؟')) return;
 
@@ -967,94 +325,29 @@
                     throw new Error('خطا در حذف رزرو');
                 }
             } catch (error) {
-                console.error('Error deleting booking:', error);
                 alert('خطا در حذف رزرو');
             }
         }
 
-        // تابع برای دریافت لیست کاربران
-        async function loadUsers() {
+        // خروج از سیستم
+        document.getElementById('logoutBtn').addEventListener('click', async function(e) {
+            e.preventDefault();
             try {
-                const response = await fetch('/api/admin/users');
-                const users = await response.json();
-                const tbody = document.querySelector('#usersTable tbody');
-                tbody.innerHTML = '';
-
-                users.forEach(user => {
-                    const tr = document.createElement('tr');
-                    tr.innerHTML = `
-                        <td>${user.name}</td>
-                        <td>${user.email}</td>
-                        <td>${user.phone}</td>
-                        <td>${new Date(user.createdAt).toLocaleDateString('fa-IR')}</td>
-                        <td>
-                            <button class="btn btn-primary btn-sm" onclick="editUser(${user.id})">ویرایش</button>
-                            <button class="btn btn-danger btn-sm" onclick="deleteUser(${user.id})">حذف</button>
-                        </td>
-                    `;
-                    tbody.appendChild(tr);
+                const response = await fetch('/api/auth/logout', {
+                    method: 'POST'
                 });
-            } catch (error) {
-                console.error('Error loading users:', error);
-                alert('خطا در بارگذاری لیست کاربران');
-            }
-        }
-
-        // تابع برای ویرایش کاربر
-        async function editUser(id) {
-            const name = prompt('نام جدید:');
-            const email = prompt('ایمیل جدید:');
-            const phone = prompt('شماره تماس جدید:');
-
-            if (!name || !email || !phone) return;
-
-            try {
-                const response = await fetch(`/api/admin/users/${id}`, {
-                    method: 'PUT',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify({ name, email, phone })
-                });
-
                 if (response.ok) {
-                    alert('اطلاعات کاربر با موفقیت بروزرسانی شد');
-                    loadUsers();
-                } else {
-                    throw new Error('خطا در بروزرسانی اطلاعات');
+                    window.location.href = 'login.html';
                 }
             } catch (error) {
-                console.error('Error updating user:', error);
-                alert('خطا در بروزرسانی اطلاعات کاربر');
+                alert('خطا در خروج از سیستم');
             }
-        }
-
-        // تابع برای حذف کاربر
-        async function deleteUser(id) {
-            if (!confirm('آیا از حذف این کاربر اطمینان دارید؟')) return;
-
-            try {
-                const response = await fetch(`/api/admin/users/${id}`, {
-                    method: 'DELETE'
-                });
-
-                if (response.ok) {
-                    alert('کاربر با موفقیت حذف شد');
-                    loadUsers();
-                } else {
-                    throw new Error('خطا در حذف کاربر');
-                }
-            } catch (error) {
-                console.error('Error deleting user:', error);
-                alert('خطا در حذف کاربر');
-            }
-        }
-
-        // بارگذاری اولیه داده‌ها
-        document.addEventListener('DOMContentLoaded', () => {
-            loadBookings();
-            loadUsers();
         });
+
+        // اجرای توابع در هنگام بارگذاری صفحه
+        checkAuth();
+        loadUsers();
+        loadBookings();
     </script>
 </body>
 </html> 
