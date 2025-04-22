@@ -677,124 +677,25 @@
                         
                         <div class="admin-card">
                             <div class="admin-card-header d-flex justify-content-between align-items-center">
-                                <h3 class="admin-card-title">لیست مشتریان</h3>
+                                <h3 class="admin-card-title">لیست کاربران</h3>
                                 <div class="d-flex">
-                                    <input type="text" class="form-control mr-2" placeholder="جستجو..." id="customer-search">
-                                    <select class="form-control mr-2" id="customer-filter">
-                                        <option value="all">همه</option>
-                                        <option value="pending">در انتظار تایید</option>
-                                        <option value="confirmed">تایید شده</option>
-                                        <option value="completed">تکمیل شده</option>
-                                    </select>
+                                    <input type="text" class="form-control mr-2" placeholder="جستجو..." id="user-search">
                                 </div>
                             </div>
-                            <table class="admin-table">
+                            <table class="admin-table" id="usersTable">
                                 <thead>
                                     <tr>
                                         <th>نام</th>
+                                        <th>ایمیل</th>
                                         <th>شماره تماس</th>
-                                        <th>مدل خودرو</th>
-                                        <th>نوع خدمت</th>
-                                        <th>تاریخ مراجعه</th>
-                                        <th>ساعت مراجعه</th>
-                                        <th>وضعیت</th>
+                                        <th>تاریخ ثبت نام</th>
                                         <th>عملیات</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td>علی محمدی</td>
-                                        <td>09123456789</td>
-                                        <td>تویوتا پریوس</td>
-                                        <td>تعمیر موتور</td>
-                                        <td>1403/02/01</td>
-                                        <td>10:00</td>
-                                        <td><span class="badge badge-warning">در انتظار تایید</span></td>
-                                        <td>
-                                            <button class="admin-btn" onclick="viewCustomerDetails(1)">مشاهده</button>
-                                            <button class="admin-btn admin-btn-danger" onclick="deleteCustomer(1)">حذف</button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>رضا احمدی</td>
-                                        <td>09123456790</td>
-                                        <td>نیسان ماکسیما</td>
-                                        <td>تعمیر گیربکس</td>
-                                        <td>1403/02/02</td>
-                                        <td>11:00</td>
-                                        <td><span class="badge badge-success">تایید شده</span></td>
-                                        <td>
-                                            <button class="admin-btn" onclick="viewCustomerDetails(2)">مشاهده</button>
-                                            <button class="admin-btn admin-btn-danger" onclick="deleteCustomer(2)">حذف</button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>مریم حسینی</td>
-                                        <td>09123456791</td>
-                                        <td>چری تیگو 7</td>
-                                        <td>تعمیرات برقی</td>
-                                        <td>1403/02/03</td>
-                                        <td>14:00</td>
-                                        <td><span class="badge badge-info">تکمیل شده</span></td>
-                                        <td>
-                                            <button class="admin-btn" onclick="viewCustomerDetails(3)">مشاهده</button>
-                                            <button class="admin-btn admin-btn-danger" onclick="deleteCustomer(3)">حذف</button>
-                                        </td>
-                                    </tr>
+                                    <!-- داده‌ها با JavaScript پر می‌شوند -->
                                 </tbody>
                             </table>
-                        </div>
-                        
-                        <!-- نمایش جزئیات مشتری -->
-                        <div id="customer-details" class="admin-card" style="display: none;">
-                            <div class="admin-card-header">
-                                <h3 class="admin-card-title">مشاهده جزئیات مشتری</h3>
-                            </div>
-                            <div class="admin-form-group">
-                                <label class="admin-form-label">نام و نام خانوادگی</label>
-                                <p id="customer-name">علی محمدی</p>
-                            </div>
-                            <div class="admin-form-group">
-                                <label class="admin-form-label">شماره تماس</label>
-                                <p id="customer-phone">09123456789</p>
-                            </div>
-                            <div class="admin-form-group">
-                                <label class="admin-form-label">مدل خودرو</label>
-                                <p id="customer-car">تویوتا پریوس</p>
-                            </div>
-                            <div class="admin-form-group">
-                                <label class="admin-form-label">نوع خدمت</label>
-                                <p id="customer-service">تعمیر موتور</p>
-                            </div>
-                            <div class="admin-form-group">
-                                <label class="admin-form-label">تاریخ مراجعه</label>
-                                <p id="customer-date">1403/02/01</p>
-                            </div>
-                            <div class="admin-form-group">
-                                <label class="admin-form-label">ساعت مراجعه</label>
-                                <p id="customer-time">10:00</p>
-                            </div>
-                            <div class="admin-form-group">
-                                <label class="admin-form-label">توضیحات</label>
-                                <p id="customer-description">مشکل در روشن شدن موتور و صدای غیرعادی</p>
-                            </div>
-                            <div class="admin-form-group">
-                                <label class="admin-form-label">وضعیت</label>
-                                <select class="admin-form-control" id="customer-status">
-                                    <option value="pending">در انتظار تایید</option>
-                                    <option value="confirmed">تایید شده</option>
-                                    <option value="completed">تکمیل شده</option>
-                                    <option value="cancelled">لغو شده</option>
-                                </select>
-                            </div>
-                            <div class="admin-form-group">
-                                <label class="admin-form-label">یادداشت</label>
-                                <textarea class="admin-form-control" id="customer-notes" rows="4"></textarea>
-                            </div>
-                            <div class="admin-form-group">
-                                <button class="admin-btn" onclick="updateCustomerStatus()">ذخیره تغییرات</button>
-                                <button class="admin-btn admin-btn-danger" onclick="backToCustomers()">بازگشت</button>
-                            </div>
                         </div>
                     </div>
                     
@@ -984,27 +885,11 @@
         }
 
         // جستجو در مشتریان
-        $('#customer-search').on('keyup', function() {
+        $('#user-search').on('keyup', function() {
             var value = $(this).val().toLowerCase();
-            $('.admin-table tbody tr').filter(function() {
+            $('#usersTable tbody tr').filter(function() {
                 $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
             });
-        });
-
-        // فیلتر کردن مشتریان
-        $('#customer-filter').on('change', function() {
-            var value = $(this).val();
-            if (value === 'all') {
-                $('.admin-table tbody tr').show();
-            } else {
-                $('.admin-table tbody tr').hide();
-                $('.admin-table tbody tr').each(function() {
-                    var status = $(this).find('.badge').text().toLowerCase();
-                    if (status.indexOf(value) > -1) {
-                        $(this).show();
-                    }
-                });
-            }
         });
 
         // تابع برای دریافت لیست رزروها
