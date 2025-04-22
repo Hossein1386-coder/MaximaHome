@@ -1,0 +1,164 @@
+@{
+    ViewData["Title"] = "رزرو وقت | ماکسیما هوم";
+}
+
+<section class="ftco-section">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-header bg-primary text-white text-center">
+                        <h3 class="mb-0">رزرو وقت تعمیر</h3>
+                    </div>
+                    <div class="card-body">
+                        @if (ViewBag.Success != null)
+                        {
+                            <div class="alert alert-success">
+                                @ViewBag.Success
+                            </div>
+                        }
+
+                        <form method="post" action="@Url.Action("Book", "Booking")">
+                            <div class="form-group mb-3">
+                                <label for="name">نام و نام خانوادگی</label>
+                                <input type="text" class="form-control" id="name" name="name" required>
+                            </div>
+
+                            <div class="form-group mb-3">
+                                <label for="phone">شماره تماس</label>
+                                <input type="tel" class="form-control" id="phone" name="phone" required>
+                            </div>
+
+                            <div class="form-group mb-3">
+                                <label for="carModel">مدل خودرو</label>
+                                <select class="form-control" id="carModel" name="carModel" required>
+                                    <option value="">انتخاب کنید</option>
+                                    <optgroup label="تویوتا">
+                                        <option value="prius">تویوتا پریوس</option>
+                                        <option value="camry">تویوتا کمری</option>
+                                        <option value="corolla">تویوتا کرولا</option>
+                                        <option value="rav4">تویوتا راو4</option>
+                                        <option value="highlander">تویوتا هایلندر</option>
+                                        <option value="landcruiser">تویوتا لندکروزر</option>
+                                    </optgroup>
+                                    <optgroup label="نیسان">
+                                        <option value="xtrail">نیسان ایکس-تریل</option>
+                                        <option value="maxima">نیسان ماکسیما</option>
+                                        <option value="qashqai">نیسان قشقایی</option>
+                                        <option value="juke">نیسان جوک</option>
+                                        <option value="patrol">نیسان پاترول</option>
+                                        <option value="leaf">نیسان لیف</option>
+                                    </optgroup>
+                                    <optgroup label="خودروهای چینی">
+                                        <option value="chery">چری تیگو 7</option>
+                                        <option value="jac">جک S5</option>
+                                        <option value="lifan">لیفان X60</option>
+                                        <option value="mvm">ام وی ام X33</option>
+                                        <option value="geely">جیلی امگرند</option>
+                                        <option value="baic">بایک B30</option>
+                                    </optgroup>
+                                </select>
+                            </div>
+
+                            <div class="form-group mb-3">
+                                <label for="serviceType">نوع خدمت</label>
+                                <select class="form-control" id="serviceType" name="serviceType" required>
+                                    <option value="">انتخاب کنید</option>
+                                    <option value="engine">تعمیر موتور</option>
+                                    <option value="transmission">تعمیر گیربکس</option>
+                                    <option value="electrical">تعمیرات برقی</option>
+                                    <option value="suspension">تعمیر سیستم تعلیق</option>
+                                    <option value="brake">تعمیر ترمز</option>
+                                    <option value="other">سایر خدمات</option>
+                                </select>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group mb-3">
+                                        <label for="date">تاریخ مراجعه</label>
+                                        <input type="date" class="form-control" id="date" name="date" required>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group mb-3">
+                                        <label for="time">ساعت مراجعه</label>
+                                        <select class="form-control" id="time" name="time" required>
+                                            <option value="">انتخاب کنید</option>
+                                            <option value="09:00">09:00</option>
+                                            <option value="10:00">10:00</option>
+                                            <option value="11:00">11:00</option>
+                                            <option value="12:00">12:00</option>
+                                            <option value="14:00">14:00</option>
+                                            <option value="15:00">15:00</option>
+                                            <option value="16:00">16:00</option>
+                                            <option value="17:00">17:00</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group mb-3">
+                                <label for="description">توضیحات</label>
+                                <textarea class="form-control" id="description" name="description" rows="4" placeholder="لطفاً مشکل خودرو و توضیحات تکمیلی را وارد کنید"></textarea>
+                            </div>
+
+                            <div class="text-center">
+                                <button type="submit" class="btn btn-primary btn-lg">ثبت درخواست رزرو</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+    .card {
+        border: none;
+        box-shadow: 0 0 20px rgba(0,0,0,0.1);
+        border-radius: 10px;
+    }
+
+    .card-header {
+        border-radius: 10px 10px 0 0 !important;
+        background-color: #ffbd39 !important;
+    }
+
+    .form-control {
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        padding: 10px 15px;
+    }
+
+    .form-control:focus {
+        border-color: #ffbd39;
+        box-shadow: none;
+    }
+
+    .btn-primary {
+        background-color: #ffbd39;
+        border-color: #ffbd39;
+        color: #000;
+        padding: 12px 30px;
+        font-weight: 600;
+    }
+
+    .btn-primary:hover {
+        background-color: #e6a830;
+        border-color: #e6a830;
+        color: #000;
+    }
+
+    .alert-success {
+        background-color: #d4edda;
+        border-color: #c3e6cb;
+        color: #155724;
+    }
+</style>
+
+<script>
+    // تنظیم حداقل تاریخ به امروز
+    document.getElementById('date').min = new Date().toISOString().split('T')[0];
+</script> 

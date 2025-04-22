@@ -1,0 +1,24 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.2.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MaximaHome", "MaximaHome.csproj", "{B95FDCD0-84C0-6210-A598-C534F58F79F3}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B95FDCD0-84C0-6210-A598-C534F58F79F3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B95FDCD0-84C0-6210-A598-C534F58F79F3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B95FDCD0-84C0-6210-A598-C534F58F79F3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B95FDCD0-84C0-6210-A598-C534F58F79F3}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {90546C18-E5E8-4FD5-AF95-1B009843214B}
+	EndGlobalSection
+EndGlobal

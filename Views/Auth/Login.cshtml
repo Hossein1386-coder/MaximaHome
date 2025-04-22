@@ -1,0 +1,212 @@
+@model MaximaHome.Models.LoginViewModel
+@{
+    ViewData["Title"] = "ورود";
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>@ViewData["Title"] | ماکسیما هوم</title>
+    <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+    <link rel="stylesheet" href="~/css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/css/style.css">
+    <style>
+        body {
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .login-container {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 400px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .login-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .login-header h2 {
+            color: #ffbd39;
+            font-size: 28px;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .login-header p {
+            color: #fff;
+            opacity: 0.8;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-label {
+            color: #fff;
+            font-size: 14px;
+            margin-bottom: 8px;
+            display: block;
+        }
+
+        .form-control {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
+            color: #fff;
+            padding: 12px 15px;
+            transition: all 0.3s ease;
+        }
+
+        .form-control:focus {
+            background: rgba(255, 255, 255, 0.15);
+            border-color: #ffbd39;
+            box-shadow: none;
+            color: #fff;
+        }
+
+        .form-control::placeholder {
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        .custom-checkbox {
+            margin-top: 15px;
+        }
+
+        .custom-checkbox .custom-control-label {
+            color: #fff;
+            font-size: 14px;
+        }
+
+        .custom-control-input:checked ~ .custom-control-label::before {
+            background-color: #ffbd39;
+            border-color: #ffbd39;
+        }
+
+        .btn-login {
+            background: #ffbd39;
+            color: #000;
+            border: none;
+            border-radius: 10px;
+            padding: 12px 30px;
+            font-weight: 500;
+            width: 100%;
+            margin-top: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .btn-login:hover {
+            background: #e6a830;
+            transform: translateY(-2px);
+        }
+
+        .login-footer {
+            text-align: center;
+            margin-top: 20px;
+            color: #fff;
+            font-size: 14px;
+        }
+
+        .login-footer a {
+            color: #ffbd39;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .login-footer a:hover {
+            color: #e6a830;
+        }
+
+        .validation-summary-errors {
+            color: #ff6b6b;
+            background: rgba(255, 107, 107, 0.1);
+            border-radius: 10px;
+            padding: 10px;
+            margin-bottom: 20px;
+            font-size: 14px;
+        }
+
+        .validation-summary-errors ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .back-to-home {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            color: #fff;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            transition: all 0.3s ease;
+        }
+
+        .back-to-home:hover {
+            color: #ffbd39;
+        }
+    </style>
+</head>
+<body>
+    <a href="/" class="back-to-home">
+        <i class="icon-arrow-right"></i>
+        بازگشت به خانه
+    </a>
+
+    <div class="login-container">
+        <div class="login-header">
+            <h2>ورود به حساب کاربری</h2>
+            <p>خوش آمدید! لطفاً وارد شوید</p>
+        </div>
+
+        <form asp-action="Login" method="post">
+            <div asp-validation-summary="ModelOnly" class="validation-summary-errors"></div>
+            
+            <div class="form-group">
+                <label asp-for="Username" class="form-label"></label>
+                <input asp-for="Username" class="form-control" placeholder="نام کاربری خود را وارد کنید" />
+                <span asp-validation-for="Username" class="text-danger"></span>
+            </div>
+            
+            <div class="form-group">
+                <label asp-for="Password" class="form-label"></label>
+                <input asp-for="Password" class="form-control" placeholder="رمز عبور خود را وارد کنید" />
+                <span asp-validation-for="Password" class="text-danger"></span>
+            </div>
+            
+            <div class="custom-checkbox">
+                <div class="custom-control custom-checkbox">
+                    <input asp-for="RememberMe" class="custom-control-input" />
+                    <label asp-for="RememberMe" class="custom-control-label"></label>
+                </div>
+            </div>
+            
+            <button type="submit" class="btn btn-login">ورود</button>
+        </form>
+
+        <div class="login-footer">
+            <p>حساب کاربری ندارید؟ <a asp-action="Register">ثبت نام کنید</a></p>
+        </div>
+    </div>
+
+    <script src="~/js/jquery.min.js"></script>
+    <script src="~/js/bootstrap.min.js"></script>
+    <script src="~/js/jquery.validate.min.js"></script>
+    <script src="~/js/jquery.validate.unobtrusive.min.js"></script>
+</body>
+</html> 

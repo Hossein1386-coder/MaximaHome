@@ -29,12 +29,142 @@
     <meta name="author" content="Hossein1386-coder">
 
     <!-- Open Graph برای اشتراک در شبکه‌های اجتماعی -->
-    <meta property="og:title" content="ماکسیما هوم">
-    <meta property="og:description" content="ماکسیما هوم">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://hossein1386-coder.github.io/MaximaHome/">
+    <meta property="og:title" content="ماکسیما هوم | تعمیرگاه تخصصی خودروهای هیبرید، ژاپنی، چینی در یزد">
+    <meta property="og:description" content="تعمیرگاه تخصصی ماکسیما هوم در یزد - تعمیر انواع خودروهای هیبرید، ژاپنی، کره‌ای و چینی با بهترین کیفیت و قیمت مناسب">
+    <meta property="og:image" content="https://maximahome.ir/images/logo.png">
+    <meta property="og:url" content="https://maximahome.ir/">
     <!-- Favicon -->
     <link rel="icon" href="favicon.ico" type="image/x-icon">
+
+    <style>
+        /* استایل‌های منو */
+        .navbar {
+            padding: 15px 0;
+            background-color: rgba(0, 0, 0, 0.8) !important;
+        }
+
+        .navbar-brand {
+            font-size: 24px;
+            font-weight: 600;
+            color: #ffbd39 !important;
+        }
+
+        .nav-link {
+            color: #fff !important;
+            font-size: 16px;
+            padding: 8px 15px !important;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-link:hover {
+            color: #ffbd39 !important;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background: #ffbd39;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        /* استایل دکمه‌های ورود و ثبت نام */
+        .auth-buttons {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 5px 15px;
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .auth-btn {
+            padding: 5px 15px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            font-size: 14px;
+        }
+
+        .auth-btn.login {
+            background: transparent;
+            color: #fff;
+            border: 1px solid #ffbd39;
+        }
+
+        .auth-btn.register {
+            background: #ffbd39;
+            color: #000;
+            border: 1px solid #ffbd39;
+        }
+
+        .auth-btn:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .divider {
+            color: rgba(255, 255, 255, 0.5);
+            font-weight: 300;
+            font-size: 14px;
+        }
+
+        /* استایل منوی کاربری */
+        .user-menu {
+            position: relative;
+        }
+
+        .user-menu .dropdown-menu {
+            background-color: rgba(0, 0, 0, 0.9);
+            border: 1px solid #ffbd39;
+            border-radius: 5px;
+            padding: 10px 0;
+            min-width: 200px;
+        }
+
+        .user-menu .dropdown-item {
+            color: #fff;
+            padding: 8px 20px;
+            transition: all 0.3s ease;
+        }
+
+        .user-menu .dropdown-item:hover {
+            background-color: #ffbd39;
+            color: #000;
+        }
+
+        .user-menu .dropdown-divider {
+            border-color: #ffbd39;
+            margin: 5px 0;
+        }
+
+        /* استایل دکمه رزرو وقت */
+        .booking-btn {
+            background-color: #ffbd39;
+            color: #000;
+            padding: 8px 25px;
+            border-radius: 5px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .booking-btn:hover {
+            background-color: transparent;
+            color: #ffbd39;
+            border: 2px solid #ffbd39;
+        }
+    </style>
 </head>
 <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
 
@@ -55,10 +185,20 @@
                     <li class="nav-item"><a href="#skills-section" class="nav-link"><span>مهارت ها</span></a></li>
                     <li class="nav-item"><a href="#projects-section" class="nav-link"><span>کار ها</span></a></li>
                     <li class="nav-item"><a href="#contact-section" class="nav-link"><span>تماس با ما</span></a></li>
+                    <li class="nav-item"><a href="cars.html" class="nav-link"><span>اطلاعات ماشین‌ها</span></a></li>
+                    <li class="nav-item"><a href="booking.html" class="nav-link booking-btn"><span>رزرو وقت</span></a></li>
+                    
+                    <!-- گزینه‌های ورود و ثبت نام -->
+                    <li class="nav-item auth-buttons">
+                        <a href="login.html" class="auth-btn login"><span>ورود</span></a>
+                        <span class="divider">/</span>
+                        <a href="register.html" class="auth-btn register"><span>ثبت نام</span></a>
+                    </li>
                 </ul>
             </div>
         </div>
     </nav>
+
     <section id="home-section" class="hero">
         <div class="home-slider  owl-carousel">
             <div class="slider-item ">
@@ -228,6 +368,8 @@
                             خودروهای کره‌ای به دلیل طراحی مدرن و فناوری‌های پیشرفته، محبوبیت زیادی پیدا کرده‌اند. برای نگهداری و تعمیر این خودروها، استفاده از قطعات یدکی اصلی که مطابق استانداردهای کارخانه باشند، بسیار مهم است. بررسی دوره‌ای سیستم موتور، گیربکس و سیستم تهویه خودروهای کره‌ای از اهمیت بالایی برخوردار است. همچنین، پیشنهاد می‌شود تعمیرات خودروهای کره‌ای در مراکز تخصصی انجام شود تا اطمینان حاصل شود که تمامی سیستم‌ها به طور دقیق بررسی و تعمیر شده‌اند
                         </p>
                     </div>
+                    <a href="cars.html" class="btn btn-primary">مشاهده اطلاعات ماشین‌ها</a>
+
                 </div>
             </div>
         </div>
@@ -388,38 +530,89 @@
                     <div class="project img ftco-animate d-flex justify-content-center align-items-center" style="background-image: url(images/22.png);">
                     </div>
                 </div>
-            <div class="col-md-6">
-                <div class="project img ftco-animate d-flex justify-content-center align-items-center" style="background-image: url(images/33.png);">
+                <div class="col-md-6">
+                    <div class="project img ftco-animate d-flex justify-content-center align-items-center" style="background-image: url(images/33.png);">
+                    </div>
                 </div>
-            </div>
-            <div class="col-md-6">
-                <div class="project img ftco-animate d-flex justify-content-center align-items-center" style="background-image: url(images/44.png);">
+                <div class="col-md-6">
+                    <div class="project img ftco-animate d-flex justify-content-center align-items-center" style="background-image: url(images/44.png);">
+                    </div>
                 </div>
-            </div>
-            <div class="col-md-6">
+                <div class="col-md-6">
                     <div class="project img ftco-animate d-flex justify-content-center align-items-center" style="background-image: url(images/01.png);">
                     </div>
-            </div>
-            <div class="col-md-6">
+                </div>
+                <div class="col-md-6">
                     <div class="project img ftco-animate d-flex justify-content-center align-items-center" style="background-image: url(images/new1.png);">
                     </div>
-            </div>
-            <div class="col-md-6">
+                </div>
+                <div class="col-md-6">
                     <div class="project img ftco-animate d-flex justify-content-center align-items-center" style="background-image: url(images/new3.png);">
                     </div>
-            </div>
-            <div class="col-md-6">
+                </div>
+                <div class="col-md-6">
                     <div class="project img ftco-animate d-flex justify-content-center align-items-center" style="background-image: url(images/new4.png);">
                     </div>
-            </div>
-            <div class="col-md-6">
+                </div>
+                <div class="col-md-6">
                     <div class="project img ftco-animate d-flex justify-content-center align-items-center" style="background-image: url(images/new5.png);">
                     </div>
-            </div>
-            <div class="col-md-6">
+                </div>
+                <div class="col-md-6">
                     <div class="project img ftco-animate d-flex justify-content-center align-items-center" style="background-image: url(images/new6.png);">
                     </div>
-            </div>
+                </div>
+
+                <!-- بخش فیلم‌ها -->
+                <div class="col-md-12 mt-5">
+                    <h3 class="text-center mb-4">فیلم‌ها</h3>
+                </div>
+                <div class="row">
+                    <div class="col-md-8 mx-auto mb-4">
+                        <div class="project video-container ftco-animate">
+                            <div class="video-wrapper">
+                                <video controls class="w-100" style="max-height: 500px; object-fit: cover; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+                                    <source src="Video/film2.mp4" type="video/mp4">
+                                    مرورگر شما از پخش ویدیو پشتیبانی نمی‌کند.
+                                </video>
+                            </div>
+                            <div class="video-caption mt-3 text-center">
+                                <h5 class="mb-2">مجموعه ماکسیما هوم</h5>
+                                <p class="text-muted">معرفی مجموعه و خدمات ما</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6 mb-4">
+                        <div class="project video-container ftco-animate">
+                            <div class="video-wrapper">
+                                <video controls class="w-100" style="max-height: 400px; object-fit: cover; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+                                    <source src="Video/film1.mp4" type="video/mp4">
+                                    مرورگر شما از پخش ویدیو پشتیبانی نمی‌کند.
+                                </video>
+                            </div>
+                            <div class="video-caption mt-3 text-center">
+                                <h5 class="mb-2">تعمیر گیربکس</h5>
+                                <p class="text-muted">تعمیر گیربکس ماکسیما</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 mb-4">
+                        <div class="project video-container ftco-animate">
+                            <div class="video-wrapper">
+                                <video controls class="w-100" style="max-height: 400px; object-fit: cover; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+                                    <source src="Video/film3.mp4" type="video/mp4">
+                                    مرورگر شما از پخش ویدیو پشتیبانی نمی‌کند.
+                                </video>
+                            </div>
+                            <div class="video-caption mt-3 text-center">
+                                <h5 class="mb-2">بازسازی</h5>
+                                <p class="text-muted">نمونه کارهای بازسازی</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -598,6 +791,45 @@
     <script src="js/scrollax.min.js"></script>
 
     <script src="js/main.js"></script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "AutoRepair",
+      "name": "ماکسیما هوم",
+      "image": "https://maximahome.ir/images/logo.png",
+      "description": "تعمیرگاه تخصصی ماکسیما هوم در یزد - تعمیر انواع خودروهای هیبرید، ژاپنی، کره‌ای و چینی",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "بلوار خامنه ای خیابان اندیشه - اندیشه 6",
+        "addressLocality": "یزد",
+        "addressRegion": "یزد",
+        "postalCode": "",
+        "addressCountry": "IR"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": "YOUR_LATITUDE",
+        "longitude": "YOUR_LONGITUDE"
+      },
+      "url": "https://maximahome.ir/",
+      "telephone": "+989902524062",
+      "priceRange": "$$",
+      "openingHoursSpecification": {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": [
+          "Monday",
+          "Tuesday",
+          "Wednesday",
+          "Thursday",
+          "Friday",
+          "Saturday"
+        ],
+        "opens": "09:00",
+        "closes": "18:00"
+      }
+    }
+    </script>
 
 </body>
 </html>

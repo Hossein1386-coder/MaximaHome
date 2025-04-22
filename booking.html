@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <title>رزرو وقت | ماکسیما هوم</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/open-iconic-bootstrap.min.css">
+    <link rel="stylesheet" href="css/animate.css">
+    <link rel="stylesheet" href="css/owl.carousel.min.css">
+    <link rel="stylesheet" href="css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="css/magnific-popup.css">
+    <link rel="stylesheet" href="css/aos.css">
+    <link rel="stylesheet" href="css/ionicons.min.css">
+    <link rel="stylesheet" href="css/flaticon.css">
+    <link rel="stylesheet" href="css/icomoon.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <style>
+        .card {
+            border: none;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+            border-radius: 10px;
+        }
+
+        .card-header {
+            background: #ffbd39 !important;
+            color: #000 !important;
+            border-radius: 10px 10px 0 0 !important;
+            padding: 20px;
+        }
+
+        .btn-primary {
+            background: #ffbd39 !important;
+            border-color: #ffbd39 !important;
+            color: #000 !important;
+        }
+
+        .btn-primary:hover {
+            background: #e6a825 !important;
+            border-color: #e6a825 !important;
+            transform: translateY(-2px);
+        }
+
+        .form-control:focus {
+            border-color: #ffbd39;
+            box-shadow: 0 0 5px rgba(255,189,57,0.3);
+        }
+
+        .form-control {
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 12px;
+        }
+
+        .form-control:focus {
+            border-color: #ffbd39;
+            box-shadow: 0 0 5px rgba(255,189,57,0.3);
+        }
+
+        .card-body {
+            padding: 30px;
+        }
+
+        .form-group label {
+            color: #333;
+            font-weight: 500;
+            margin-bottom: 8px;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar ftco-navbar-light site-navbar-target" id="ftco-navbar">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">MaximaHome</a>
+            <button class="navbar-toggler js-fh5co-nav-toggle fh5co-nav-toggle" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="oi oi-menu"></span> منو
+            </button>
+
+            <div class="collapse navbar-collapse" id="ftco-nav">
+                <ul class="navbar-nav nav ml-auto">
+                    <li class="nav-item"><a href="index.html" class="nav-link"><span>خانه</span></a></li>
+                    <li class="nav-item"><a href="index.html#about-section" class="nav-link"><span>درباره ما</span></a></li>
+                    <li class="nav-item"><a href="index.html#resume-section" class="nav-link"><span>اطلاعات</span></a></li>
+                    <li class="nav-item"><a href="index.html#services-section" class="nav-link"><span>سرویس ها</span></a></li>
+                    <li class="nav-item"><a href="index.html#skills-section" class="nav-link"><span>مهارت ها</span></a></li>
+                    <li class="nav-item"><a href="index.html#projects-section" class="nav-link"><span>کار ها</span></a></li>
+                    <li class="nav-item"><a href="index.html#contact-section" class="nav-link"><span>تماس با ما</span></a></li>
+                    <li class="nav-item"><a href="cars.html" class="nav-link"><span>اطلاعات ماشین‌ها</span></a></li>
+                    <li class="nav-item"><a href="booking.html" class="nav-link booking-btn active"><span>رزرو وقت</span></a></li>
+                    
+                    <!-- گزینه‌های ورود و ثبت نام -->
+                    <li class="nav-item auth-buttons">
+                        <a href="login.html" class="auth-btn login"><span>ورود</span></a>
+                        <span class="divider">/</span>
+                        <a href="register.html" class="auth-btn register"><span>ثبت نام</span></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <section class="ftco-section">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-8">
+                    <div class="card">
+                        <div class="card-header bg-primary text-white text-center">
+                            <h3 class="mb-0">رزرو وقت تعمیر</h3>
+                        </div>
+                        <div class="card-body">
+                            <form id="booking-form">
+                                <div class="form-group mb-3">
+                                    <label for="name">نام و نام خانوادگی</label>
+                                    <input type="text" class="form-control" id="name" name="name" required>
+                                </div>
+
+                                <div class="form-group mb-3">
+                                    <label for="phone">شماره تماس</label>
+                                    <input type="tel" class="form-control" id="phone" name="phone" required>
+                                </div>
+
+                                <div class="form-group mb-3">
+                                    <label for="carModel">مدل خودرو</label>
+                                    <select class="form-control" id="carModel" name="carModel" required>
+                                        <option value="">انتخاب کنید</option>
+                                        <optgroup label="تویوتا">
+                                            <option value="prius">تویوتا پریوس</option>
+                                            <option value="camry">تویوتا کمری</option>
+                                            <option value="corolla">تویوتا کرولا</option>
+                                            <option value="rav4">تویوتا راو4</option>
+                                            <option value="highlander">تویوتا هایلندر</option>
+                                            <option value="landcruiser">تویوتا لندکروزر</option>
+                                        </optgroup>
+                                        <optgroup label="نیسان">
+                                            <option value="xtrail">نیسان ایکس-تریل</option>
+                                            <option value="maxima">نیسان ماکسیما</option>
+                                            <option value="qashqai">نیسان قشقایی</option>
+                                            <option value="juke">نیسان جوک</option>
+                                            <option value="patrol">نیسان پاترول</option>
+                                            <option value="leaf">نیسان لیف</option>
+                                        </optgroup>
+                                        <optgroup label="خودروهای چینی">
+                                            <option value="chery">چری تیگو 7</option>
+                                            <option value="jac">جک S5</option>
+                                            <option value="lifan">لیفان X60</option>
+                                            <option value="mvm">ام وی ام X33</option>
+                                            <option value="geely">جیلی امگرند</option>
+                                            <option value="baic">بایک B30</option>
+                                        </optgroup>
+                                    </select>
+                                </div>
+
+                                <div class="form-group mb-3">
+                                    <label for="serviceType">نوع خدمت</label>
+                                    <select class="form-control" id="serviceType" name="serviceType" required>
+                                        <option value="">انتخاب کنید</option>
+                                        <option value="engine">تعمیر موتور</option>
+                                        <option value="transmission">تعمیر گیربکس</option>
+                                        <option value="electrical">تعمیرات برقی</option>
+                                        <option value="suspension">تعمیر سیستم تعلیق</option>
+                                        <option value="brake">تعمیر ترمز</option>
+                                        <option value="other">سایر خدمات</option>
+                                    </select>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group mb-3">
+                                            <label for="date">تاریخ مراجعه</label>
+                                            <input type="date" class="form-control" id="date" name="date" required>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group mb-3">
+                                            <label for="time">ساعت مراجعه</label>
+                                            <select class="form-control" id="time" name="time" required>
+                                                <option value="">انتخاب کنید</option>
+                                                <option value="09:00">09:00</option>
+                                                <option value="10:00">10:00</option>
+                                                <option value="11:00">11:00</option>
+                                                <option value="12:00">12:00</option>
+                                                <option value="14:00">14:00</option>
+                                                <option value="15:00">15:00</option>
+                                                <option value="16:00">16:00</option>
+                                                <option value="17:00">17:00</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group mb-3">
+                                    <label for="description">توضیحات</label>
+                                    <textarea class="form-control" id="description" name="description" rows="4" placeholder="لطفاً مشکل خودرو و توضیحات تکمیلی را وارد کنید"></textarea>
+                                </div>
+
+                                <div class="text-center">
+                                    <button type="submit" class="btn btn-primary btn-lg">ثبت درخواست رزرو</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="ftco-footer ftco-section">
+        <div class="container">
+            <div class="row mb-5">
+                <div class="col-md">
+                    <div class="ftco-footer-widget mb-4">
+                        <h2 class="ftco-heading-2">ماکسیما هوم</h2>
+                        <p>تعمیرگاه تخصصی خودروهای هیبرید، ژاپنی، چینی در یزد</p>
+                        <ul class="ftco-footer-social list-unstyled float-md-left float-lft mt-5">
+                            <li class="ftco-animate"><a href="#"><span class="icon-twitter"></span></a></li>
+                            <li class="ftco-animate"><a href="#"><span class="icon-facebook"></span></a></li>
+                            <li class="ftco-animate"><a href="#"><span class="icon-instagram"></span></a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md">
+                    <div class="ftco-footer-widget mb-4 ml-md-5">
+                        <h2 class="ftco-heading-2">دسترسی سریع</h2>
+                        <ul class="list-unstyled">
+                            <li><a href="index.html" class="py-2 d-block">خانه</a></li>
+                            <li><a href="cars.html" class="py-2 d-block">خودروها</a></li>
+                            <li><a href="services.html" class="py-2 d-block">خدمات</a></li>
+                            <li><a href="about.html" class="py-2 d-block">درباره ما</a></li>
+                            <li><a href="contact.html" class="py-2 d-block">تماس با ما</a></li>
+                            <li><a href="booking.html" class="py-2 d-block">رزرو وقت</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md">
+                    <div class="ftco-footer-widget mb-4">
+                        <h2 class="ftco-heading-2">اطلاعات تماس</h2>
+                        <div class="block-23 mb-3">
+                            <ul>
+                                <li><span class="icon icon-map-marker"></span><span class="text">یزد بلوار خامنه ای خیابان اندیشه - اندیشه 6</span></li>
+                                <li><a href="tel:09902524062"><span class="icon icon-phone"></span><span class="text">09902524062</span></a></li>
+                                <li><a href="tel:09140748037"><span class="icon icon-phone"></span><span class="text">09140748037</span></a></li>
+                                <li><a href="mailto:hosseinmirzahasani3@gmail.com"><span class="icon icon-envelope"></span><span class="text">hosseinmirzahasani3@gmail.com</span></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <p>تمامی حقوق محفوظ است &copy; 2024</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/jquery-migrate-3.0.1.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery.easing.1.3.js"></script>
+    <script src="js/jquery.waypoints.min.js"></script>
+    <script src="js/jquery.stellar.min.js"></script>
+    <script src="js/owl.carousel.min.js"></script>
+    <script src="js/jquery.magnific-popup.min.js"></script>
+    <script src="js/aos.js"></script>
+    <script src="js/jquery.animateNumber.min.js"></script>
+    <script src="js/scrollax.min.js"></script>
+    <script src="js/main.js"></script>
+
+    <script>
+        // تنظیم حداقل تاریخ به امروز
+        document.getElementById('date').min = new Date().toISOString().split('T')[0];
+
+        // مدیریت فرم رزرو وقت
+        document.getElementById('booking-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('درخواست رزرو وقت شما با موفقیت ثبت شد. کارشناسان ما در اسرع وقت با شما تماس خواهند گرفت.');
+            this.reset();
+        });
+    </script>
+</body>
+</html> 

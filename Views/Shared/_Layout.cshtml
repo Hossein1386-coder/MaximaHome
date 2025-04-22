@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <title>@ViewData["Title"]</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+
+    <link rel="stylesheet" href="~/css/open-iconic-bootstrap.min.css">
+    <link rel="stylesheet" href="~/css/animate.css">
+    <link rel="stylesheet" href="~/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="~/css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="~/css/magnific-popup.css">
+    <link rel="stylesheet" href="~/css/aos.css">
+    <link rel="stylesheet" href="~/css/ionicons.min.css">
+    <link rel="stylesheet" href="~/css/flaticon.css">
+    <link rel="stylesheet" href="~/css/icomoon.css">
+    <link rel="stylesheet" href="~/css/style.css">
+    <link rel="stylesheet" href="~/css/bootstrap.min.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
+        <div class="container">
+            <a class="navbar-brand" href="/">ماکسیما هوم</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="oi oi-menu"></span> منو
+            </button>
+
+            <div class="collapse navbar-collapse" id="ftco-nav">
+                <ul class="navbar-nav nav ml-auto">
+                    <li class="nav-item"><a href="#home-section" class="nav-link"><span>خانه</span></a></li>
+                    <li class="nav-item"><a href="#about-section" class="nav-link"><span>درباره ما</span></a></li>
+                    <li class="nav-item"><a href="#resume-section" class="nav-link"><span>اطلاعات</span></a></li>
+                    <li class="nav-item"><a href="#services-section" class="nav-link"><span>سرویس ها</span></a></li>
+                    <li class="nav-item"><a href="#skills-section" class="nav-link"><span>مهارت ها</span></a></li>
+                    <li class="nav-item"><a href="#projects-section" class="nav-link"><span>کار ها</span></a></li>
+                    <li class="nav-item"><a href="#contact-section" class="nav-link"><span>تماس با ما</span></a></li>
+                    <li class="nav-item"><a href="cars.html" class="nav-link"><span>اطلاعات ماشین‌ها</span></a></li>
+                    <li class="nav-item"><a href="booking.html" class="nav-link btn btn-primary text-white px-4"><span>رزرو وقت</span></a></li>
+                    
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                @User.FindFirst("FullName")?.Value
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                @if (User.IsInRole("Admin"))
+                                {
+                                    <a class="dropdown-item" href="/Admin">پنل مدیریت</a>
+                                }
+                                <a class="dropdown-item" href="/Profile">پروفایل</a>
+                                <div class="dropdown-divider"></div>
+                                <form asp-controller="Auth" asp-action="Logout" method="post" class="d-inline">
+                                    <button type="submit" class="dropdown-item">خروج</button>
+                                </form>
+                            </div>
+                        </li>
+                    }
+                    else
+                    {
+                        <li class="nav-item">
+                            <a href="/Auth/Login" class="nav-link"><span>ورود</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/Auth/Register" class="nav-link"><span>ثبت نام</span></a>
+                        </li>
+                    }
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    @RenderBody()
+
+    <footer class="ftco-footer ftco-section">
+        <div class="container">
+            <div class="row mb-5">
+                <div class="col-md">
+                    <div class="ftco-footer-widget mb-4">
+                        <h2 class="ftco-heading-2">ماکسیما هوم</h2>
+                        <p>تعمیرگاه تخصصی خودروهای هیبرید، ژاپنی، چینی در یزد</p>
+                        <ul class="ftco-footer-social list-unstyled float-md-left float-lft mt-5">
+                            <li class="ftco-animate"><a href="#"><span class="icon-twitter"></span></a></li>
+                            <li class="ftco-animate"><a href="#"><span class="icon-facebook"></span></a></li>
+                            <li class="ftco-animate"><a href="#"><span class="icon-instagram"></span></a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md">
+                    <div class="ftco-footer-widget mb-4 ml-md-5">
+                        <h2 class="ftco-heading-2">دسترسی سریع</h2>
+                        <ul class="list-unstyled">
+                            <li><a href="/" class="py-2 d-block">خانه</a></li>
+                            <li><a href="/cars" class="py-2 d-block">خودروها</a></li>
+                            <li><a href="/services" class="py-2 d-block">خدمات</a></li>
+                            <li><a href="/about" class="py-2 d-block">درباره ما</a></li>
+                            <li><a href="/contact" class="py-2 d-block">تماس با ما</a></li>
+                            <li><a href="/booking" class="py-2 d-block">رزرو وقت</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md">
+                    <div class="ftco-footer-widget mb-4">
+                        <h2 class="ftco-heading-2">اطلاعات تماس</h2>
+                        <div class="block-23 mb-3">
+                            <ul>
+                                <li><span class="icon icon-map-marker"></span><span class="text">یزد بلوار خامنه ای خیابان اندیشه - اندیشه 6</span></li>
+                                <li><a href="tel:09902524062"><span class="icon icon-phone"></span><span class="text">09902524062</span></a></li>
+                                <li><a href="tel:09140748037"><span class="icon icon-phone"></span><span class="text">09140748037</span></a></li>
+                                <li><a href="mailto:hosseinmirzahasani3@gmail.com"><span class="icon icon-envelope"></span><span class="text">hosseinmirzahasani3@gmail.com</span></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <p>تمامی حقوق محفوظ است &copy; @DateTime.Now.Year</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="~/js/jquery.min.js"></script>
+    <script src="~/js/jquery-migrate-3.0.1.min.js"></script>
+    <script src="~/js/popper.min.js"></script>
+    <script src="~/js/bootstrap.min.js"></script>
+    <script src="~/js/jquery.easing.1.3.js"></script>
+    <script src="~/js/jquery.waypoints.min.js"></script>
+    <script src="~/js/jquery.stellar.min.js"></script>
+    <script src="~/js/owl.carousel.min.js"></script>
+    <script src="~/js/jquery.magnific-popup.min.js"></script>
+    <script src="~/js/aos.js"></script>
+    <script src="~/js/jquery.animateNumber.min.js"></script>
+    <script src="~/js/scrollax.min.js"></script>
+    <script src="~/js/main.js"></script>
+
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html> 
