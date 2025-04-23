@@ -18,11 +18,73 @@
     <link rel="stylesheet" href="css/icomoon.css">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/bootstrap.min.css">
+    
+    <!-- اضافه کردن استایل‌های persian-datepicker -->
+    <link rel="stylesheet" href="https://unpkg.com/persian-datepicker@latest/dist/css/persian-datepicker.min.css">
+    
     <style>
+        /* استایل‌های منو */
+        .navbar {
+            padding: 15px 0;
+            background-color: rgba(0, 0, 0, 0.8) !important;
+        }
+
+        .navbar-brand {
+            font-size: 24px;
+            font-weight: 600;
+            color: #ffbd39 !important;
+        }
+
+        .nav-link {
+            color: #fff !important;
+            font-size: 16px;
+            padding: 8px 15px !important;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-link:hover {
+            color: #ffbd39 !important;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background: #ffbd39;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        /* استایل دکمه رزرو وقت */
+        .booking-btn {
+            background-color: #ffbd39;
+            color: #000;
+            padding: 8px 25px;
+            border-radius: 5px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .booking-btn:hover {
+            background-color: transparent;
+            color: #ffbd39;
+            border: 2px solid #ffbd39;
+        }
+
         .card {
             border: none;
             box-shadow: 0 0 20px rgba(0,0,0,0.1);
             border-radius: 10px;
+            background: #1a1a1a;
+            color: #fff;
         }
 
         .card-header {
@@ -39,25 +101,29 @@
         }
 
         .btn-primary:hover {
-            background: #e6a825 !important;
-            border-color: #e6a825 !important;
+            background: transparent !important;
+            border-color: #ffbd39 !important;
+            color: #ffbd39 !important;
             transform: translateY(-2px);
         }
 
-        .form-control:focus {
-            border-color: #ffbd39;
-            box-shadow: 0 0 5px rgba(255,189,57,0.3);
-        }
-
         .form-control {
-            border: 1px solid #ddd;
+            background: #2a2a2a;
+            border: 1px solid #3a3a3a;
             border-radius: 5px;
             padding: 12px;
+            color: #fff;
         }
 
         .form-control:focus {
+            background: #2a2a2a;
             border-color: #ffbd39;
             box-shadow: 0 0 5px rgba(255,189,57,0.3);
+            color: #fff;
+        }
+
+        .form-control::placeholder {
+            color: #888;
         }
 
         .card-body {
@@ -65,13 +131,40 @@
         }
 
         .form-group label {
-            color: #333;
+            color: #fff;
             font-weight: 500;
             margin-bottom: 8px;
         }
+
+        select.form-control option {
+            background: #2a2a2a;
+            color: #fff;
+        }
+
+        .section-title {
+            color: #ffbd39;
+            margin-bottom: 30px;
+        }
+
+        .booking-info {
+            background: #2a2a2a;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+        }
+
+        .booking-info h4 {
+            color: #ffbd39;
+            margin-bottom: 15px;
+        }
+
+        .booking-info p {
+            color: #fff;
+            margin-bottom: 10px;
+        }
     </style>
 </head>
-<body>
+<body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
     <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar ftco-navbar-light site-navbar-target" id="ftco-navbar">
         <div class="container">
             <a class="navbar-brand" href="index.html">MaximaHome</a>
@@ -90,13 +183,6 @@
                     <li class="nav-item"><a href="index.html#contact-section" class="nav-link"><span>تماس با ما</span></a></li>
                     <li class="nav-item"><a href="cars.html" class="nav-link"><span>اطلاعات ماشین‌ها</span></a></li>
                     <li class="nav-item"><a href="booking.html" class="nav-link booking-btn active"><span>رزرو وقت</span></a></li>
-                    
-                    <!-- گزینه‌های ورود و ثبت نام -->
-                    <li class="nav-item auth-buttons">
-                        <a href="login.html" class="auth-btn login"><span>ورود</span></a>
-                        <span class="divider">/</span>
-                        <a href="register.html" class="auth-btn register"><span>ثبت نام</span></a>
-                    </li>
                 </ul>
             </div>
         </div>
@@ -104,14 +190,28 @@
 
     <section class="ftco-section">
         <div class="container">
+            <div class="row justify-content-center pb-5">
+                <div class="col-md-10 heading-section text-center ftco-animate">
+                    <h1 class="big big-2">رزرو وقت</h1>
+                    <h2 class="mb-4">رزرو وقت تعمیر</h2>
+                    <p>برای رزرو وقت تعمیر خودروی خود، فرم زیر را پر کنید</p>
+                </div>
+            </div>
             <div class="row justify-content-center">
                 <div class="col-md-8">
+                    <div class="booking-info">
+                        <h4>اطلاعات مهم</h4>
+                        <p>• لطفاً قبل از مراجعه حتماً وقت رزرو کنید</p>
+                        <p>• ساعات کاری: شنبه تا چهارشنبه از ساعت 8 صبح تا 2 ظهر و 4 عصر تا 9 شب</p>
+                        <p>• ساعات کاری: پنج شنبه از ساعت 8 صبح تا 6 عصر</p>
+                        <p>• پس از ثبت درخواست، کارشناسان ما در اسرع وقت با شما تماس خواهند گرفت</p>
+                    </div>
                     <div class="card">
                         <div class="card-header bg-primary text-white text-center">
                             <h3 class="mb-0">رزرو وقت تعمیر</h3>
                         </div>
                         <div class="card-body">
-                            <form id="booking-form">
+                            <form id="booking-form" action="https://formspree.io/f/myzwydeq" method="POST">
                                 <div class="form-group mb-3">
                                     <label for="name">نام و نام خانوادگی</label>
                                     <input type="text" class="form-control" id="name" name="name" required>
@@ -151,6 +251,7 @@
                                             <option value="baic">بایک B30</option>
                                         </optgroup>
                                     </select>
+                                    <p>اگه خودرو شما در لیست نبود در قسمت توضیحات مدل خودرو خود را بگویید</p>
                                 </div>
 
                                 <div class="form-group mb-3">
@@ -186,6 +287,12 @@
                                                 <option value="15:00">15:00</option>
                                                 <option value="16:00">16:00</option>
                                                 <option value="17:00">17:00</option>
+                                                <option value="18:00">18:00</option>
+                                                <option value="19:00">19:00</option>
+                                                <option value="20:00">20:00</option>
+                                                <option value="21:00">21:00</option>
+                                                <option value="22:00">22:00</option>
+                                                <option value="23:00">23:00</option>
                                             </select>
                                         </div>
                                     </div>
@@ -269,16 +376,89 @@
     <script src="js/jquery.animateNumber.min.js"></script>
     <script src="js/scrollax.min.js"></script>
     <script src="js/main.js"></script>
-
+    
+    <!-- اضافه کردن کتابخانه‌های مورد نیاز -->
+    <script src="https://unpkg.com/persian-date@latest/dist/persian-date.min.js"></script>
+    <script src="https://unpkg.com/persian-datepicker@latest/dist/js/persian-datepicker.min.js"></script>
+    
+    <!-- اضافه کردن کتابخانه kavenegar-js -->
+    <script src="https://unpkg.com/kavenegar-js@latest/dist/kavenegar.min.js"></script>
+    
     <script>
-        // تنظیم حداقل تاریخ به امروز
-        document.getElementById('date').min = new Date().toISOString().split('T')[0];
+        // تنظیم تقویم شمسی
+        $(document).ready(function() {
+            $('#date').persianDatepicker({
+                format: 'YYYY/MM/DD',
+                initialValue: false,
+                autoClose: true,
+                position: 'auto',
+                calendar: {
+                    persian: {
+                        locale: 'fa'
+                    }
+                },
+                onSelect: function(unix) {
+                    // تاریخ انتخاب شده به شمسی
+                    const selectedDate = new persianDate(unix).format('YYYY/MM/DD');
+                    $('#date').val(selectedDate);
+                }
+            });
+        });
 
         // مدیریت فرم رزرو وقت
         document.getElementById('booking-form').addEventListener('submit', function(e) {
             e.preventDefault();
-            alert('درخواست رزرو وقت شما با موفقیت ثبت شد. کارشناسان ما در اسرع وقت با شما تماس خواهند گرفت.');
-            this.reset();
+            
+            // جمع‌آوری اطلاعات فرم
+            const formData = new FormData(this);
+            const data = Object.fromEntries(formData.entries());
+            
+            // ارسال اطلاعات به Formspree
+            fetch(this.action, {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            })
+            .then(response => response.json())
+            .then(formspreeData => {
+                if (formspreeData.ok) {
+                    // ارسال پیامک با کاوه‌نگار
+                    const message = `رزرو وقت جدید:\nنام: ${data.name}\nشماره تماس: ${data.phone}\nمدل خودرو: ${data.carModel}\nنوع خدمت: ${data.serviceType}\nتاریخ: ${data.date}\nساعت: ${data.time}\nتوضیحات: ${data.description}`;
+                    
+                    fetch('https://api.kavenegar.com/v1/YOUR_API_KEY/sms/send.json', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/x-www-form-urlencoded',
+                        },
+                        body: new URLSearchParams({
+                            'receptor': '09902524062',
+                            'sender': 'MaximaHome',
+                            'message': message
+                        })
+                    })
+                    .then(response => response.json())
+                    .then(smsData => {
+                        if (smsData.return.status === 200) {
+                            alert('درخواست رزرو وقت شما با موفقیت ثبت شد. کارشناسان ما در اسرع وقت با شما تماس خواهند گرفت.');
+                            this.reset();
+                        } else {
+                            alert('خطا در ارسال پیامک. لطفاً دوباره تلاش کنید.');
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Error:', error);
+                        alert('خطا در ارسال پیامک. لطفاً دوباره تلاش کنید.');
+                    });
+                } else {
+                    alert('خطا در ثبت درخواست. لطفاً دوباره تلاش کنید.');
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('خطا در ثبت درخواست. لطفاً دوباره تلاش کنید.');
+            });
         });
     </script>
 </body>

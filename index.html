@@ -77,78 +77,6 @@
             width: 100%;
         }
 
-        /* استایل دکمه‌های ورود و ثبت نام */
-        .auth-buttons {
-            background: rgba(255, 255, 255, 0.1);
-            padding: 5px 15px;
-            border-radius: 5px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-        }
-
-        .auth-btn {
-            padding: 5px 15px;
-            border-radius: 4px;
-            text-decoration: none;
-            font-weight: 500;
-            transition: all 0.3s ease;
-            font-size: 14px;
-        }
-
-        .auth-btn.login {
-            background: transparent;
-            color: #fff;
-            border: 1px solid #ffbd39;
-        }
-
-        .auth-btn.register {
-            background: #ffbd39;
-            color: #000;
-            border: 1px solid #ffbd39;
-        }
-
-        .auth-btn:hover {
-            transform: translateY(-1px);
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-        }
-
-        .divider {
-            color: rgba(255, 255, 255, 0.5);
-            font-weight: 300;
-            font-size: 14px;
-        }
-
-        /* استایل منوی کاربری */
-        .user-menu {
-            position: relative;
-        }
-
-        .user-menu .dropdown-menu {
-            background-color: rgba(0, 0, 0, 0.9);
-            border: 1px solid #ffbd39;
-            border-radius: 5px;
-            padding: 10px 0;
-            min-width: 200px;
-        }
-
-        .user-menu .dropdown-item {
-            color: #fff;
-            padding: 8px 20px;
-            transition: all 0.3s ease;
-        }
-
-        .user-menu .dropdown-item:hover {
-            background-color: #ffbd39;
-            color: #000;
-        }
-
-        .user-menu .dropdown-divider {
-            border-color: #ffbd39;
-            margin: 5px 0;
-        }
-
         /* استایل دکمه رزرو وقت */
         .booking-btn {
             background-color: #ffbd39;
@@ -169,7 +97,7 @@
 <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
 
 
-    <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar ftco-navbar-light site-navbar-target" id="ftco-navbar">
+<nav class="navbar navbar-expand-lg navbar-dark ftco_navbar ftco-navbar-light site-navbar-target" id="ftco-navbar">
         <div class="container">
             <a class="navbar-brand" href="index.html">MaximaHome</a>
             <button class="navbar-toggler js-fh5co-nav-toggle fh5co-nav-toggle" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
@@ -178,22 +106,15 @@
 
             <div class="collapse navbar-collapse" id="ftco-nav">
                 <ul class="navbar-nav nav ml-auto">
-                    <li class="nav-item"><a href="#home-section" class="nav-link"><span>خانه</span></a></li>
-                    <li class="nav-item"><a href="#about-section" class="nav-link"><span>درباره ما</span></a></li>
-                    <li class="nav-item"><a href="#resume-section" class="nav-link"><span>اطلاعات</span></a></li>
-                    <li class="nav-item"><a href="#services-section" class="nav-link"><span>سرویس ها</span></a></li>
-                    <li class="nav-item"><a href="#skills-section" class="nav-link"><span>مهارت ها</span></a></li>
-                    <li class="nav-item"><a href="#projects-section" class="nav-link"><span>کار ها</span></a></li>
-                    <li class="nav-item"><a href="#contact-section" class="nav-link"><span>تماس با ما</span></a></li>
-                    <li class="nav-item"><a href="cars.html" class="nav-link"><span>اطلاعات ماشین‌ها</span></a></li>
+                    <li class="nav-item"><a href="index.html" class="nav-link"><span>خانه</span></a></li>
+                    <li class="nav-item"><a href="index.html#about-section" class="nav-link"><span>درباره ما</span></a></li>
+                    <li class="nav-item"><a href="index.html#resume-section" class="nav-link"><span>اطلاعات</span></a></li>
+                    <li class="nav-item"><a href="index.html#services-section" class="nav-link"><span>سرویس ها</span></a></li>
+                    <li class="nav-item"><a href="index.html#skills-section" class="nav-link"><span>مهارت ها</span></a></li>
+                    <li class="nav-item"><a href="index.html#projects-section" class="nav-link"><span>کار ها</span></a></li>
+                    <li class="nav-item"><a href="index.html#contact-section" class="nav-link"><span>تماس با ما</span></a></li>
+                    <li class="nav-item"><a href="cars.html" class="nav-link active"><span>اطلاعات ماشین‌ها</span></a></li>
                     <li class="nav-item"><a href="booking.html" class="nav-link booking-btn"><span>رزرو وقت</span></a></li>
-                    
-                    <!-- گزینه‌های ورود و ثبت نام -->
-                    <li class="nav-item auth-buttons">
-                        <a href="login.html" class="auth-btn login"><span>ورود</span></a>
-                        <span class="divider">/</span>
-                        <a href="register.html" class="auth-btn register"><span>ثبت نام</span></a>
-                    </li>
                 </ul>
             </div>
         </div>
@@ -682,19 +603,19 @@
                 <div class="col-md-6 order-md-last d-flex">
                     <form action="#" class="bg-light p-4 p-md-5 contact-form">
                         <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Your Name">
+                            <input type="text" class="form-control" placeholder="نام شما">
                         </div>
                         <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Your Email">
+                            <input type="text" class="form-control" placeholder="ایمیل شما">
                         </div>
                         <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Subject">
+                            <input type="text" class="form-control" placeholder="موضوع">
                         </div>
                         <div class="form-group">
-                            <textarea name="" id="" cols="30" rows="7" class="form-control" placeholder="Message"></textarea>
+                            <textarea name="" id="" cols="30" rows="7" class="form-control" placeholder="پیام"></textarea>
                         </div>
                         <div class="form-group">
-                            <input type="submit" value="Send Message" class="btn btn-primary py-3 px-5">
+                            <input type="submit" value="ارسال پیام" class="btn btn-primary py-3 px-5">
                         </div>
                     </form>
 
@@ -774,7 +695,7 @@
 
 
     <!-- loader -->
-    <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee" /><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00" /></svg></div>
+    <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee" /><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-miterlimit="10" stroke="#F96D00" /></svg></div>
 
 
     <script src="js/jquery.min.js"></script>
