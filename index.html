@@ -513,12 +513,45 @@
         .skill-progress {
             animation: progress 1.5s ease-in-out forwards;
         }
+
+        /* استایل دکمه واتساپ */
+        .whatsapp-btn {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            z-index: 1000;
+            background-color: #25d366;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            transition: all 0.3s ease;
+        }
+
+        .whatsapp-btn:hover {
+            transform: scale(1.1);
+            background-color: #128C7E;
+            color: white;
+        }
+
+        .whatsapp-btn i {
+            font-size: 30px;
+        }
     </style>
 </head>
 <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
 
+    <!-- دکمه واتساپ -->
+    <a href="https://wa.me/989902524062" class="whatsapp-btn" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
 
-<nav class="navbar navbar-expand-lg navbar-dark ftco_navbar ftco-navbar-light site-navbar-target" id="ftco-navbar">
+    <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar ftco-navbar-light site-navbar-target" id="ftco-navbar">
         <div class="container">
             <a class="navbar-brand" href="index.html">MaximaHome</a>
             <button class="navbar-toggler js-fh5co-nav-toggle fh5co-nav-toggle" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
@@ -533,8 +566,9 @@
                     <li class="nav-item"><a href="index.html#services-section" class="nav-link"><span>سرویس ها</span></a></li>
                     <li class="nav-item"><a href="index.html#skills-section" class="nav-link"><span>مهارت ها</span></a></li>
                     <li class="nav-item"><a href="index.html#projects-section" class="nav-link"><span>کار ها</span></a></li>
-                    <li class="nav-item"><a href="index.html#contact-section" class="nav-link"><span>تماس با ما</span></a></li>
+                    <li class="nav-item"><a href="contact.html" class="nav-link"><span>تماس با ما</span></a></li>
                     <li class="nav-item"><a href="cars.html" class="nav-link active"><span>اطلاعات ماشین‌ها</span></a></li>
+                    <li class="nav-item"><a href="blog.html" class="nav-link"><span>وبلاگ</span></a></li>
                     <li class="nav-item"><a href="booking.html" class="nav-link booking-btn"><span>رزرو وقت</span></a></li>
                 </ul>
             </div>
@@ -947,6 +981,14 @@
                     </div>
                 </div>
 
+                <!-- دکمه لینک وبلاگ -->
+                <div class="col-md-12 text-center mt-5">
+                    <a href="blog.html" class="btn btn-primary btn-lg" style="background-color: #ffbd39; border-color: #ffbd39; color: #000; padding: 15px 40px; font-size: 18px; border-radius: 5px; transition: all 0.3s ease;">
+                        <i class="fas fa-blog mr-2"></i>
+                        مشاهده وبلاگ
+                    </a>
+                </div>
+
                 <!-- بخش فیلم‌ها -->
                 <div class="col-md-12 mt-5">
                     <h3 class="text-center mb-4">فیلم‌ها</h3>
@@ -1011,6 +1053,7 @@
                     <h1 class="big big-2">تماس</h1>
                     <h2 class="mb-4">تماس با ما</h2>
                     <p>قبل از مراجعه به مجموعه ماکسیما هوم با ما تماس بگیرید</p>
+                    <a href="contact.html" class="btn btn-primary mt-3">مشاهده صفحه تماس با ما</a>
                 </div>
             </div>
 
@@ -1020,7 +1063,6 @@
                         <div class="icon d-flex align-items-center justify-content-center">
                             <i class="fas fa-map-marker-alt"></i>
                         </div>
-                        <a href="https://maps.app.goo.gl/iEeFdvBABjwvzWSt7?g_st=ic">لوکیشن<h3 class="mb-4">آدرس</h3></a>
                         <p>یزد بلوار خامنه ای خیابان اندیشه - اندیشه 6</p>
                     </div>
                 </div>
