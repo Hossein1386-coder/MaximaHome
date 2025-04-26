@@ -1,10 +1,19 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fa" dir="rtl">
 <head>
     <title>ماکسیما هوم | تعمیرگاه تخصصی خودروهای هیبرید، ژاپنی، چینی در یزد</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
+    
+    <!-- PWA Meta Tags -->
+    <meta name="theme-color" content="#ffbd39">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="ماکسیما هوم">
+    <link rel="manifest" href="manifest.json">
+    <link rel="apple-touch-icon" href="images/icon-192x192.png">
+    <link rel="apple-touch-startup-image" href="images/splash.png">
+    
     <!-- سئو عمومی -->
     <meta name="description" content="ماکسیما هوم - تعمیرگاه تخصصی ماکسیما هوم در یزد - مکانیکی ماکسیما هوم یزد- تعمیرگاه یزد - تعمیرگاه تخصصی نیسان یزد - تعمیرگاه تخصصی هیبرید یزد - مکانیکی یزد - تعمیر ماکسیما - تعمیرگاه تخصصی ماشین چینی یزد - تعمیر ماشین ژاپنی یزد - تعمیر ماشین های ژاپنی ، چینی ، کره ای">
     <meta name="robots" content="index, follow">
@@ -134,6 +143,10 @@
     <link rel="stylesheet" href="css/style.css">
     <!-- اضافه کردن Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <link rel="stylesheet" href="css/icon-animations.css">
+
+    <link rel="stylesheet" href="css/projects.css">
 
     <style>
         /* استایل‌های منو */
@@ -584,8 +597,8 @@
                         <div class="one-third js-fullheight order-md-last img" style="background-image:url(images/image5.png);">
                             <div class="overlay"></div>
                         </div>
-                        <div class="one-forth d-flex  align-items-center ftco-animate" data-scrollax=" properties: { translateY: '70%' }">
-                            <div class="text">
+                        <div class="one-forth d-flex align-items-center ftco-animate" data-scrollax=" properties: { translateY: '70%' }">
+                            <div class="text hero-text">
                                 <span class="subheading">سلام</span>
                                 <h1 class="mb-4 mt-3">من <span>محمدرضا میرزاحسنی هستم</span></h1>
                                 <h2 class="mb-4">مکانیک ماکسیما هوم</h2>
@@ -631,7 +644,20 @@
         </div>
     </section>
 
-    <section class="ftco-about img ftco-section ftco-no-pb" id="about-section">
+    <!-- بنر تبلیغاتی -->
+    <section class="banner-section py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="banner">
+                        <img src="images/بنر سایت.png" alt="بنر تبلیغاتی" class="img-fluid w-100">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about-section" class="about-section">
         <div class="container">
             <div class="row d-flex">
                 <div class="col-md-6 col-lg-5 d-flex">
@@ -789,7 +815,7 @@
             <div class="row">
                 <div class="col-md-4 text-center d-flex ftco-animate">
                     <a href="#" class="services-1">
-                        <span class="icon">
+                        <span class="icon icon-rotate">
                             <i class="fas fa-cogs"></i>
                         </span>
                         <div class="desc">
@@ -799,7 +825,7 @@
                 </div>
                 <div class="col-md-4 text-center d-flex ftco-animate">
                     <a href="#" class="services-1">
-                        <span class="icon">
+                        <span class="icon icon-scale">
                             <i class="fas fa-cog"></i>
                         </span>
                         <div class="desc">
@@ -809,7 +835,7 @@
                 </div>
                 <div class="col-md-4 text-center d-flex ftco-animate">
                     <a href="#" class="services-1">
-                        <span class="icon">
+                        <span class="icon icon-pulse">
                             <i class="fas fa-car"></i>
                         </span>
                         <div class="desc">
@@ -820,7 +846,7 @@
 
                 <div class="col-md-4 text-center d-flex ftco-animate">
                     <a href="#" class="services-1">
-                        <span class="icon">
+                        <span class="icon icon-shake">
                             <i class="fas fa-circle-notch"></i>
                         </span>
                         <div class="desc">
@@ -830,7 +856,7 @@
                 </div>
                 <div class="col-md-4 text-center d-flex ftco-animate">
                     <a href="#" class="services-1">
-                        <span class="icon">
+                        <span class="icon icon-color">
                             <i class="fas fa-car-side"></i>
                         </span>
                         <div class="desc">
@@ -840,7 +866,7 @@
                 </div>
                 <div class="col-md-4 text-center d-flex ftco-animate">
                     <a href="#" class="services-1">
-                        <span class="icon">
+                        <span class="icon icon-combo">
                             <i class="fas fa-bolt"></i>
                         </span>
                         <div class="desc">
@@ -867,7 +893,7 @@
             <div class="row">
                 <div class="col-md-6 animate-box">
                     <div class="skill-card ftco-animate">
-                        <div class="skill-icon">
+                        <div class="skill-icon icon-float">
                             <i class="fas fa-car-battery"></i>
                         </div>
                         <div class="skill-content">
@@ -882,7 +908,7 @@
                 </div>
                 <div class="col-md-6 animate-box">
                     <div class="skill-card ftco-animate">
-                        <div class="skill-icon">
+                        <div class="skill-icon icon-rotate">
                             <i class="fas fa-cog"></i>
                         </div>
                         <div class="skill-content">
@@ -897,7 +923,7 @@
                 </div>
                 <div class="col-md-6 animate-box">
                     <div class="skill-card ftco-animate">
-                        <div class="skill-icon">
+                        <div class="skill-icon icon-scale">
                             <i class="fas fa-car"></i>
                         </div>
                         <div class="skill-content">
@@ -912,7 +938,7 @@
                 </div>
                 <div class="col-md-6 animate-box">
                     <div class="skill-card ftco-animate">
-                        <div class="skill-icon">
+                        <div class="skill-icon icon-pulse">
                             <i class="fas fa-bolt"></i>
                         </div>
                         <div class="skill-content">
@@ -939,103 +965,155 @@
                     <p>میتوانید کارهای ما رو مشاهده کنید</p>
                 </div>
             </div>
+            
+            <!-- فیلترها -->
+            <div class="project-filters">
+                <button class="filter-btn active" data-filter="all">همه</button>
+                <button class="filter-btn" data-filter="repair">تعمیرات</button>
+                <button class="filter-btn" data-filter="video">فیلم‌ها</button>
+            </div>
+
             <div class="row">
-                <div class="col-md-6">
-                    <div class="project img ftco-animate d-flex justify-content-center align-items-center" style="background-image: url(images/08.png);">
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="project img ftco-animate d-flex justify-content-center align-items-center" style="background-image: url(images/22.png);">
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="project img ftco-animate d-flex justify-content-center align-items-center" style="background-image: url(images/33.png);">
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="project img ftco-animate d-flex justify-content-center align-items-center" style="background-image: url(images/44.png);">
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="project img ftco-animate d-flex justify-content-center align-items-center" style="background-image: url(images/01.png);">
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="project img ftco-animate d-flex justify-content-center align-items-center" style="background-image: url(images/new1.png);">
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="project img ftco-animate d-flex justify-content-center align-items-center" style="background-image: url(images/new3.png);">
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="project img ftco-animate d-flex justify-content-center align-items-center" style="background-image: url(images/new4.png);">
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="project img ftco-animate d-flex justify-content-center align-items-center" style="background-image: url(images/new5.png);">
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="project img ftco-animate d-flex justify-content-center align-items-center" style="background-image: url(images/new6.png);">
+                <!-- کار 1 -->
+                <div class="col-md-6 col-lg-4 project-item" data-category="repair">
+                    <div class="project-card">
+                        <div class="project-image">
+                            <img src="images/08.png" alt="">
+                        </div>
                     </div>
                 </div>
 
-                <!-- دکمه لینک وبلاگ -->
-                <div class="col-md-12 text-center mt-5">
-                    <a href="blog.html" class="btn btn-primary btn-lg" style="background-color: #ffbd39; border-color: #ffbd39; color: #000; padding: 15px 40px; font-size: 18px; border-radius: 5px; transition: all 0.3s ease;">
-                        <i class="fas fa-blog mr-2"></i>
-                        مشاهده وبلاگ
-                    </a>
-                </div>
-
-                <!-- بخش فیلم‌ها -->
-                <div class="col-md-12 mt-5">
-                    <h3 class="text-center mb-4">فیلم‌ها</h3>
-                </div>
-                <div class="row">
-                    <div class="col-md-8 mx-auto mb-4">
-                        <div class="project video-container ftco-animate">
-                            <div class="video-wrapper">
-                                <video controls class="w-100" style="max-height: 500px; object-fit: cover; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
-                                    <source src="Video/film2.mp4" type="video/mp4">
-                                    مرورگر شما از پخش ویدیو پشتیبانی نمی‌کند.
-                                </video>
-                            </div>
-                            <div class="video-caption mt-3 text-center">
-                                <h5 class="mb-2">مجموعه ماکسیما هوم</h5>
-                                <p class="text-muted">معرفی مجموعه و خدمات ما</p>
+                <!-- کار 2 -->
+                <div class="col-md-6 col-lg-4 project-item" data-category="repair">
+                    <div class="project-card">
+                        <div class="project-image">
+                            <img src="images/22.png" alt="">
+                            <div class="project-overlay">
+                                <div class="project-info">
+                                    <h3>تعمیر گیربکس</h3>
+                                    <p>تعمیر تخصصی گیربکس خودروهای ژاپنی</p>
+                                    <a href="#" class="project-link">مشاهده جزئیات</a>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col-md-6 mb-4">
-                        <div class="project video-container ftco-animate">
-                            <div class="video-wrapper">
-                                <video controls class="w-100" style="max-height: 400px; object-fit: cover; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
-                                    <source src="Video/film1.mp4" type="video/mp4">
-                                    مرورگر شما از پخش ویدیو پشتیبانی نمی‌کند.
-                                </video>
-                            </div>
-                            <div class="video-caption mt-3 text-center">
-                                <h5 class="mb-2">تعمیر گیربکس</h5>
-                                <p class="text-muted">تعمیر گیربکس ماکسیما</p>
+
+                <!-- کار 3 -->
+                <div class="col-md-6 col-lg-4 project-item" data-category="repair">
+                    <div class="project-card">
+                        <div class="project-image">
+                            <img src="images/33.png" alt="">
+                            <div class="project-overlay">
+                                <div class="project-info">
+                                    <h3>تعمیر اتاق</h3>
+                                    <p>تعمیر تخصصی اتاق خودرو</p>
+                                    <a href="#" class="project-link">مشاهده جزئیات</a>
+                                </div>
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-6 mb-4">
-                        <div class="project video-container ftco-animate">
-                            <div class="video-wrapper">
-                                <video controls class="w-100" style="max-height: 400px; object-fit: cover; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
-                                    <source src="Video/film3.mp4" type="video/mp4">
-                                    مرورگر شما از پخش ویدیو پشتیبانی نمی‌کند.
-                                </video>
+                </div>
+
+                <!-- کار 4 -->
+                <div class="col-md-6 col-lg-4 project-item" data-category="repair">
+                    <div class="project-card">
+                        <div class="project-image">
+                            <img src="images/44.png" alt="">
+                            <div class="project-overlay">
+                                <div class="project-info">
+                                    <h3>تعمیر موتور</h3>
+                                    <p>تعمیر تخصصی موتور خودرو</p>
+                                    <a href="#" class="project-link">مشاهده جزئیات</a>
+                                </div>
                             </div>
-                            <div class="video-caption mt-3 text-center">
-                                <h5 class="mb-2">بازسازی</h5>
-                                <p class="text-muted">نمونه کارهای بازسازی</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- کار 5 -->
+                <div class="col-md-6 col-lg-4 project-item" data-category="repair">
+                    <div class="project-card">
+                        <div class="project-image">
+                            <img src="images/01.png" alt="">
+                            <div class="project-overlay">
+                                <div class="project-info">
+                                    <h3>تعمیر برق</h3>
+                                    <p>تعمیر تخصصی سیستم برق خودرو</p>
+                                    <a href="#" class="project-link">مشاهده جزئیات</a>
+                                </div>
                             </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- کار 6 -->
+                <div class="col-md-6 col-lg-4 project-item" data-category="repair">
+                    <div class="project-card">
+                        <div class="project-image">
+                            <img src="images/new1.png" alt="">
+                            <div class="project-overlay">
+                                <div class="project-info">
+                                    <h3>تعمیر جلوبندی</h3>
+                                    <p>تعمیر تخصصی جلوبندی خودرو</p>
+                                    <a href="#" class="project-link">مشاهده جزئیات</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- بخش فیلم‌ها -->
+            <div class="row mt-5">
+                <div class="col-12">
+                    <h3 class="text-center mb-4">فیلم‌های آموزشی</h3>
+                </div>
+                
+                <!-- فیلم 1 -->
+                <div class="col-md-6 col-lg-4 project-item" data-category="video">
+                    <div class="video-card">
+                        <div class="video-container">
+                            <video controls>
+                                <source src="Video/film1.mp4" type="video/mp4">
+                                مرورگر شما از پخش ویدیو پشتیبانی نمی‌کند.
+                            </video>
+                        </div>
+                        <div class="video-info">
+                            <h3>تعمیر گیربکس</h3>
+                            <p>آموزش تعمیر گیربکس ماکسیما</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- فیلم 2 -->
+                <div class="col-md-6 col-lg-4 project-item" data-category="video">
+                    <div class="video-card">
+                        <div class="video-container">
+                            <video controls>
+                                <source src="Video/film2.mp4" type="video/mp4">
+                                مرورگر شما از پخش ویدیو پشتیبانی نمی‌کند.
+                            </video>
+                        </div>
+                        <div class="video-info">
+                            <h3>مجموعه ماکسیما هوم</h3>
+                            <p>معرفی مجموعه و خدمات ما</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- فیلم 3 -->
+                <div class="col-md-6 col-lg-4 project-item" data-category="video">
+                    <div class="video-card">
+                        <div class="video-container">
+                            <video controls>
+                                <source src="Video/film3.mp4" type="video/mp4">
+                                مرورگر شما از پخش ویدیو پشتیبانی نمی‌کند.
+                            </video>
+                        </div>
+                        <div class="video-info">
+                            <h3>بازسازی</h3>
+                            <p>نمونه کارهای بازسازی</p>
                         </div>
                     </div>
                 </div>
@@ -1145,7 +1223,7 @@
                         <h2 class="ftco-heading-2">درباره ما</h2>
                         <p>در مجموعه ماکسیما هوم تعمیر انواع خودرو های هیبرید,ژاپنی,کره ای,چینی و.... انجام میشود</p>
                         <ul class="ftco-footer-social list-unstyled float-md-left float-lft mt-5">
-                            <li class="ftco-animate"><a href="https://www.instagram.com/maxima_.home?igsh=bTJoNW5vaTF5dG91"><span class="icon-instagram"></span></a></li>
+                            <li class="ftco-animate"><a href="https://www.instagram.com/maxima_.home?igsh=bTJoNW5vaTF5dG91"><span class="icon-instagram icon-pulse"></span></a></li>
                         </ul>
                     </div>
                 </div>
@@ -1153,11 +1231,11 @@
                     <div class="ftco-footer-widget mb-4 ml-md-4">
                         <h2 class="ftco-heading-2">لینک ها</h2>
                         <ul class="list-unstyled">
-                            <li><a href="#home-section"><span class="icon-long-arrow-right mr-2"></span>خانه</a></li>
-                            <li><a href="#about-section"><span class="icon-long-arrow-right mr-2"></span>درباره ما</a></li>
-                            <li><a href="#services-section"><span class="icon-long-arrow-right mr-2"></span>سرویس ها</a></li>
-                            <li><a href="#projects-section"><span class="icon-long-arrow-right mr-2"></span>کارها</a></li>
-                            <li><a href="#contact-section"><span class="icon-long-arrow-right mr-2"></span>تماس با ما</a></li>
+                            <li><a href="#home-section"><span class="icon-long-arrow-right mr-2 icon-rotate"></span>خانه</a></li>
+                            <li><a href="#about-section"><span class="icon-long-arrow-right mr-2 icon-rotate"></span>درباره ما</a></li>
+                            <li><a href="#services-section"><span class="icon-long-arrow-right mr-2 icon-rotate"></span>سرویس ها</a></li>
+                            <li><a href="#projects-section"><span class="icon-long-arrow-right mr-2 icon-rotate"></span>کارها</a></li>
+                            <li><a href="#contact-section"><span class="icon-long-arrow-right mr-2 icon-rotate"></span>تماس با ما</a></li>
                         </ul>
                     </div>
                 </div>
@@ -1165,11 +1243,11 @@
                     <div class="ftco-footer-widget mb-4">
                         <h2 class="ftco-heading-2">سرویس ها</h2>
                         <ul class="list-unstyled">
-                            <li><a href="#"><span class="icon-long-arrow-right mr-2"></span>تعمیر موتور</a></li>
-                            <li><a href="#"><span class="icon-long-arrow-right mr-2"></span>تعمیر گیربکس</a></li>
-                            <li><a href="#"><span class="icon-long-arrow-right mr-2"></span>تنظیم موتور</a></li>
-                            <li><a href="#"><span class="icon-long-arrow-right mr-2"></span>برق خودرو</a></li>
-                            <li><a href="#"><span class="icon-long-arrow-right mr-2"></span>جلوبندی</a></li>
+                            <li><a href="#"><span class="icon-long-arrow-right mr-2 icon-rotate"></span>تعمیر موتور</a></li>
+                            <li><a href="#"><span class="icon-long-arrow-right mr-2 icon-rotate"></span>تعمیر گیربکس</a></li>
+                            <li><a href="#"><span class="icon-long-arrow-right mr-2 icon-rotate"></span>تنظیم موتور</a></li>
+                            <li><a href="#"><span class="icon-long-arrow-right mr-2 icon-rotate"></span>برق خودرو</a></li>
+                            <li><a href="#"><span class="icon-long-arrow-right mr-2 icon-rotate"></span>جلوبندی</a></li>
                         </ul>
                     </div>
                 </div>
@@ -1178,9 +1256,9 @@
                         <h2 class="ftco-heading-2">سوالی دارید؟</h2>
                         <div class="block-23 mb-3">
                             <ul>
-                                <li><span class="icon icon-map-marker"></span><span class="text">یزد بلوار خامنه ای کوچه اندیشه - اندیشه 6</span></li>
-                                <li><a href="#"><span class="icon icon-phone"></span><span class="text">+989902524062</span></a></li>
-                                <li><a href="#"><span class="icon icon-envelope"></span><span class="text">hosseinmirzahasani3@gmail.com</span></a></li>
+                                <li><span class="icon icon-map-marker icon-shake"></span><span class="text">یزد بلوار خامنه ای کوچه اندیشه - اندیشه 6</span></li>
+                                <li><a href="#"><span class="icon icon-phone icon-pulse"></span><span class="text">+989902524062</span></a></li>
+                                <li><a href="#"><span class="icon icon-envelope icon-color"></span><span class="text">hosseinmirzahasani3@gmail.com</span></a></li>
                             </ul>
                         </div>
                     </div>
@@ -1192,7 +1270,7 @@
                     <p>
                         <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
                         MaximaHome &copy;
-                        <script>document.write(new Date().getFullYear());</script> <i class="icon-heart color-danger" aria-hidden="true"></i> by Hossein
+                        <script>document.write(new Date().getFullYear());</script> <i class="icon-heart color-danger icon-pulse" aria-hidden="true"></i> by Hossein
                         <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
                     </p>
                 </div>
@@ -1389,6 +1467,46 @@
                 alert('خطا در ثبت درخواست. لطفاً دوباره تلاش کنید.');
             });
         });
+    </script>
+
+    <script>
+        // کد فیلتر کردن پروژه‌ها
+        document.addEventListener('DOMContentLoaded', function() {
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            const projectItems = document.querySelectorAll('.project-item');
+
+            filterButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    // حذف کلاس active از همه دکمه‌ها
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    // اضافه کردن کلاس active به دکمه کلیک شده
+                    this.classList.add('active');
+
+                    const filterValue = this.getAttribute('data-filter');
+
+                    projectItems.forEach(item => {
+                        if (filterValue === 'all' || item.getAttribute('data-category') === filterValue) {
+                            item.style.display = 'block';
+                        } else {
+                            item.style.display = 'none';
+                        }
+                    });
+                });
+            });
+        });
+    </script>
+
+    <script>
+        // ثبت Service Worker
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', function() {
+                navigator.serviceWorker.register('/MaximaHome/sw.js').then(function(registration) {
+                    console.log('ServiceWorker registration successful with scope: ', registration.scope);
+                }, function(err) {
+                    console.log('ServiceWorker registration failed: ', err);
+                });
+            });
+        }
     </script>
 
 </body>

@@ -1849,10 +1849,10 @@ textarea.form-control {
 .was-validated .custom-file-input:valid ~ .custom-file-label, .custom-file-input.is-valid ~ .custom-file-label {
   border-color: #28a745; }
 
-.was-validated .custom-file-input:valid ~ .valid-feedback,
-.was-validated .custom-file-input:valid ~ .valid-tooltip, .custom-file-input.is-valid ~ .valid-feedback,
-.custom-file-input.is-valid ~ .valid-tooltip {
-  display: block; }
+.was-validated .custom-file-input:valid ~ .custom-file-label, .custom-file-input.is-valid ~ .custom-file-label {
+  border-color: #28a745;
+  -webkit-box-shadow: 0 0 0 0.2rem rgba(40, 167, 69, 0.25);
+  box-shadow: 0 0 0 0.2rem rgba(40, 167, 69, 0.25); }
 
 .was-validated .custom-file-input:valid:focus ~ .custom-file-label, .custom-file-input.is-valid:focus ~ .custom-file-label {
   border-color: #28a745;
@@ -7115,20 +7115,6 @@ button.bg-dark:focus {
   .mb-sm-n4,
   .my-sm-n4 {
     margin-bottom: -1.5rem !important; }
-  .ml-sm-n4,
-  .mx-sm-n4 {
-    margin-left: -1.5rem !important; }
-  .m-sm-n5 {
-    margin: -3rem !important; }
-  .mt-sm-n5,
-  .my-sm-n5 {
-    margin-top: -3rem !important; }
-  .mr-sm-n5,
-  .mx-sm-n5 {
-    margin-right: -3rem !important; }
-  .mb-sm-n5,
-  .my-sm-n5 {
-    margin-bottom: -3rem !important; }
   .ml-sm-n5,
   .mx-sm-n5 {
     margin-left: -3rem !important; }

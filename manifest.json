@@ -1,0 +1,35 @@
+{
+  "name": "ماکسیما هوم",
+  "short_name": "MaximaHome",
+  "description": "تعمیرگاه تخصصی خودروهای هیبرید، ژاپنی، چینی در یزد",
+  "start_url": "/MaximaHome/",
+  "scope": "/MaximaHome/",
+  "display": "standalone",
+  "background_color": "#1a1a1a",
+  "theme_color": "#ffbd39",
+  "icons": [
+    {
+      "src": "/MaximaHome/images/icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/MaximaHome/images/icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "orientation": "portrait",
+  "dir": "rtl",
+  "lang": "fa",
+  "categories": ["auto", "repair", "service"],
+  "screenshots": [
+    {
+      "src": "/MaximaHome/images/screenshot1.png",
+      "sizes": "1280x720",
+      "type": "image/png"
+    }
+  ]
+} 

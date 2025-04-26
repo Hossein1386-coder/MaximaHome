@@ -1,0 +1,76 @@
+/* انیمیشن‌های آیکون */
+.icon {
+    transition: all 0.3s ease;
+}
+
+/* انیمیشن چرخش */
+.icon-rotate:hover {
+    transform: rotate(180deg);
+}
+
+/* انیمیشن بزرگنمایی */
+.icon-scale:hover {
+    transform: scale(1.1);
+}
+
+/* انیمیشن تپش */
+.icon-pulse {
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* انیمیشن لرزش */
+.icon-shake:hover {
+    animation: shake 0.5s;
+}
+
+@keyframes shake {
+    0%, 100% {
+        transform: translateX(0);
+    }
+    25% {
+        transform: translateX(-3px);
+    }
+    75% {
+        transform: translateX(3px);
+    }
+}
+
+/* انیمیشن تغییر رنگ */
+.icon-color:hover {
+    color: #ffbd39;
+}
+
+/* انیمیشن ترکیبی */
+.icon-combo:hover {
+    transform: rotate(180deg) scale(1.1);
+    color: #ffbd39;
+}
+
+/* انیمیشن شناور */
+.icon-float {
+    animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-5px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+} 
