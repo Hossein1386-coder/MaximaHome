@@ -1,0 +1,211 @@
+{
+  "app": {
+    "name": "ماکسیما هوم",
+    "short_name": "MaximaHome",
+    "description": "تعمیرگاه تخصصی خودروهای هیبرید، ژاپنی، کره‌ای و چینی در یزد",
+    "version": "1.0.0",
+    "version_code": 1,
+    "package_name": "ir.maximahome.app",
+    "bundle_id": "ir.maximahome.app",
+    "developer": "Hossein Mirzahasani",
+    "website": "https://maximahome.ir",
+    "support_email": "hosseinmirzahasani3@gmail.com",
+    "support_phone": "+989902524062"
+  },
+  "design": {
+    "theme": {
+      "primary_color": "#000000",
+      "secondary_color": "#ffffff", 
+      "accent_color": "#ffbd39",
+      "background_color": "#1a1a1a",
+      "surface_color": "#2a2a2a",
+      "text_primary": "#ffffff",
+      "text_secondary": "#cccccc",
+      "text_accent": "#ffbd39"
+    },
+    "splash_screen": {
+      "background_color": "#000000",
+      "logo_color": "#ffbd39",
+      "text_color": "#ffffff",
+      "animation_duration": 2000,
+      "fade_duration": 500
+    },
+    "navigation": {
+      "bar_color": "#000000",
+      "bar_text_color": "#ffffff",
+      "bar_icon_color": "#ffbd39",
+      "status_bar_style": "light",
+      "status_bar_color": "#000000"
+    },
+    "icons": {
+      "app_icon": {
+        "192x192": "/web-app-manifest-192x192.png",
+        "512x512": "/web-app-manifest-512x512.png"
+      },
+      "splash_icon": "/web-app-manifest-512x512.png",
+      "notification_icon": "/web-app-manifest-192x192.png"
+    }
+  },
+  "features": {
+    "offline_support": true,
+    "push_notifications": false,
+    "background_sync": true,
+    "file_caching": true,
+    "image_optimization": true,
+    "responsive_design": true
+  },
+  "permissions": {
+    "camera": false,
+    "location": false,
+    "microphone": false,
+    "storage": false,
+    "contacts": false,
+    "phone": false,
+    "sms": false,
+    "internet": true,
+    "network_state": true
+  },
+  "services": {
+    "booking": {
+      "enabled": true,
+      "form_url": "https://formspree.io/f/your-form-id",
+      "sms_service": "kavenegar",
+      "notification_enabled": true
+    },
+    "contact": {
+      "phone": "+989902524062",
+      "whatsapp": "+989902524062",
+      "email": "hosseinmirzahasani3@gmail.com",
+      "address": "یزد بلوار خامنه ای خیابان اندیشه - اندیشه 6"
+    },
+    "social": {
+      "instagram": "https://www.instagram.com/maxima_.home",
+      "telegram": null,
+      "website": "https://maximahome.ir"
+    }
+  },
+  "content": {
+    "sections": [
+      {
+        "id": "home",
+        "title": "خانه",
+        "icon": "home",
+        "enabled": true
+      },
+      {
+        "id": "about",
+        "title": "درباره ما", 
+        "icon": "info",
+        "enabled": true
+      },
+      {
+        "id": "services",
+        "title": "سرویس ها",
+        "icon": "settings",
+        "enabled": true
+      },
+      {
+        "id": "projects",
+        "title": "کارها",
+        "icon": "work",
+        "enabled": true
+      },
+      {
+        "id": "contact",
+        "title": "تماس",
+        "icon": "phone",
+        "enabled": true
+      },
+      {
+        "id": "booking",
+        "title": "رزرو وقت",
+        "icon": "calendar",
+        "enabled": true
+      }
+    ],
+    "car_brands": [
+      "نیسان",
+      "تویوتا", 
+      "هیوندای",
+      "کیا",
+      "هوندا",
+      "مازدا",
+      "سوزوکی",
+      "میتسوبیشی",
+      "لکسوس",
+      "اینفینیتی",
+      "جیلی",
+      "چری",
+      "برلیانس",
+      "لیفان",
+      "سایپا",
+      "ایران خودرو"
+    ],
+    "services": [
+      {
+        "name": "تعمیر موتور",
+        "icon": "engine",
+        "description": "تعمیر تخصصی موتور خودروهای هیبرید، ژاپنی و چینی"
+      },
+      {
+        "name": "تعمیر گیربکس",
+        "icon": "gearbox", 
+        "description": "تعمیر و نگهداری گیربکس اتوماتیک و دستی"
+      },
+      {
+        "name": "برق خودرو",
+        "icon": "electric",
+        "description": "تعمیر سیستم برق و الکترونیک خودرو"
+      },
+      {
+        "name": "جلوبندی",
+        "icon": "suspension",
+        "description": "تعمیر و تنظیم جلوبندی و سیستم تعلیق"
+      },
+      {
+        "name": "تنظیم موتور",
+        "icon": "tune",
+        "description": "تنظیم و بهینه‌سازی عملکرد موتور"
+      },
+      {
+        "name": "تعویض روغن",
+        "icon": "oil",
+        "description": "تعویض روغن و فیلترهای خودرو"
+      }
+    ]
+  },
+  "localization": {
+    "default_language": "fa",
+    "supported_languages": ["fa", "en"],
+    "rtl_support": true,
+    "date_format": "jYYYY/jMM/jDD",
+    "time_format": "HH:mm",
+    "currency": "IRR",
+    "timezone": "Asia/Tehran"
+  },
+  "analytics": {
+    "google_analytics": false,
+    "custom_tracking": false,
+    "error_reporting": true,
+    "performance_monitoring": true
+  },
+  "security": {
+    "https_required": true,
+    "content_security_policy": true,
+    "xss_protection": true,
+    "clickjacking_protection": true
+  },
+  "performance": {
+    "cache_strategy": "network-first",
+    "image_compression": true,
+    "lazy_loading": true,
+    "minification": true,
+    "gzip_compression": true
+  },
+  "deployment": {
+    "platforms": ["web", "android", "ios"],
+    "build_tools": ["median", "pwa"],
+    "cdn_enabled": false,
+    "auto_update": true
+  }
+}

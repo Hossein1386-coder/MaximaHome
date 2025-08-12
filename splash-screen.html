@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ماکسیما هوم - در حال بارگذاری</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: linear-gradient(135deg, #000000 0%, #1a1a1a 50%, #000000 100%);
+            font-family: 'Tahoma', 'Arial', sans-serif;
+            overflow: hidden;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .splash-container {
+            text-align: center;
+            z-index: 10;
+        }
+
+        .logo-container {
+            position: relative;
+            margin-bottom: 30px;
+        }
+
+        .logo {
+            width: 120px;
+            height: 120px;
+            background: #ffbd39;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto;
+            font-size: 60px;
+            font-weight: bold;
+            color: #000;
+            box-shadow: 0 10px 30px rgba(255, 189, 57, 0.3);
+            animation: logoPulse 2s ease-in-out infinite;
+        }
+
+        @keyframes logoPulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        .app-name {
+            font-size: 28px;
+            font-weight: bold;
+            color: #ffffff;
+            margin-bottom: 10px;
+            animation: fadeInUp 1s ease-out 0.5s both;
+        }
+
+        .app-subtitle {
+            font-size: 16px;
+            color: #cccccc;
+            margin-bottom: 40px;
+            animation: fadeInUp 1s ease-out 0.7s both;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .loading-bar {
+            width: 200px;
+            height: 4px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 2px;
+            margin: 0 auto;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .loading-progress {
+            height: 100%;
+            background: linear-gradient(90deg, #ffbd39, #ffd700);
+            border-radius: 2px;
+            animation: loading 2s ease-in-out infinite;
+        }
+
+        @keyframes loading {
+            0% { width: 0%; }
+            50% { width: 70%; }
+            100% { width: 100%; }
+        }
+
+        .loading-text {
+            font-size: 14px;
+            color: #888888;
+            margin-top: 20px;
+            animation: fadeIn 1s ease-out 1s both;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .particles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        .particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: #ffbd39;
+            border-radius: 50%;
+            animation: particleFloat 6s linear infinite;
+        }
+
+        @keyframes particleFloat {
+            0% {
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100px) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        .gear-icon {
+            position: absolute;
+            font-size: 24px;
+            color: rgba(255, 189, 57, 0.3);
+            animation: gearRotate 4s linear infinite;
+        }
+
+        .gear-1 { top: 20%; left: 10%; animation-delay: 0s; }
+        .gear-2 { top: 60%; right: 15%; animation-delay: 1s; }
+        .gear-3 { bottom: 30%; left: 20%; animation-delay: 2s; }
+
+        @keyframes gearRotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .progress-indicator {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 12px;
+            color: #666666;
+        }
+
+        @media (max-width: 480px) {
+            .logo {
+                width: 100px;
+                height: 100px;
+                font-size: 50px;
+            }
+            
+            .app-name {
+                font-size: 24px;
+            }
+            
+            .app-subtitle {
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="particles">
+        <div class="particle" style="left: 10%; animation-delay: 0s;"></div>
+        <div class="particle" style="left: 20%; animation-delay: 1s;"></div>
+        <div class="particle" style="left: 30%; animation-delay: 2s;"></div>
+        <div class="particle" style="left: 40%; animation-delay: 3s;"></div>
+        <div class="particle" style="left: 50%; animation-delay: 4s;"></div>
+        <div class="particle" style="left: 60%; animation-delay: 5s;"></div>
+        <div class="particle" style="left: 70%; animation-delay: 0.5s;"></div>
+        <div class="particle" style="left: 80%; animation-delay: 1.5s;"></div>
+        <div class="particle" style="left: 90%; animation-delay: 2.5s;"></div>
+        
+        <div class="gear-icon gear-1">⚙️</div>
+        <div class="gear-icon gear-2">🔧</div>
+        <div class="gear-icon gear-3">🚗</div>
+    </div>
+
+    <div class="splash-container">
+        <div class="logo-container">
+            <div class="logo">M</div>
+        </div>
+        
+        <h1 class="app-name">ماکسیما هوم</h1>
+        <p class="app-subtitle">تعمیرگاه تخصصی خودروهای هیبرید، ژاپنی و چینی</p>
+        
+        <div class="loading-bar">
+            <div class="loading-progress"></div>
+        </div>
+        
+        <p class="loading-text">در حال بارگذاری...</p>
+    </div>
+
+    <div class="progress-indicator">
+        نسخه 1.0.0
+    </div>
+
+    <script>
+        // شبیه‌سازی بارگذاری
+        let progress = 0;
+        const progressBar = document.querySelector('.loading-progress');
+        const loadingText = document.querySelector('.loading-text');
+        
+        const loadingMessages = [
+            'در حال بارگذاری...',
+            'آماده‌سازی اپلیکیشن...',
+            'بارگذاری محتوا...',
+            'تقریباً آماده...',
+            'شروع اپلیکیشن...'
+        ];
+        
+        let messageIndex = 0;
+        
+        const loadingInterval = setInterval(() => {
+            progress += Math.random() * 15;
+            if (progress > 100) progress = 100;
+            
+            progressBar.style.width = progress + '%';
+            
+            if (progress >= 20 && messageIndex < 1) {
+                loadingText.textContent = loadingMessages[1];
+                messageIndex = 1;
+            } else if (progress >= 40 && messageIndex < 2) {
+                loadingText.textContent = loadingMessages[2];
+                messageIndex = 2;
+            } else if (progress >= 60 && messageIndex < 3) {
+                loadingText.textContent = loadingMessages[3];
+                messageIndex = 3;
+            } else if (progress >= 80 && messageIndex < 4) {
+                loadingText.textContent = loadingMessages[4];
+                messageIndex = 4;
+            }
+            
+            if (progress >= 100) {
+                clearInterval(loadingInterval);
+                setTimeout(() => {
+                    // انتقال به صفحه اصلی
+                    window.location.href = '/index.html';
+                }, 500);
+            }
+        }, 200);
+        
+        // انیمیشن ورودی
+        document.addEventListener('DOMContentLoaded', () => {
+            document.body.style.opacity = '0';
+            setTimeout(() => {
+                document.body.style.transition = 'opacity 0.5s ease-in';
+                document.body.style.opacity = '1';
+            }, 100);
+        });
+    </script>
+</body>
+</html>
