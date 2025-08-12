@@ -1,0 +1,51 @@
+{
+  "app": {
+    "name": "ماکسیما هوم",
+    "short_name": "MaximaHome",
+    "description": "تعمیرگاه تخصصی خودروهای هیبرید، ژاپنی، کره‌ای و چینی در یزد",
+    "version": "1.0.0",
+    "version_code": 1,
+    "package_name": "ir.maximahome.app",
+    "bundle_id": "ir.maximahome.app"
+  },
+  "design": {
+    "theme": {
+      "primary_color": "#000000",
+      "secondary_color": "#ffffff", 
+      "accent_color": "#ffbd39",
+      "background_color": "#1a1a1a"
+    },
+    "splash_screen": {
+      "background_color": "#000000",
+      "logo_color": "#ffbd39",
+      "text_color": "#ffffff"
+    },
+    "navigation": {
+      "bar_color": "#000000",
+      "bar_text_color": "#ffffff",
+      "bar_icon_color": "#ffbd39",
+      "status_bar_style": "light"
+    }
+  },
+  "features": {
+    "offline_support": true,
+    "push_notifications": false,
+    "background_sync": true
+  },
+  "permissions": {
+    "camera": false,
+    "location": false,
+    "microphone": false,
+    "storage": false,
+    "contacts": false,
+    "phone": false,
+    "sms": false,
+    "internet": true,
+    "network_state": true
+  },
+  "localization": {
+    "default_language": "fa",
+    "supported_languages": ["fa", "en"],
+    "rtl_support": true
+  }
+}
