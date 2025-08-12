@@ -12,9 +12,13 @@
 
 /* بهبود ظاهر اپلیکیشن */
 body {
-    background-color: var(--app-background);
-    color: var(--app-text-primary);
+    background-color: var(--app-background) !important;
+    color: var(--app-text-primary) !important;
     font-family: 'Tahoma', 'Arial', sans-serif;
+}
+
+html {
+    background-color: var(--app-background) !important;
 }
 
 /* نوار وضعیت سفارشی */

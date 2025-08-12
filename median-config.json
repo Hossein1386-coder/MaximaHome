@@ -1,51 +1,419 @@
 {
-  "app": {
-    "name": "ماکسیما هوم",
-    "short_name": "MaximaHome",
-    "description": "تعمیرگاه تخصصی خودروهای هیبرید، ژاپنی، کره‌ای و چینی در یزد",
-    "version": "1.0.0",
-    "version_code": 1,
-    "package_name": "ir.maximahome.app",
-    "bundle_id": "ir.maximahome.app"
+  "general": {
+    "userAgentRegexes": [],
+    "replaceStrings": [],
+    "publicKey": "djjqrw",
+    "deviceRegKey": "x8k0g0uu35dm9evqy5j618yru4",
+    "appName": "ماکسیما هوم",
+    "initialUrl": "https://www.maximahome.ir",
+    "keepScreenOn": null,
+    "screenOrientation": {
+      "iphone": null,
+      "ipad": null,
+      "androidPhone": null,
+      "androidTablet": null
+    },
+    "enableWindowOpen": true,
+    "userAgentAdd": "median",
+    "forceUserAgent": "",
+    "iosUserAgentAdd": "median",
+    "iosForceUserAgent": "",
+    "androidUserAgentAdd": "median",
+    "androidForceUserAgent": "",
+    "languages": ["fa", "en"],
+    "nativeBridgeUrls": [],
+    "iosBundleId": "ir.maximahome.app",
+    "androidPackageName": "ir.maximahome.app",
+    "androidSigningKey": "release",
+    "iosCustomHeaders": {},
+    "androidCustomHeaders": {},
+    "injectMedianJS": true,
+    "forceSessionCookieExpiry": 0
   },
-  "design": {
-    "theme": {
-      "primary_color": "#000000",
-      "secondary_color": "#ffffff", 
-      "accent_color": "#ffbd39",
-      "background_color": "#1a1a1a"
+  "navigation": {
+    "ignorePageFinishedRegexes": [],
+    "redirects": [],
+    "iosSettings": {},
+    "iosPullToRefresh": true,
+    "androidPullToRefresh": true,
+    "swipeGestures": null,
+    "iosConnectionOfflineTime": 10,
+    "androidConnectionOfflineTime": 10,
+    "regexInternalExternal": {
+      "active": true,
+      "rules": [
+        {
+          "mode": "external",
+          "label": "Non-web links",
+          "pagesToTrigger": "custom",
+          "regex": "^(?!https?://).*"
+        },
+        {
+          "mode": "appbrowser",
+          "label": "Facebook",
+          "pagesToTrigger": "custom",
+          "regex": "https?://([-\\w]+\\.)*facebook\\.com.*"
+        },
+        {
+          "mode": "appbrowser",
+          "label": "Twitter/X",
+          "pagesToTrigger": "custom",
+          "regex": "https?://([\\-\\w]+\\.)*(twitter|x)\\.com/.*"
+        },
+        {
+          "mode": "appbrowser",
+          "label": "Instagram",
+          "pagesToTrigger": "custom",
+          "regex": "https?://([-\\w]+\\.)*instagram\\.com/.*"
+        },
+        {
+          "mode": "appbrowser",
+          "label": "Google Maps",
+          "pagesToTrigger": "custom",
+          "regex": "https?://maps\\.google\\.com.*"
+        },
+        {
+          "mode": "appbrowser",
+          "label": "Google Maps Search",
+          "pagesToTrigger": "custom",
+          "regex": "https?://([-\\w]+\\.)*google\\.com/maps/search/.*"
+        },
+        {
+          "mode": "appbrowser",
+          "label": "LinkedIn",
+          "pagesToTrigger": "custom",
+          "regex": "https?://([-\\w]+\\.)*linkedin\\.com/.*"
+        },
+        {
+          "mode": "internal",
+          "label": "Microsoft Login",
+          "pagesToTrigger": "custom",
+          "regex": "https?://login\\.microsoftonline\\.com.*"
+        },
+        {
+          "mode": "internal",
+          "label": "All pages on my domain",
+          "pagesToTrigger": "domain",
+          "regex": "https?:\\/\\/([-\\w]+\\.)*maximahome.ir(\\/.*)?$"
+        },
+        {
+          "mode": "appbrowser",
+          "label": "All Other Links",
+          "pagesToTrigger": "all",
+          "regex": ".*"
+        }
+      ]
     },
-    "splash_screen": {
-      "background_color": "#000000",
-      "logo_color": "#ffbd39",
-      "text_color": "#ffffff"
+    "deepLinkDomains": {
+      "enableAndroidApplinks": false,
+      "domains": []
     },
-    "navigation": {
-      "bar_color": "#000000",
-      "bar_text_color": "#ffffff",
-      "bar_icon_color": "#ffbd39",
-      "status_bar_style": "light"
+    "navigationTitles": {
+      "active": true,
+      "titles": []
+    },
+    "iosShowRefreshButton": false,
+    "androidShowRefreshButton": false,
+    "actionConfig": {
+      "active": true,
+      "actions": [],
+      "actionSelection": []
+    },
+    "navigationLevels": {
+      "active": true,
+      "levels": []
+    },
+    "sidebarNavigation": {
+      "menuSelectionConfig": {
+        "redirectLocations": [
+          {
+            "regex": ".*",
+            "menuName": "default",
+            "loggedIn": true
+          }
+        ]
+      },
+      "menus": [
+        {
+          "active": true,
+          "items": [
+            {
+              "url": "https://www.maximahome.ir/index.html",
+              "label": "خانه",
+              "subLinks": []
+            },
+            {
+              "url": "https://www.maximahome.ir/index.html#about-section",
+              "label": "درباره ما",
+              "subLinks": []
+            },
+            {
+              "url": "https://www.maximahome.ir/index.html#resume-section",
+              "label": "اطلاعات",
+              "subLinks": []
+            },
+            {
+              "url": "https://www.maximahome.ir/index.html#services-section",
+              "label": "سرویس ها",
+              "subLinks": []
+            },
+            {
+              "url": "https://www.maximahome.ir/index.html#skills-section",
+              "label": "مهارت ها",
+              "subLinks": []
+            },
+            {
+              "url": "https://www.maximahome.ir/index.html#projects-section",
+              "label": "کار ها",
+              "subLinks": []
+            },
+            {
+              "url": "https://www.maximahome.ir/contact.html",
+              "label": "تماس با ما",
+              "subLinks": []
+            },
+            {
+              "url": "https://www.maximahome.ir/cars.html",
+              "label": "اطلاعات ماشین‌ها",
+              "subLinks": []
+            },
+            {
+              "url": "https://www.maximahome.ir/blog.html",
+              "label": "وبلاگ",
+              "subLinks": []
+            },
+            {
+              "url": "https://www.maximahome.ir/booking.html",
+              "label": "رزرو وقت",
+              "subLinks": []
+            }
+          ],
+          "name": "default"
+        }
+      ]
+    },
+    "tabNavigation": {
+      "active": false,
+      "tabMenus": [],
+      "tabSelectionConfig": []
+    },
+    "androidShowOfflinePage": true,
+    "iosShowOfflinePage": true,
+    "toolbarNavigation": {
+      "enabled": false,
+      "visibilityByPages": "allPages",
+      "visibilityByBackButton": "backButtonActive",
+      "regexes": [
+        {
+          "enabled": true,
+          "regex": ".*"
+        }
+      ],
+      "items": [
+        {
+          "system": "back",
+          "titleType": "defaultText",
+          "visibility": "allPages",
+          "urlRegex": [
+            {
+              "enabled": true,
+              "regex": ".*"
+            }
+          ]
+        },
+        {
+          "system": "refresh",
+          "enabled": false,
+          "visibility": "allPages",
+          "urlRegex": [
+            {
+              "enabled": true,
+              "regex": ".*"
+            }
+          ]
+        },
+        {
+          "system": "forward",
+          "enabled": false,
+          "titleType": "defaultText",
+          "visibility": "allPages",
+          "urlRegex": [
+            {
+              "enabled": true,
+              "regex": ".*"
+            }
+          ]
+        }
+      ]
+    },
+    "maxWindows": {
+      "enabled": false,
+      "numWindows": 5,
+      "autoClose": false
     }
   },
-  "features": {
-    "offline_support": true,
-    "push_notifications": false,
-    "background_sync": true
+  "styling": {
+    "splashScreen": {
+      "ios": {
+        "backgroundImage": "https://s3.amazonaws.com/gonativeio/app_files/djjqrw/1754996836630_h9y6d4c3mdm6w_FFFFFF_1_2x2.png",
+        "backgroundImageDark": "https://s3.amazonaws.com/gonativeio/app_files/djjqrw/1754996836638_k9eqgu4yv7va2_0E0D08_1_2x2.png",
+        "backgroundColor": "#1a1a1a",
+        "backgroundColorDark": "#1a1a1a",
+        "centerImage": "https://s3.amazonaws.com/gonativeio/app_files/djjqrw/app_icon_ios.png",
+        "centerImageDark": "https://s3.amazonaws.com/gonativeio/app_files/djjqrw/app_icon_ios.png",
+        "animation": null,
+        "animationDark": null,
+        "animationFrame": null,
+        "animationFrameDark": null,
+        "animationLoop": "once",
+        "animated": false
+      },
+      "android": {
+        "launchImages": {
+          "mdpi": "https://s3.amazonaws.com/gonativeio/app_files/djjqrw/1754999048738_4car2p9ankcnw_180x180.png",
+          "hdpi": "https://s3.amazonaws.com/gonativeio/app_files/djjqrw/1754999048747_2wpue00ptfdwm_270x270.png",
+          "xhdpi": "https://s3.amazonaws.com/gonativeio/app_files/djjqrw/1754999048755_rc0ut6a403tgm_360x360.png",
+          "xxhdpi": "https://s3.amazonaws.com/gonativeio/app_files/djjqrw/1754999048764_4u3hc98hfqvfp_540x540.png",
+          "xxxhdpi": "https://s3.amazonaws.com/gonativeio/app_files/djjqrw/1754999048782_kzmbndnzwyvxw_720x720.png"
+        },
+        "launchImagesDark": {
+          "mdpi": "https://s3.amazonaws.com/gonativeio/app_files/djjqrw/1754999048806_yfkvwr98ktvhe_180x180.png",
+          "hdpi": "https://s3.amazonaws.com/gonativeio/app_files/djjqrw/1754999048831_mqygy9kg90dfg_270x270.png",
+          "xhdpi": "https://s3.amazonaws.com/gonativeio/app_files/djjqrw/1754999048847_p5hkx25wmte8u_360x360.png",
+          "xxhdpi": "https://s3.amazonaws.com/gonativeio/app_files/djjqrw/1754999048872_1jycvw221t0wy_540x540.png",
+          "xxxhdpi": "https://s3.amazonaws.com/gonativeio/app_files/djjqrw/1754999048901_6humenqbza5ug_720x720.png"
+        },
+        "showSplash": true,
+        "backgroundColor": "#1a1a1a",
+        "backgroundColorDark": "#1a1a1a",
+        "animation": null,
+        "animationDark": null,
+        "animationFrame": null,
+        "animationFrameDark": null,
+        "animationLoop": "once",
+        "animated": false
+      }
+    },
+    "transitionInteractiveDelayMax": 0.2,
+    "menuAnimationDuration": 0.15,
+    "iosTheme": "default",
+    "androidTabPressedBackgroundColor": "#ffbd39",
+    "androidTabPressedBackgroundColorDark": "#ffbd39",
+    "androidBackgroundColor": "#1a1a1a",
+    "androidBackgroundColorDark": "#1a1a1a",
+    "icon": "https://s3.amazonaws.com/gonativeio/app_files/djjqrw/app_icon_ios.png",
+    "iosIcon": "https://s3.amazonaws.com/gonativeio/app_files/djjqrw/app_icon_ios.png",
+    "customIcons": {},
+    "iosDarkMode": "auto",
+    "iosEnableBlurInStatusBar": false,
+    "iosStatusBarStyle": "light",
+    "iosEnableOverlayInStatusBar": false,
+    "iosStatusBarBackgroundColor": "#000000",
+    "iosStatusBarBackgroundColorDark": "#1a1a1a",
+    "androidStatusBarStyle": "light",
+    "androidEnableOverlayInStatusBar": false,
+    "androidStatusBarBackgroundColor": "#000000",
+    "androidStatusBarBackgroundColorDark": "#1a1a1a",
+    "iosTintColor": "#ffbd39",
+    "iosTintColorDark": "#ffbd39",
+    "androidIcon": "https://s3.amazonaws.com/gonativeio/app_files/djjqrw/app_icon_ios.png",
+    "androidTheme": "auto",
+    "androidAccentColor": "#ffbd39",
+    "androidAccentColorDark": "#ffbd39",
+    "androidSystemNavBarColor": "#000000",
+    "androidSystemNavBarColorDark": "#1a1a1a",
+    "androidPullToRefreshColor": "#ffbd39",
+    "androidPullToRefreshColorDark": "#ffbd39",
+    "iosActivityIndicatorColor": "#ffbd39",
+    "iosActivityIndicatorColorDark": "#ffbd39",
+    "androidActivityIndicatorColor": "#ffbd39",
+    "androidActivityIndicatorColorDark": "#ffbd39",
+    "androidWebviewTextZoom": null,
+    "hideWebviewAlpha": 0.5,
+    "forceViewportWidth": null,
+    "pinchToZoom": null,
+    "iosDynamicType": null,
+    "androidSwipeNavigationBackgroundColor": "#1a1a1a",
+    "androidSwipeNavigationBackgroundColorDark": "#1a1a1a",
+    "androidSwipeNavigationActiveColor": "#ffbd39",
+    "androidSwipeNavigationActiveColorDark": "#ffbd39",
+    "androidSwipeNavigationInactiveColor": "#ffffff",
+    "androidSwipeNavigationInactiveColorDark": "#cccccc",
+    "navigationTitleImageLocation": "https://s3.amazonaws.com/gonativeio/app_files/djjqrw/app_icon_ios.png",
+    "navigationTitleImageLocationDark": "https://s3.amazonaws.com/gonativeio/app_files/djjqrw/app_icon_ios.png",
+    "iosTitleColor": "#ffbd39",
+    "iosTitleColorDark": "#ffbd39",
+    "iosNavigationBarTintColor": "#1a1a1a",
+    "iosNavigationBarTintColorDark": "#1a1a1a",
+    "androidActionBarBackgroundColor": "#1a1a1a",
+    "androidActionBarBackgroundColorDark": "#1a1a1a",
+    "androidHeaderImage": "https://s3.amazonaws.com/gonativeio/app_files/djjqrw/app_icon_ios.png",
+    "androidHeaderImageDark": "https://s3.amazonaws.com/gonativeio/app_files/djjqrw/app_icon_ios.png",
+    "androidActionBarForegroundColor": "#ffbd39",
+    "androidActionBarForegroundColorDark": "#ffbd39",
+    "iosSidebarBackgroundColor": "#000000",
+    "iosSidebarBackgroundColorDark": "#1a1a1a",
+    "iosSidebarFont": "Default",
+    "iosHeaderImage": "https://s3.amazonaws.com/gonativeio/app_files/djjqrw/app_icon_ios.png",
+    "iosHeaderImageDark": "https://s3.amazonaws.com/gonativeio/app_files/djjqrw/app_icon_ios.png",
+    "iosSidebarTextColor": "#ffffff",
+    "iosSidebarTextColorDark": "#ffffff",
+    "androidSidebarBackgroundColor": "#000000",
+    "androidSidebarBackgroundColorDark": "#1a1a1a",
+    "androidSidebarForegroundColor": "#ffffff",
+    "androidSidebarForegroundColorDark": "#ffffff",
+    "androidSidebarSeparatorColor": "#333333",
+    "androidSidebarSeparatorColorDark": "#333333",
+    "androidSidebarHighlightColor": "#ffbd39",
+    "androidSidebarHighlightColorDark": "#ffbd39",
+    "androidShowLogoInSideBar": true,
+    "androidShowAppNameInSideBar": true,
+    "androidTabBarBackgroundColor": "#000000",
+    "androidTabBarBackgroundColorDark": "#1a1a1a",
+    "androidTabBarTextColor": "#ffffff",
+    "androidTabBarTextColorDark": "#ffffff",
+    "androidTabBarIndicatorColor": "#ffbd39",
+    "androidTabBarIndicatorColorDark": "#ffbd39",
+    "iosTabBarTintColor": "#000000",
+    "iosTabBarTintColorDark": "#1a1a1a",
+    "iosTabBarInactiveColor": "#666666",
+    "iosTabBarInactiveColorDark": "#666666",
+    "disableAnimations": false,
+    "navigationTitleImage": false,
+    "androidHideTitleInActionBar": false,
+    "showNavigationBar": false,
+    "showActionBar": false
+  },
+  "allowZoom": null,
+  "contextMenu": {
+    "enabled": false,
+    "linkActions": [
+      "copyLink",
+      "openExternal"
+    ]
+  },
+  "security": {
+    "network": {
+      "allowInsecure": null
+    }
   },
   "permissions": {
-    "camera": false,
-    "location": false,
-    "microphone": false,
-    "storage": false,
-    "contacts": false,
-    "phone": false,
-    "sms": false,
-    "internet": true,
-    "network_state": true
+    "usesGeolocation": false,
+    "iosLocationUsageDescription": "",
+    "iosCameraUsageDescription": "",
+    "iosMicrophoneUsageDescription": "",
+    "enableWebRTCamera": true,
+    "enableWebRTCMicrophone": true,
+    "androidDownloadToPublicStorage": false,
+    "iOSATTUserTrackingDescription": "Your data will be used to personalize your experience and at times to deliver personalized ads",
+    "iOSRequestATTConsentOnLoad": true
   },
-  "localization": {
-    "default_language": "fa",
-    "supported_languages": ["fa", "en"],
-    "rtl_support": true
+  "developmentTools": {
+    "enableWebConsoleLogs": false
+  },
+  "services": {
+    "oneSignalV5": {
+      "active": false
+    }
   }
 }
