@@ -1,3 +1,32 @@
+const CACHE_NAME = 'maximahome-cache-v1';
+const URLS_TO_CACHE = [
+  '/',
+  '/index.html',
+  '/css/style.css',
+  '/js/main.js',
+  '/images/image5.png'
+];
+
+self.addEventListener('install', event => {
+  event.waitUntil(
+    caches.open(CACHE_NAME).then(cache => cache.addAll(URLS_TO_CACHE))
+  );
+});
+
+self.addEventListener('activate', event => {
+  event.waitUntil(
+    caches.keys().then(keys =>
+      Promise.all(keys.map(key => (key !== CACHE_NAME ? caches.delete(key) : null)))
+    )
+  );
+});
+
+self.addEventListener('fetch', event => {
+  event.respondWith(
+    caches.match(event.request).then(response => response || fetch(event.request))
+  );
+});
+
 const CACHE_NAME = 'maximahome-v1';
 const BASE_URL = '/MaximaHome';
 const urlsToCache = [
