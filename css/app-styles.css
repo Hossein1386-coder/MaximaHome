@@ -21,6 +21,54 @@ html {
     background-color: var(--app-background) !important;
 }
 
+/* حذف کامل پس‌زمینه سفید */
+* {
+    background-color: var(--app-background) !important;
+}
+
+/* بخش‌های خاص که ممکن است پس‌زمینه سفید داشته باشند */
+section, 
+div, 
+.container, 
+.row, 
+.col, 
+.about-section,
+.resume-section,
+.services-section,
+.skills-section,
+.projects-section,
+.contact-section,
+.hero,
+.main-content,
+.content-area {
+    background-color: var(--app-background) !important;
+}
+
+/* کارت‌ها و باکس‌ها */
+.card,
+.box,
+.service-box,
+.skill-box,
+.project-box,
+.contact-box {
+    background-color: var(--app-surface) !important;
+    border: 1px solid var(--app-surface) !important;
+}
+
+/* متن‌ها */
+p, h1, h2, h3, h4, h5, h6, span, a {
+    color: var(--app-text-primary) !important;
+}
+
+/* لینک‌ها */
+a {
+    color: var(--app-accent) !important;
+}
+
+a:hover {
+    color: var(--app-text-accent) !important;
+}
+
 /* نوار وضعیت سفارشی */
 .status-bar {
     background: var(--app-primary);

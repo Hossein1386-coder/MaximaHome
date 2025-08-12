@@ -1,0 +1,90 @@
+/* Override کامل برای اپلیکیشن */
+:root {
+    --app-primary: #000000;
+    --app-secondary: #ffffff;
+    --app-accent: #ffbd39;
+    --app-background: #1a1a1a;
+    --app-surface: #2a2a2a;
+    --app-text-primary: #ffffff;
+    --app-text-secondary: #cccccc;
+    --app-text-accent: #ffbd39;
+}
+
+/* حذف کامل پس‌زمینه سفید */
+html, body {
+    background-color: #1a1a1a !important;
+    color: #ffffff !important;
+}
+
+/* تمام المان‌ها */
+* {
+    background-color: #1a1a1a !important;
+}
+
+/* بخش‌های خاص */
+section, div, .container, .row, .col {
+    background-color: #1a1a1a !important;
+}
+
+/* کارت‌ها */
+.card, .box, .service-box, .skill-box, .project-box {
+    background-color: #2a2a2a !important;
+    border-color: #2a2a2a !important;
+}
+
+/* متن‌ها */
+p, h1, h2, h3, h4, h5, h6, span, label {
+    color: #ffffff !important;
+}
+
+/* لینک‌ها */
+a {
+    color: #ffbd39 !important;
+}
+
+a:hover {
+    color: #e6a800 !important;
+}
+
+/* دکمه‌ها */
+.btn, button {
+    background-color: #ffbd39 !important;
+    color: #000000 !important;
+    border-color: #ffbd39 !important;
+}
+
+.btn:hover, button:hover {
+    background-color: #e6a800 !important;
+    border-color: #e6a800 !important;
+}
+
+/* فرم‌ها */
+input, textarea, select {
+    background-color: #2a2a2a !important;
+    color: #ffffff !important;
+    border-color: #333333 !important;
+}
+
+/* ناوبری */
+.navbar, .nav {
+    background-color: #000000 !important;
+}
+
+.navbar-brand, .nav-link {
+    color: #ffbd39 !important;
+}
+
+/* فوتر */
+footer {
+    background-color: #000000 !important;
+    color: #cccccc !important;
+}
+
+/* اسکرول */
+::-webkit-scrollbar {
+    background-color: #1a1a1a !important;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #ffbd39 !important;
+}
