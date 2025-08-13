@@ -4,7 +4,7 @@
   "description": "تعمیرگاه تخصصی ماکسیما هوم در یزد - تعمیر انواع خودروهای هیبرید، ژاپنی، کره‌ای و چینی با بهترین کیفیت و قیمت مناسب",
   "lang": "fa",
   "dir": "rtl",
-  "start_url": "/index.html",
+  "start_url": "/",
   "scope": "/",
   "display": "standalone",
   "background_color": "#1a1a1a",
@@ -12,13 +12,13 @@
   "categories": ["business", "automotive", "productivity"],
   "icons": [
     {
-      "src": "images/image5.png",
+      "src": "/web-app-manifest-192x192.png",
       "sizes": "192x192",
       "type": "image/png",
-      "purpose": "any"
+      "purpose": "any maskable"
     },
     {
-      "src": "images/image5.png",
+      "src": "/web-app-manifest-512x512.png",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "any maskable"

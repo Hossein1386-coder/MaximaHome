@@ -167,6 +167,10 @@ a:hover {
     margin-bottom: 4px;
 }
 
+/* نمایش فقط وقتی به حالت PWA وارد شدیم */
+.pwa-only { display: none; }
+body.is-standalone .pwa-only { display: block; }
+
 /* انیمیشن‌های اپلیکیشن */
 @keyframes appFadeIn {
     from {

@@ -4,6 +4,8 @@
     <title>@ViewData["Title"]</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="theme-color" content="#ffbd39">
+    <link rel="manifest" href="~/manifest.webmanifest">
 
     <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900" rel="stylesheet">
 
@@ -18,6 +20,7 @@
     <link rel="stylesheet" href="~/css/icomoon.css">
     <link rel="stylesheet" href="~/css/style.css">
     <link rel="stylesheet" href="~/css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/css/pwa.css">
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
@@ -136,6 +139,51 @@
     <script src="~/js/jquery.animateNumber.min.js"></script>
     <script src="~/js/scrollax.min.js"></script>
     <script src="~/js/main.js"></script>
+    <script>
+        (function() {
+            try {
+                var isStandalone = window.matchMedia && window.matchMedia('(display-mode: standalone)').matches;
+                // iOS Safari
+                if (!isStandalone && window.navigator && 'standalone' in window.navigator) {
+                    isStandalone = window.navigator.standalone;
+                }
+                if (isStandalone) {
+                    document.body.classList.add('is-standalone');
+                }
+            } catch (e) {}
+
+            if ('serviceWorker' in navigator) {
+                window.addEventListener('load', function() {
+                    navigator.serviceWorker.register('/sw.js').catch(function(err){
+                        console.warn('SW registration failed', err);
+                    });
+                });
+            }
+        })();
+    </script>
+
+    <nav class="app-menu pwa-only">
+        <div class="container">
+            <div class="d-flex justify-content-between">
+                <a class="app-menu-item" href="/">
+                    <i class="icon-home"></i>
+                    <span>خانه</span>
+                </a>
+                <a class="app-menu-item" href="/booking">
+                    <i class="icon-calendar"></i>
+                    <span>رزرو</span>
+                </a>
+                <a class="app-menu-item" href="tel:09140748037">
+                    <i class="icon-phone"></i>
+                    <span>تماس</span>
+                </a>
+                <a class="app-menu-item" href="/Auth/Login">
+                    <i class="icon-user"></i>
+                    <span>ورود</span>
+                </a>
+            </div>
+        </div>
+    </nav>
 
     @await RenderSectionAsync("Scripts", required: false)
 </body>
