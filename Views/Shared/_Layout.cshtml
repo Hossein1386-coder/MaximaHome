@@ -146,7 +146,16 @@
                 if (!isStandalone && window.navigator && 'standalone' in window.navigator) {
                     isStandalone = window.navigator.standalone;
                 }
-                if (isStandalone) document.body.classList.add('is-standalone');
+                if (isStandalone) {
+                    document.body.classList.add('is-standalone');
+                    if (!location.pathname.startsWith('/pwa/')) {
+                        var url = new URL(location.href);
+                        url.pathname = '/pwa/';
+                        url.searchParams.set('app', '1');
+                        location.replace(url.toString());
+                        return;
+                    }
+                }
             } catch (e) {}
             // ثبت Service Worker برای سایت حذف شد تا با نسخه PWA که در /pwa/ است تداخل نداشته باشد.
         })();

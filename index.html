@@ -37,6 +37,13 @@
     <meta name="theme-color" content="#ffbd39">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <script>
+      (function(){
+        // روی iOS وقتی از سایت Add to Home Screen می‌زنیم، لانچر از همین منیفست (site.webmanifest) استفاده می‌کند.
+        // ما start_url را به /pwa/ تنظیم کردیم تا بعد از نصب مستقیم به شِل PWA برود.
+        // هیچ ریدایرکت اجباری در سایت انجام نمی‌دهیم تا تجربه نصب طبیعی بماند.
+      })();
+    </script>
 
     <!-- Schema.org markup برای Google -->
     <script type="application/ld+json">
