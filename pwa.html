@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#ffbd39">
+    <title>MaximaHome • PWA</title>
+    <link rel="manifest" href="/manifest.webmanifest">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/pwa.css">
+</head>
+<body>
+    <header class="container py-3">
+        <div class="d-flex align-items-center justify-content-between">
+            <div>
+                <h5 class="mb-1">maximahome.ir</h5>
+                <div class="pwa-chip">Appointment Booking</div>
+            </div>
+            <button id="installBtn" class="pwa-cta">نصب</button>
+        </div>
+    </header>
+
+    <main class="container pb-5 mb-5">
+        <section class="pwa-card mb-3">
+            <div class="d-flex justify-content-between align-items-center">
+                <div>
+                    <h6 class="mb-1">خدمات ویژه</h6>
+                    <small class="text-muted">تخصصی خودروهای خارجی</small>
+                </div>
+                <a class="pwa-cta" href="/booking">رزرو سریع</a>
+            </div>
+        </section>
+
+        <section class="pwa-card mb-3">
+            <h6 class="mb-3">تقویم</h6>
+            <div class="calendar-grid mb-2 text-muted">
+                <div>ش</div><div>ی</div><div>د</div><div>س</div><div>چ</div><div>پ</div><div>ج</div>
+            </div>
+            <div id="calendar" class="calendar-grid"></div>
+            <div class="d-flex justify-content-between align-items-center mt-3">
+                <div class="pwa-chip" id="selectedDate">تاریخی انتخاب نشده</div>
+                <a class="pwa-cta" href="/booking">تایید تاریخ</a>
+            </div>
+        </section>
+
+        <section class="pwa-card">
+            <h6 class="mb-3">ارتباط سریع</h6>
+            <div class="d-grid" style="grid-template-columns:1fr;gap:10px;">
+                <a class="pwa-card d-flex align-items-center justify-content-between" href="tel:09140748037"><span>تماس</span><span>09140748037</span></a>
+                <a class="pwa-card d-flex align-items-center justify-content-between" href="https://wa.me/989140748037"><span>واتساپ</span><span>پیام</span></a>
+                <a class="pwa-card d-flex align-items-center justify-content-between" href="/Auth/Login"><span>حساب کاربری</span><span>ورود</span></a>
+            </div>
+        </section>
+    </main>
+
+    <nav class="app-menu">
+        <div class="container d-flex justify-content-between">
+            <a class="app-menu-item active" href="/pwa.html"><span>خانه</span></a>
+            <a class="app-menu-item" href="/booking"><span>رزرو</span></a>
+            <a class="app-menu-item" href="tel:09140748037"><span>تماس</span></a>
+            <a class="app-menu-item" href="/"><span>سایت</span></a>
+        </div>
+    </nav>
+
+    <script>
+        let deferredPrompt;
+        const installBtn = document.getElementById('installBtn');
+        window.addEventListener('beforeinstallprompt', (e) => {
+            e.preventDefault();
+            deferredPrompt = e;
+            installBtn.style.display = 'inline-block';
+        });
+        installBtn.addEventListener('click', async () => {
+            if (!deferredPrompt) return;
+            deferredPrompt.prompt();
+            await deferredPrompt.userChoice;
+            deferredPrompt = null;
+            installBtn.style.display = 'none';
+        });
+
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', function() {
+                navigator.serviceWorker.register('/sw.js');
+            });
+        }
+
+        (function(){
+            var today = new Date();
+            var year = today.getFullYear();
+            var month = today.getMonth();
+            var firstDay = new Date(year, month, 1);
+            var startWeekday = (firstDay.getDay() + 1) % 7;
+            var daysInMonth = new Date(year, month + 1, 0).getDate();
+            var grid = document.getElementById('calendar');
+            var selectedEl = null;
+            for (var i = 0; i < startWeekday; i++) grid.appendChild(document.createElement('div'));
+            for (var d = 1; d <= daysInMonth; d++) {
+                var cell = document.createElement('button');
+                cell.type = 'button';
+                cell.className = 'calendar-day';
+                cell.textContent = d;
+                cell.addEventListener('click', function(e){
+                    if (selectedEl) selectedEl.classList.remove('active');
+                    e.currentTarget.classList.add('active');
+                    var chosen = new Date(year, month, parseInt(e.currentTarget.textContent, 10));
+                    document.getElementById('selectedDate').textContent = chosen.toLocaleDateString('fa-IR');
+                });
+                grid.appendChild(cell);
+            }
+        })();
+    </script>
+</body>
+</html>
+
