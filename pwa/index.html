@@ -54,26 +54,33 @@
 
         <!-- Booking -->
         <section id="view-book" class="view">
-            <div class="pwa-card mb-3">
-                <h6 class="mb-3">انتخاب خدمات</h6>
-                <div class="chips">
-                    <label class="chip"><input type="radio" name="svc"><span>موتور</span></label>
-                    <label class="chip"><input type="radio" name="svc"><span>بازدید دوره‌ای</span></label>
-                    <label class="chip"><input type="radio" name="svc"><span>گیربکس</span></label>
-                    <label class="chip"><input type="radio" name="svc"><span>تسمه تایم</span></label>
+            <form id="pwa-booking-form" class="mb-3">
+                <div class="pwa-card mb-3">
+                    <h6 class="mb-3">انتخاب خدمات</h6>
+                    <div class="chips">
+                        <label class="chip"><input type="radio" name="serviceType" value="engine" required><span>موتور</span></label>
+                        <label class="chip"><input type="radio" name="serviceType" value="inspection"><span>بازدید دوره‌ای</span></label>
+                        <label class="chip"><input type="radio" name="serviceType" value="transmission"><span>گیربکس</span></label>
+                        <label class="chip"><input type="radio" name="serviceType" value="timing"><span>تسمه تایم</span></label>
+                    </div>
                 </div>
-            </div>
-            <div class="pwa-card mb-3">
-                <h6 class="mb-3">انتخاب تاریخ و زمان</h6>
-                <input class="input" type="date" placeholder="YYYY-MM-DD">
-                <input class="input" type="time" value="10:00">
-            </div>
-            <div class="pwa-card mb-3">
-                <h6 class="mb-3">اطلاعات خودرو</h6>
-                <input class="input" type="text" placeholder="برند خودرویی">
-                <input class="input" type="text" placeholder="مدل خودرویی">
-                <button class="btn-primary w-100">تکمیل</button>
-            </div>
+                <div class="pwa-card mb-3">
+                    <h6 class="mb-3">انتخاب تاریخ و زمان</h6>
+                    <input class="input" name="date" type="date" placeholder="YYYY-MM-DD" required>
+                    <input class="input" name="time" type="time" value="10:00" required>
+                </div>
+                <div class="pwa-card mb-3">
+                    <h6 class="mb-3">اطلاعات تماس و خودرو</h6>
+                    <input class="input" name="name" type="text" placeholder="نام و نام خانوادگی" required>
+                    <input class="input" name="phone" type="tel" placeholder="شماره تماس" required>
+                    <input class="input" name="carBrand" type="text" placeholder="برند خودرویی" required>
+                    <input class="input" name="carModel" type="text" placeholder="مدل خودرویی" required>
+                    <textarea class="input" name="description" placeholder="توضیحات" rows="3" style="height:auto"></textarea>
+                    <input type="hidden" name="source" value="pwa">
+                    <button type="submit" class="btn-primary w-100">تکمیل</button>
+                    <div id="pwa-booking-msg" style="margin-top:10px;font-size:12px;color:#16a34a;display:none">درخواست شما ثبت شد.</div>
+                </div>
+            </form>
         </section>
 
         <!-- Services -->
@@ -157,6 +164,27 @@
             // init
             Object.keys(views).forEach(k=>views[k].style.display='none');
             views.home.style.display='block';
+        })();
+
+        // ارسال فرم به Formspree
+        (function(){
+            var form = document.getElementById('pwa-booking-form');
+            if (!form) return;
+            var msg = document.getElementById('pwa-booking-msg');
+            form.addEventListener('submit', function(e){
+                e.preventDefault();
+                var data = new FormData(form);
+                fetch('https://formspree.io/f/your-form-id', {
+                    method: 'POST',
+                    headers: { 'Accept': 'application/json' },
+                    body: data
+                }).then(function(res){
+                    if (res.ok) {
+                        msg.style.display = 'block';
+                        form.reset();
+                    } else { alert('خطا در ثبت.'); }
+                }).catch(function(){ alert('عدم دسترسی به سرور.'); });
+            });
         })();
     </script>
 </body>
