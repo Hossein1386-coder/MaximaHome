@@ -9,7 +9,7 @@
     --pwa-shadow: 0 10px 24px rgba(0,0,0,.08);
 }
 
-body { background-color: var(--pwa-bg); color: var(--pwa-text); font-family: system-ui, -apple-system, Segoe UI, Tahoma; }
+body { background-color: var(--pwa-bg); color: var(--pwa-text); font-family: system-ui, -apple-system, Segoe UI, Tahoma; padding-bottom: 96px; }
 .container { max-width: 640px; margin: 0 auto; padding: 0 16px; }
 .text-muted { color: var(--pwa-muted); }
 
@@ -58,12 +58,22 @@ body { background-color: var(--pwa-bg); color: var(--pwa-text); font-family: sys
 }
 
 .app-menu {
+    position: fixed;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: calc(env(safe-area-inset-bottom) + 12px);
+    width: min(640px, calc(100% - 24px));
     background: #ffffff;
-    border-top: 1px solid #e7ebf3;
+    border: 1px solid #e7ebf3;
+    border-radius: 16px;
+    box-shadow: 0 12px 30px rgba(0,0,0,.12);
+    padding: 10px 14px;
+    z-index: 1000;
 }
 
-.app-menu .app-menu-item { color: var(--pwa-muted); padding: 10px; }
-.app-menu .app-menu-item.active { color: var(--pwa-accent); font-weight: 700; }
+.app-menu .container { padding: 0; }
+.app-menu .app-menu-item { color: var(--pwa-muted); padding: 8px 10px; border-radius: 10px; font-size: 13px; text-decoration: none; }
+.app-menu .app-menu-item.active { color: var(--pwa-accent); font-weight: 700; background: #fff2f1; }
 
 /* Views & components */
 .view { transition: opacity .2s ease; }
