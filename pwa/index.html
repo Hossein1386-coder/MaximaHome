@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#ffbd39">
+    <title>MaximaHome • PWA</title>
+    <link rel="manifest" href="/manifest.webmanifest">
+    <link rel="stylesheet" href="/css/pwa.css">
+</head>
+<body>
+    <header class="container py-3">
+        <div class="d-flex align-items-center justify-content-between">
+            <div>
+                <h5 class="mb-1">maximahome.ir</h5>
+                <div class="pwa-chip">Appointment Booking</div>
+            </div>
+            <button id="installBtn" class="pwa-cta">نصب</button>
+        </div>
+    </header>
+
+    <main class="container pb-5 mb-5">
+        <!-- Home -->
+        <section id="view-home" class="view active">
+            <div class="pwa-card mb-3 text-center">
+                <h5 class="mb-2">مجموعه ماکسیما هوم</h5>
+                <p class="mb-3">در مجموعه ما انواع تعمیرات انجام میشه</p>
+                <div class="grid-2 mb-3">
+                    <a class="btn-pill">اخبار</a>
+                    <a class="btn-pill">درباره ما</a>
+                    <a class="btn-pill">خدمات ما</a>
+                    <a class="btn-pill">تماس با ما</a>
+                </div>
+                <img src="/images/new5.png" alt="car" class="hero-img">
+            </div>
+        </section>
+
+        <!-- Booking -->
+        <section id="view-book" class="view">
+            <div class="pwa-card mb-3">
+                <h6 class="mb-3">انتخاب خدمات</h6>
+                <div class="chips">
+                    <label class="chip"><input type="radio" name="svc"><span>موتور</span></label>
+                    <label class="chip"><input type="radio" name="svc"><span>بازدید دوره‌ای</span></label>
+                    <label class="chip"><input type="radio" name="svc"><span>گیربکس</span></label>
+                    <label class="chip"><input type="radio" name="svc"><span>تسمه تایم</span></label>
+                </div>
+            </div>
+            <div class="pwa-card mb-3">
+                <h6 class="mb-3">انتخاب تاریخ و زمان</h6>
+                <input class="input" type="date" placeholder="YYYY-MM-DD">
+                <input class="input" type="time" value="10:00">
+            </div>
+            <div class="pwa-card mb-3">
+                <h6 class="mb-3">اطلاعات خودرو</h6>
+                <input class="input" type="text" placeholder="برند خودرویی">
+                <input class="input" type="text" placeholder="مدل خودرویی">
+                <button class="btn-primary w-100">تکمیل</button>
+            </div>
+        </section>
+
+        <!-- Services -->
+        <section id="view-services" class="view">
+            <h6 class="mb-2 px-2">خدمات ماکسیما هوم</h6>
+            <div class="pwa-card mb-3 text-center">
+                <img src="/images/new6.png" class="svc-img" alt>
+                <h6 class="mt-2">تعمیر ماکسیما</h6>
+                <small class="text-muted">تعمیر بلبرینگ، چرخ، گیربکس ماکسیما</small>
+            </div>
+            <div class="pwa-card mb-3 text-center">
+                <img src="/images/33.png" class="svc-img" alt>
+                <h6 class="mt-2">تعمیر خودرو چینی</h6>
+                <small class="text-muted">انواع خودروهای چینی</small>
+            </div>
+        </section>
+
+        <!-- Support / Contact -->
+        <section id="view-support" class="view">
+            <div class="pwa-card mb-3 text-center">
+                <h6 class="mb-3">اطلاعات تماس</h6>
+                <p class="mb-2">09902524062</p>
+                <p class="mb-3">09140748037</p>
+                <a class="btn-primary w-100" href="tel:09140748037">تماس</a>
+            </div>
+            <div class="pwa-card mb-3 text-center">
+                <h6 class="mb-3">لوکیشن</h6>
+                <img src="/images/22.png" class="hero-img" alt>
+                <a class="btn-primary w-100 mt-3" href="https://maps.google.com" target="_blank">یافتن</a>
+            </div>
+        </section>
+    </main>
+
+    <nav class="app-menu">
+        <div class="container d-flex justify-content-between">
+            <a class="app-menu-item active" data-tab="home"><span>خانه</span></a>
+            <a class="app-menu-item" data-tab="book"><span>رزرو</span></a>
+            <a class="app-menu-item" data-tab="services"><span>سرویس‌ها</span></a>
+            <a class="app-menu-item" data-tab="support"><span>پشتیبانی</span></a>
+        </div>
+    </nav>
+
+    <script>
+        let deferredPrompt;
+        const installBtn = document.getElementById('installBtn');
+        window.addEventListener('beforeinstallprompt', (e) => {
+            e.preventDefault();
+            deferredPrompt = e;
+            installBtn.style.display = 'inline-block';
+        });
+        installBtn.addEventListener('click', async () => {
+            if (!deferredPrompt) return;
+            deferredPrompt.prompt();
+            await deferredPrompt.userChoice;
+            deferredPrompt = null;
+            installBtn.style.display = 'none';
+        });
+
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', function() { navigator.serviceWorker.register('/pwa/sw.js'); });
+        }
+
+        // تب‌ها
+        (function(){
+            var tabs = document.querySelectorAll('.app-menu-item');
+            var views = {
+                home: document.getElementById('view-home'),
+                book: document.getElementById('view-book'),
+                services: document.getElementById('view-services'),
+                support: document.getElementById('view-support')
+            };
+            function activate(name){
+                document.querySelectorAll('.view').forEach(v=>v.classList.remove('active'));
+                Object.keys(views).forEach(k=>views[k].style.display='none');
+                views[name].style.display='block';
+                views[name].classList.add('active');
+                tabs.forEach(t=>t.classList.remove('active'));
+                document.querySelector('.app-menu-item[data-tab='+name+']').classList.add('active');
+            }
+            tabs.forEach(t=>t.addEventListener('click',()=>activate(t.getAttribute('data-tab'))));
+            // init
+            Object.keys(views).forEach(k=>views[k].style.display='none');
+            views.home.style.display='block';
+        })();
+    </script>
+</body>
+</html>
+

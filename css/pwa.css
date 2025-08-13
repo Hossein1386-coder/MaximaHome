@@ -1,27 +1,26 @@
 /* سبک‌های مینیمال برای PWA مطابق ماکاپ */
 :root {
-    --pwa-primary: #0f2745;
-    --pwa-accent: #ffbd39;
-    --pwa-surface: #1d3557;
-    --pwa-bg: #0b1a30;
-    --pwa-text: #ffffff;
-    --pwa-muted: #b8c1ce;
+    --pwa-primary: #ffffff;
+    --pwa-accent: #ef3a2d; /* قرمز دکمه‌ها */
+    --pwa-surface: #ffffff;
+    --pwa-bg: #fafafa;
+    --pwa-text: #111111;
+    --pwa-muted: #8892a6;
+    --pwa-shadow: 0 10px 24px rgba(0,0,0,.08);
 }
 
-body {
-    background-color: var(--pwa-bg);
-}
+body { background-color: var(--pwa-bg); color: var(--pwa-text); font-family: system-ui, -apple-system, Segoe UI, Tahoma; }
 
 .pwa-card {
     background: var(--pwa-surface);
     color: var(--pwa-text);
     border-radius: 16px;
-    box-shadow: 0 10px 24px rgba(0,0,0,.3);
+    box-shadow: var(--pwa-shadow);
     padding: 16px;
 }
 
 .pwa-chip {
-    background: rgba(255,255,255,.06);
+    background: #f1f4f9;
     color: var(--pwa-text);
     border-radius: 9999px;
     padding: 6px 12px;
@@ -30,7 +29,7 @@ body {
 
 .pwa-cta {
     background: var(--pwa-accent);
-    color: #000;
+    color: #fff;
     border: 0;
     border-radius: 12px;
     padding: 12px 20px;
@@ -46,7 +45,7 @@ body {
 .calendar-day {
     text-align: center;
     padding: 10px 0;
-    background: rgba(255,255,255,.05);
+    background: #f6f7fb;
     border-radius: 10px;
 }
 
@@ -57,12 +56,30 @@ body {
 }
 
 .app-menu {
-    background: #0b1528;
-    border-top: 1px solid rgba(255,255,255,.08);
+    background: #ffffff;
+    border-top: 1px solid #e7ebf3;
 }
 
-.app-menu .app-menu-item { color: var(--pwa-muted); }
-.app-menu .app-menu-item.active { color: var(--pwa-accent); }
+.app-menu .app-menu-item { color: var(--pwa-muted); padding: 10px; }
+.app-menu .app-menu-item.active { color: var(--pwa-accent); font-weight: 700; }
+
+/* Views & components */
+.view { transition: opacity .2s ease; }
+.view.active { opacity: 1; }
+.grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
+.btn-pill { background: #ef3a2d; color: #fff; border-radius: 999px; padding: 10px 14px; display: block; text-align: center; }
+.hero-img { width: 100%; border-radius: 16px; box-shadow: var(--pwa-shadow); }
+.svc-img { width: 160px; height: 160px; object-fit: cover; border-radius: 24px; }
+
+.chips { display:flex; gap:10px; flex-wrap:wrap; }
+.chip { background:#f6f7fb; border-radius:999px; padding:6px 10px; }
+.chip input { display:none; }
+.chip span { color:#333; }
+.chip input:checked + span { color:#fff; background:#ef3a2d; padding:6px 10px; border-radius:999px; }
+
+.input { width:100%; background:#fff; border:1px solid #e6e9ef; border-radius:14px; padding:12px 14px; margin-bottom:10px; }
+.btn-primary { background:#ef3a2d; color:#fff; border:0; border-radius:14px; padding:12px 14px; }
+.w-100 { width:100%; }
 
 .pwa-only { display: none; }
 body.is-standalone .pwa-only { display: block; }
