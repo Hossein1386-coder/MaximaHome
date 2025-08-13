@@ -68,7 +68,7 @@
   "services": {
     "booking": {
       "enabled": true,
-      "form_url": "https://formspree.io/f/your-form-id",
+      "form_url": "https://formspree.io/f/myzwydeq",
       "sms_service": "kavenegar",
       "notification_enabled": true
     },

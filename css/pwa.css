@@ -10,6 +10,8 @@
 }
 
 body { background-color: var(--pwa-bg); color: var(--pwa-text); font-family: system-ui, -apple-system, Segoe UI, Tahoma; }
+.container { max-width: 640px; margin: 0 auto; padding: 0 16px; }
+.text-muted { color: var(--pwa-muted); }
 
 .pwa-card {
     background: var(--pwa-surface);
@@ -68,7 +70,7 @@ body { background-color: var(--pwa-bg); color: var(--pwa-text); font-family: sys
 .view.active { opacity: 1; }
 .grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
 .btn-pill { background: #ef3a2d; color: #fff; border-radius: 999px; padding: 10px 14px; display: block; text-align: center; }
-.hero-img { width: 100%; border-radius: 16px; box-shadow: var(--pwa-shadow); }
+.hero-img { width: 100%; border-radius: 16px; box-shadow: var(--pwa-shadow); object-fit: cover; aspect-ratio: 16/9; }
 .svc-img { width: 160px; height: 160px; object-fit: cover; border-radius: 24px; }
 
 .chips { display:flex; gap:10px; flex-wrap:wrap; }
@@ -80,6 +82,12 @@ body { background-color: var(--pwa-bg); color: var(--pwa-text); font-family: sys
 .input { width:100%; background:#fff; border:1px solid #e6e9ef; border-radius:14px; padding:12px 14px; margin-bottom:10px; }
 .btn-primary { background:#ef3a2d; color:#fff; border:0; border-radius:14px; padding:12px 14px; }
 .w-100 { width:100%; }
+
+/* Header */
+.pwa-header { display:flex; align-items:center; justify-content:space-between; padding:16px 0; }
+.brand { display:flex; align-items:center; gap:10px; }
+.brand .dot { width:8px; height:8px; background:#ef3a2d; border-radius:50%; }
+.brand h5 { margin:0; font-size:16px; }
 
 .pwa-only { display: none; }
 body.is-standalone .pwa-only { display: block; }

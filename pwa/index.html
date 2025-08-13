@@ -26,14 +26,12 @@
             } catch (e) {}
         })();
     </script>
-    <header class="container py-3">
-        <div class="d-flex align-items-center justify-content-between">
-            <div>
-                <h5 class="mb-1">maximahome.ir</h5>
-                <div class="pwa-chip">Appointment Booking</div>
-            </div>
-            <button id="installBtn" class="pwa-cta">نصب</button>
+    <header class="container pwa-header">
+        <div class="brand">
+            <span class="dot"></span>
+            <h5>maximahome.ir</h5>
         </div>
+        <button id="installBtn" class="pwa-cta">نصب</button>
     </header>
 
     <main class="container pb-5 mb-5">
@@ -41,14 +39,14 @@
         <section id="view-home" class="view active">
             <div class="pwa-card mb-3 text-center">
                 <h5 class="mb-2">مجموعه ماکسیما هوم</h5>
-                <p class="mb-3">در مجموعه ما انواع تعمیرات انجام میشه</p>
+                <p class="mb-3 text-muted">در مجموعه ما انواع تعمیرات انجام میشه</p>
                 <div class="grid-2 mb-3">
-                    <a class="btn-pill">اخبار</a>
-                    <a class="btn-pill">درباره ما</a>
-                    <a class="btn-pill">خدمات ما</a>
-                    <a class="btn-pill">تماس با ما</a>
+                    <a class="btn-pill" href="/blog.html">اخبار</a>
+                    <a class="btn-pill" href="/index.html#about-section">درباره ما</a>
+                    <a class="btn-pill" href="/index.html#services-section">خدمات ما</a>
+                    <a class="btn-pill" href="/index.html#contact-section">تماس با ما</a>
                 </div>
-                <img src="/images/new5.png" alt="car" class="hero-img">
+                <img src="/images/88.png" alt="car" class="hero-img">
             </div>
         </section>
 
@@ -86,30 +84,33 @@
         <!-- Services -->
         <section id="view-services" class="view">
             <h6 class="mb-2 px-2">خدمات ماکسیما هوم</h6>
-            <div class="pwa-card mb-3 text-center">
+            <a class="pwa-card mb-3 text-center" href="/index.html#services-section" style="display:block;text-decoration:none;color:inherit">
                 <img src="/images/new6.png" class="svc-img" alt>
                 <h6 class="mt-2">تعمیر ماکسیما</h6>
                 <small class="text-muted">تعمیر بلبرینگ، چرخ، گیربکس ماکسیما</small>
-            </div>
-            <div class="pwa-card mb-3 text-center">
+            </a>
+            <a class="pwa-card mb-3 text-center" href="/index.html#services-section" style="display:block;text-decoration:none;color:inherit">
                 <img src="/images/33.png" class="svc-img" alt>
                 <h6 class="mt-2">تعمیر خودرو چینی</h6>
                 <small class="text-muted">انواع خودروهای چینی</small>
-            </div>
+            </a>
         </section>
 
         <!-- Support / Contact -->
         <section id="view-support" class="view">
             <div class="pwa-card mb-3 text-center">
                 <h6 class="mb-3">اطلاعات تماس</h6>
-                <p class="mb-2">09902524062</p>
-                <p class="mb-3">09140748037</p>
-                <a class="btn-primary w-100" href="tel:09140748037">تماس</a>
+                <p class="mb-2"><a href="tel:09902524062">09902524062</a></p>
+                <p class="mb-3"><a href="tel:09140748037">09140748037</a></p>
+                <div class="grid-2">
+                    <a class="btn-primary" href="tel:09140748037" style="text-align:center">تماس</a>
+                    <a class="btn-primary" href="https://wa.me/989140748037" target="_blank" style="text-align:center">واتساپ</a>
+                </div>
             </div>
             <div class="pwa-card mb-3 text-center">
                 <h6 class="mb-3">لوکیشن</h6>
                 <img src="/images/22.png" class="hero-img" alt>
-                <a class="btn-primary w-100 mt-3" href="https://maps.google.com" target="_blank">یافتن</a>
+                <a class="btn-primary w-100 mt-3" href="https://www.google.com/maps/search/?api=1&query=%DB%8C%D8%B2%D8%AF+%D8%A8%D9%84%D9%88%D8%A7%D8%B1+%D8%AE%D8%A7%D9%85%D9%86%D9%87+%D8%A7%DB%8C+%D8%AE%DB%8C%D8%A7%D8%A8%D8%A7%D9%86+%D8%A7%D9%86%D8%AF%DB%8C%D8%B4%D9%87+-+%D8%A7%D9%86%D8%AF%DB%8C%D8%B4%D9%87+6" target="_blank">یافتن</a>
             </div>
         </section>
     </main>
