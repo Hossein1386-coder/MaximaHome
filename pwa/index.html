@@ -12,6 +12,20 @@
     <link rel="stylesheet" href="/css/pwa.css">
 </head>
 <body>
+    <script>
+        (function() {
+            // اگر به اشتباه از روت دامنه یا بدون scope فراخوانی شد، به /pwa/ ریدایرکت کن
+            try {
+                var path = location.pathname;
+                if (!path.startsWith('/pwa/')) {
+                    var url = new URL(location.href);
+                    url.pathname = '/pwa/';
+                    url.searchParams.set('app', '1');
+                    location.replace(url.toString());
+                }
+            } catch (e) {}
+        })();
+    </script>
     <header class="container py-3">
         <div class="d-flex align-items-center justify-content-between">
             <div>

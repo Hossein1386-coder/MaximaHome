@@ -1,4 +1,4 @@
-const CACHE_NAME = 'maximahome-pwa-shell-v1';
+const CACHE_NAME = 'maximahome-pwa-shell-v2';
 const PRECACHE = [
   '/pwa/',
   '/pwa/index.html',
