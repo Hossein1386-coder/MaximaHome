@@ -169,7 +169,7 @@
         .nav-link {
             color: #fff !important;
             font-size: 16px;
-            padding: 8px 15px !important;
+            padding: 8px 12px !important;
             transition: all 0.3s ease;
             position: relative;
         }
@@ -178,21 +178,31 @@
             color: #ffbd39 !important;
         }
 
+        /* زیرخط نرم و دقیق زیر آیتم فعال/هاور */
         .nav-link::after {
             content: '';
             position: absolute;
             width: 0;
-            height: 2px;
+            height: 3px;
             background: #ffbd39;
-            bottom: 0;
+            bottom: -6px;
             left: 50%;
             transform: translateX(-50%);
             transition: width 0.3s ease;
+            border-radius: 2px;
         }
 
-        .nav-link:hover::after {
+        .nav-link:hover::after,
+        .nav-link.active::after {
             width: 100%;
         }
+
+        /* بهبود چیدمان هدر و فاصله‌ها */
+        #ftco-navbar .container { display: flex; align-items: center; }
+        #ftco-nav .navbar-nav { gap: 18px; align-items: center; }
+        .navbar-brand { margin: 0; letter-spacing: 1px; }
+        .booking-btn { margin-right: 12px; border: 0; border-radius: 8px; }
+        .navbar-dark .navbar-nav .nav-link { line-height: 1.2; }
 
         /* استایل دکمه رزرو وقت */
         .booking-btn {
