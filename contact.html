@@ -13,6 +13,7 @@
     <meta name="revisit-after" content="7 days">
     <meta name="author" content="Hossein1386-coder">
     <link rel="canonical" href="https://maximahome.ir/contact.html">
+    <link rel="alternate" hreflang="fa-IR" href="https://maximahome.ir/contact.html">
 
     <!-- Open Graph برای اشتراک در شبکه‌های اجتماعی -->
     <meta property="og:title" content="تماس با ما | ماکسیما هوم">
@@ -80,6 +81,65 @@
           "https://www.instagram.com/maxima_.home"
         ]
       }
+    }
+    </script>
+
+    <!-- LocalBusiness (AutoRepair) structured data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "AutoRepair",
+      "@id": "https://maximahome.ir/#autoshop",
+      "name": "ماکسیما هوم",
+      "image": "https://maximahome.ir/images/logo.png",
+      "url": "https://maximahome.ir/",
+      "telephone": "+989902524062",
+      "priceRange": "$$",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "بلوار خامنه ای خیابان اندیشه - اندیشه 6",
+        "addressLocality": "یزد",
+        "addressRegion": "یزد",
+        "addressCountry": "IR"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 31.8506913740644,
+        "longitude": 54.34412277445628
+      },
+      "areaServed": "یزد",
+      "openingHoursSpecification": [{
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],
+        "opens": "09:00",
+        "closes": "18:00"
+      }],
+      "sameAs": ["https://www.instagram.com/maxima_.home"]
+    }
+    </script>
+
+    <!-- FAQ schema for common local queries -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "آیا نیاز به رزرو وقت قبل از مراجعه هست؟",
+          "acceptedAnswer": {"@type": "Answer","text": "بله، لطفاً قبل از مراجعه از طریق صفحه رزرو وقت، زمان مراجعه خود را ثبت کنید تا سریع‌تر رسیدگی شود."}
+        },
+        {
+          "@type": "Question",
+          "name": "چه برندهایی را تعمیر می‌کنید؟",
+          "acceptedAnswer": {"@type": "Answer","text": "تعمیر تخصصی خودروهای هیبرید، ژاپنی، کره‌ای و چینی شامل تویوتا، نیسان، هیوندای، کیا و برندهای چینی انجام می‌شود."}
+        },
+        {
+          "@type": "Question",
+          "name": "ساعات کاری تعمیرگاه در یزد چه زمانی است؟",
+          "acceptedAnswer": {"@type": "Answer","text": "شنبه تا چهارشنبه 8 تا 14 و 16 تا 21، پنج‌شنبه 8 تا 18."}
+        }
+      ]
     }
     </script>
 
@@ -468,7 +528,6 @@
                     <li class="nav-item"><a href="blog.html" class="nav-link"><span>وبلاگ</span></a></li>
                     <li class="nav-item"><a href="contact.html" class="nav-link active"><span>تماس با ما</span></a></li>
                     <li class="nav-item"><a href="cars.html" class="nav-link"><span>اطلاعات ماشین‌ها</span></a></li>
-                    <li class="nav-item"><a href="booking.html" class="nav-link booking-btn"><span>رزرو وقت</span></a></li>
                 </ul>
             </div>
         </div>
@@ -490,7 +549,10 @@
                         <div class="icon d-flex align-items-center justify-content-center">
                             <i class="fas fa-map-marker-alt"></i>
                         </div>
-                        <a href="https://maps.app.goo.gl/iEeFdvBABjwvzWSt7?g_st=ic">لوکیشن<h3 class="mb-4">آدرس</h3></a>
+                        <h3 class="mb-4">آدرس</h3>
+                        <p>
+                            <a href="https://maps.app.goo.gl/iEeFdvBABjwvzWSt7?g_st=ic">لوکیشن</a>
+                        </p>
                         <p>یزد بلوار خامنه ای خیابان اندیشه - اندیشه 6</p>
                     </div>
                 </div>
@@ -525,8 +587,8 @@
                 </div>
             </div>
 
-            <div class="row no-gutters block-9">
-                <div class="col-md-6 order-md-last d-flex">
+            <div class="row align-items-stretch">
+                <div class="col-md-6 mb-4 mb-md-0">
                     <form action="#" class="contact-form">
                         <div class="form-group">
                             <label for="name">نام و نام خانوادگی</label>
@@ -554,8 +616,8 @@
                     </form>
                 </div>
 
-                <div class="col-md-6 d-flex">
-                    <div class="map-container">
+                <div class="col-md-6">
+                    <div class="map-container h-100">
                         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3389.0559994606606!2d54.34412277445628!3d31.8506913740644!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3fa61b007ea3980b%3A0x6dc7a2262db062e4!2z2YXYp9qp2LPbjNmF2Kcg2YfZiNmF!5e0!3m2!1sen!2sus!4v1745417049614!5m2!1sen!2sus" allowfullscreen="" loading="lazy"></iframe>
                     </div>
                 </div>

@@ -9676,3 +9676,18 @@ textarea.form-control {
   100% {
     stroke-dasharray: 89, 200;
     stroke-dashoffset: -136px; } }
+
+/* ===== RTL Navbar consistency across all pages ===== */
+#ftco-navbar .container {
+  direction: rtl;
+}
+#ftco-nav .navbar-nav {
+  direction: rtl;
+  justify-content: flex-end; /* align menu to the right */
+  column-gap: 18px;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
+#ftco-nav .navbar-nav .nav-item {
+  text-align: right;
+}
