@@ -1,4 +1,4 @@
-const CACHE_NAME = 'maximahome-pwa-v1';
+const CACHE_NAME = 'maximahome-pwa-v2';
 const PRECACHE_URLS = [
   '/',
   '/index.html',
@@ -14,6 +14,7 @@ self.addEventListener('install', (event) => {
   event.waitUntil(
     caches.open(CACHE_NAME).then((cache) => cache.addAll(PRECACHE_URLS))
   );
+  self.skipWaiting();
 });
 
 self.addEventListener('activate', (event) => {
@@ -22,6 +23,7 @@ self.addEventListener('activate', (event) => {
       Promise.all(keys.map((key) => (key !== CACHE_NAME ? caches.delete(key) : undefined)))
     )
   );
+  self.clients.claim();
 });
 
 // استراتژی: Stale-While-Revalidate برای درخواست‌های GET
