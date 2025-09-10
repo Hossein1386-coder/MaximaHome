@@ -275,3 +275,20 @@
 
 })(jQuery);
 
+// Clean URLs: hide .html in address bar after load without breaking links
+document.addEventListener('DOMContentLoaded', function () {
+  try {
+    var path = window.location.pathname;
+    if (/\.html$/i.test(path)) {
+      var newPath = path
+        .replace(/index\.html$/i, '')
+        .replace(/\.html$/i, '/');
+      if (newPath === '') newPath = '/';
+      var newUrl = newPath + window.location.search + window.location.hash;
+      window.history.replaceState(null, '', newUrl);
+    }
+  } catch (e) {
+    // no-op
+  }
+});
+
