@@ -601,6 +601,16 @@
         .whatsapp-btn i {
             font-size: 30px;
         }
+
+        /* Fix: ensure slider image column is visible above dark overlay */
+        .owl-carousel.home-slider .slider-item .slider-text .one-third {
+            position: relative;
+            z-index: 2 !important;
+        }
+        .owl-carousel.home-slider .slider-item .slider-text .one-third.img {
+            background-size: cover;
+            background-position: center center;
+        }
     </style>
 </head>
 <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
@@ -638,7 +648,7 @@
             <div class="slider-item ">
                 <div class="overlay"></div>
                 <div class="container">
-                    <div class="row d-md-flex no-gutters slider-text align-item000s-end justify-content-end" data-scrollax=" properties: { translateY: '70%' }">
+                    <div class="row d-md-flex no-gutters slider-text align-items-end justify-content-end" data-scrollax=" properties: { translateY: '70%' }">
                         <div class="one-third js-fullheight order-md-last img" style="background-image:url(images/image5.png);">
                             <div class="overlay"></div>
                         </div>
@@ -657,7 +667,7 @@
                 <div class="overlay"></div>
                 <div class="container">
                     <div class="row d-flex no-gutters slider-text align-items-end justify-content-end" data-scrollax=" properties: { translateY: '70%' }">
-                        <div class="one-third js-fullheight order-md-last img" style="background-image:url(images/);">
+                        <div class="one-third js-fullheight order-md-last img" style="background-image:url(images/j1.png);">
                             <div class="overlay"></div>
                         </div>
                         <div class="one-forth d-flex align-items-center ftco-animate" data-scrollax=" properties: { translateY: '70%' }">
@@ -672,7 +682,7 @@
             <div class="slider-item ">
                 <div class="overlay"></div>
                 <div class="container">
-                    <div class="row d-md-flex no-gutters slider-text align-item000s-end justify-content-end" data-scrollax=" properties: { translateY: '70%' }">
+                    <div class="row d-md-flex no-gutters slider-text align-items-end justify-content-end" data-scrollax=" properties: { translateY: '70%' }">
                         <div class="one-third js-fullheight order-md-last img" style="background-image:url(images/88.png);">
                             <div class="overlay"></div>
                         </div>
@@ -1342,7 +1352,6 @@
     
     <!-- اضافه کردن کتابخانه‌های مورد نیاز -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/persian-datepicker@1.2.0/dist/css/persian-datepicker.min.css">
-    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/persian-date@0.1.8/dist/persian-date.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/persian-datepicker@1.2.0/dist/js/persian-datepicker.min.js"></script>
     <!-- اضافه کردن کتابخانه kavenegar-js -->
